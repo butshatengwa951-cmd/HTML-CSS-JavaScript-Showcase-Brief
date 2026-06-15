@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <style>
+      .sentence-container {
+        font-family: sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 20px;
+      }
+
+      .faq-item {
+        margin-bottom: 12px;
+      }
+
+      .dropdown-trigger {
+        width: 100%;
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        color: #0066cc;
+        cursor: pointer;
+        font: inherit;
+        padding: 12px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+        text-align: left;
+      }
+
+      .dropdown-trigger:hover {
+        background: #e8f2ff;
+      }
+
+      .dropdown-trigger.active {
+        background: #e6f0ff;
+      }
+
+      .arrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+        font-size: 12px;
+      }
+
+      .dropdown-trigger.active .arrow {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-paragraph {
+        display: none;
+        background-color: #fafafa;
+        border-left: 4px solid #0066cc;
+        margin: 0 0 10px 0;
+        padding: 12px 16px;
+        color: #333;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .dropdown-paragraph.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="FAQ-Page">
+      <div class="Header-Section">
+        <!-- Add Nav Bar Code Here -->
+        <h1>Frequently Asked Questions</h1>
+        <p>
+          Welcome to <b>VOYA BYTE'S FAQ</b> Page! Here you can find all your
+          <i>essential answers</i> to those <i>essential questions</i> you might
+          have whilst exploring <b>VOYA BYTE</b>.
+        </p>
+      </div>
+
+      <div class="FAQ-Section">
+        <section class="FAQ1">
+          <h2>Travel Bookings</h2>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="travel-1">
+              What does VOYA BYTE'S travel service include?<span class="arrow"
+                >▼</span
+              >
+            </button>
+            <p id="travel-1" class="dropdown-paragraph">
+              VOYA BYTE'S travel service helps you book a full stay experience,
+              including hotel options and car rental coverage, so you can plan
+              your trip more easily in one place.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="travel-2">
+              Can I book both accommodation and a rental car through VOYA
+              BYTE?<span class="arrow">▼</span>
+            </button>
+            <p id="travel-2" class="dropdown-paragraph">
+              Yes. VOYA BYTE is designed to help users book accommodation along
+              with car rental coverage, making it easier to organize transport
+              and staying arrangements together.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="travel-3">
+              Is VOYA BYTE only for hotel bookings? <span class="arrow">▼</span>
+            </button>
+            <p id="travel-3" class="dropdown-paragraph">
+              No. VOYA BYTE focuses on travel experiences, so it includes hotel
+              coverage as well as car rental coverage, giving you more
+              flexibility when planning your trip.
+            </p>
+          </div>
+        </section>
+
+        <section class="FAQ2">
+          <h2>Activities & Experiences</h2>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="activities-1">
+              What kind of activities can I find on VOYA BYTE?<span
+                class="arrow"
+                >▼</span
+              >
+            </button>
+            <p id="activities-1" class="dropdown-paragraph">
+              VOYA BYTE offers a wide range of activities and experiences from
+              different parts of the world, including adventure, sightseeing,
+              cultural experiences, outdoor activities, and more.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="activities-2">
+              Can I book activities in different countries?<span class="arrow"
+                >▼</span
+              >
+            </button>
+            <p id="activities-2" class="dropdown-paragraph">
+              Yes. VOYA BYTE allows users to discover and book activities across
+              different parts of the world, so you can explore experiences no
+              matter where you are traveling.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="activities-3">
+              Are the activities suitable for solo travelers, couples, and
+              groups?
+              <span class="arrow">▼</span>
+            </button>
+            <p id="activities-3" class="dropdown-paragraph">
+              Yes. VOYA BYTE offers experiences for different travel styles,
+              whether you are exploring alone, traveling with a partner, or
+              planning a group adventure.
+            </p>
+          </div>
+        </section>
+
+        <section class="FAQ3">
+          <h2>Booking Support</h2>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="support-1">
+              How do I know which option is best for my trip?<span class="arrow"
+                >▼</span
+              >
+            </button>
+            <p id="support-1" class="dropdown-paragraph">
+              You can choose based on your travel goal. If you need a place to
+              stay and transport, the travel section is ideal. If you are
+              looking for things to do, the activities section is the best place
+              to start.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="support-2">
+              Can I use Voyabyte to plan an entire trip?<span class="arrow"
+                >▼</span
+              >
+            </button>
+            <p id="support-2" class="dropdown-paragraph">
+              Yes. VOYA BYTE helps users discover and book both stays and
+              activities, so you can build a complete travel plan in one
+              website.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <button class="dropdown-trigger" data-target="support-3">
+              What makes VOYA BYTE different from other travel websites?
+              <span class="arrow">▼</span>
+            </button>
+            <p id="support-3" class="dropdown-paragraph">
+              VOYA BYTE combines travel and adventure in one platform. It does
+              not just help you book a stay — it also helps you find exciting
+              activities around the world, making trip planning easier and more
+              enjoyable.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".dropdown-trigger").forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-target");
+          const paragraph = document.getElementById(targetId);
+          const isOpen = paragraph.classList.contains("show");
+
+          document
+            .querySelectorAll(".dropdown-paragraph.show")
+            .forEach((item) => {
+              item.classList.remove("show");
+            });
+
+          document
+            .querySelectorAll(".dropdown-trigger.active")
+            .forEach((item) => {
+              item.classList.remove("active");
+            });
+
+          if (!isOpen) {
+            paragraph.classList.add("show");
+            button.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
