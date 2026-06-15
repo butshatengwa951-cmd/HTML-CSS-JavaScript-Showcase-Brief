@@ -5,168 +5,437 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Discover VoyaBite's handpicked travel experiences and adventure deals."
+      content="Discover Voya Bite's handpicked travel experiences, hotels, and flights."
     />
-    <title>Experiences | VoyaBite</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <link rel="stylesheet" href="style.css" />
+    <title>Experiences | Voya Bite</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/favicon-512x512.png"
+    />
   </head>
   <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#sv-main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Header & Navigation (consistent with other pages) -->
-    <header>
-      <nav aria-label="Main navigation">
-        <a href="index.html" class="logo">
-          <img src="assets/logo.png" alt="VoyaBite logo" width="150" />
-        </a>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html" aria-current="page">Experiences</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav_header">
+        <div class="nav_logo">
+          <a href="index.html" class="logo">Voya Bite</a>
+        </div>
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <ul class="nav_links" id="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#team_page">Team</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li><a href="#">Book Trip</a></li>
+      </ul>
+      <div class="nav_btns">
+        <button class="btn">Book Trip</button>
+      </div>
+    </nav>
 
     <main id="sv-main-content">
-      <!-- Hero Section -->
-      <section class="sv-page-hero">
+      <!-- Hero -->
+      <section class="sv-hero">
         <h1>Find Your Next Adventure</h1>
         <p>
-          Bite‑sized escapes, big memories. Hand‑picked trips at unbeatable
-          value.
+          Bite-sized escapes, big memories. Curated trips, hotels & flights.
         </p>
       </section>
 
-      <!-- Filter / Search Bar -->
-      <section class="sv-filter-bar" aria-label="Filter experiences">
+      <!-- Extended Filter Bar -->
+      <div class="sv-filter" id="sv-filter-bar">
         <input
           type="text"
           id="sv-search"
-          placeholder="Search by destination or keyword..."
+          placeholder="Search destinations..."
         />
-        <select id="sv-region-filter" aria-label="Filter by region">
+        <select id="sv-region-filter">
           <option value="">All Regions</option>
           <option value="africa">Africa</option>
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
           <option value="south-america">South America</option>
         </select>
-        <button type="button" id="sv-filter-btn">Filter</button>
+        <select id="sv-type-filter">
+          <option value="">All Types</option>
+          <option value="adventure">Adventures</option>
+          <option value="hotel">Hotels</option>
+          <option value="flight">Flights</option>
+          <option value="deal">Deals</option>
+        </select>
+        <div class="sv-price-range">
+          <input type="number" id="sv-price-min" placeholder="Min R" min="0" />
+          <input type="number" id="sv-price-max" placeholder="Max R" min="0" />
+        </div>
+        <button id="sv-filter-btn">Filter</button>
+      </div>
+
+      <!-- EXPERIENCES -->
+      <section class="sv-section">
+        <h2 class="sv-section-title">Top Adventures</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="africa"
+            data-price="12499"
+            data-location="Marrakech, Morocco"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Morocco+Desert"
+                alt="Sahara camel caravan"
+              />
+              <span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Moroccan Deserts & Souks</h3>
+              <p class="sv-loc">📍 Marrakech, Morocco</p>
+              <p class="sv-dur">⏳ 7 days</p>
+              <div class="sv-price">
+                <strong>R12,499</strong>
+                <s>R15,200</s>
+                <span class="sv-discount">18% off</span>
+              </div>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="south-america"
+            data-price="28999"
+            data-location="Torres del Paine, Chile"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Patagonia+Hiking"
+                alt="Patagonia mountains"
+              />
+            </div>
+            <div class="sv-card-body">
+              <h3>Patagonia Hiking</h3>
+              <p class="sv-loc">📍 Torres del Paine, Chile</p>
+              <p class="sv-dur">⏳ 10 days</p>
+              <div class="sv-price">
+                <strong>R28,999</strong>
+              </div>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="asia"
+            data-price="8750"
+            data-location="Canggu, Bali"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Bali+Surf+Retreat"
+                alt="Surfer at sunset"
+              />
+              <span class="sv-badge limited">Limited</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Bali Surf & Yoga Retreat</h3>
+              <p class="sv-loc">📍 Canggu, Bali</p>
+              <p class="sv-dur">⏳ 5 days</p>
+              <div class="sv-price">
+                <strong>R8,750</strong>
+                <s>R10,500</s>
+                <span class="sv-discount">17% off</span>
+              </div>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="europe"
+            data-price="22300"
+            data-location="Tromsø, Norway"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Northern+Lights"
+                alt="Aurora borealis"
+              />
+              <span class="sv-badge best">Best Seller</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Northern Lights Explorer</h3>
+              <p class="sv-loc">📍 Tromsø, Norway</p>
+              <p class="sv-dur">⏳ 6 days</p>
+              <div class="sv-price">
+                <strong>R22,300</strong>
+              </div>
+              <a href="#" class="btn">View Details</a>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <!-- Experiences Grid -->
-      <section class="sv-grid" aria-labelledby="sv-experiences-heading">
-        <h2 id="sv-experiences-heading" class="sr-only">
-          Available Experiences
-        </h2>
-
-        <!-- Card 1 -->
-        <article class="sv-card">
-          <div class="sv-card-img">
-            <img
-              src="assets/morocco-desert.jpg"
-              alt="Camel caravan in Sahara desert"
-            />
-            <span class="sv-badge sv-badge--hot">Hot Deal</span>
-          </div>
-          <div class="sv-card-content">
-            <h3>Moroccan Deserts & Souks</h3>
-            <p class="sv-location">📍 Marrakech, Morocco</p>
-            <p class="sv-duration">⏳ 7 days</p>
-            <div class="sv-price-area">
-              <span class="sv-price--deal">R12,499</span>
-              <span class="sv-price--original">R15,200</span>
-              <span class="sv-discount">18% off</span>
-            </div>
-            <a href="#" class="btn btn-primary">View Details</a>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="sv-card">
-          <div class="sv-card-img">
-            <img src="assets/patagonia.jpg" alt="Mountains in Patagonia" />
-            <!-- No badge -->
-          </div>
-          <div class="sv-card-content">
-            <h3>Patagonia Hiking Adventure</h3>
-            <p class="sv-location">📍 Torres del Paine, Chile</p>
-            <p class="sv-duration">⏳ 10 days</p>
-            <div class="sv-price-area">
-              <span class="sv-price--deal">R28,999</span>
-              <!-- No original price if not on deal -->
-            </div>
-            <a href="#" class="btn btn-primary">View Details</a>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="sv-card">
-          <div class="sv-card-img">
-            <img src="assets/bali-surf.jpg" alt="Surfing at sunset in Bali" />
-            <span class="sv-badge sv-badge--limited">Limited Spaces</span>
-          </div>
-          <div class="sv-card-content">
-            <h3>Bali Surf & Yoga Retreat</h3>
-            <p class="sv-location">📍 Canggu, Bali</p>
-            <p class="sv-duration">⏳ 5 days</p>
-            <div class="sv-price-area">
-              <span class="sv-price--deal">R8,750</span>
-              <span class="sv-price--original">R10,500</span>
-              <span class="sv-discount">17% off</span>
-            </div>
-            <a href="#" class="btn btn-primary">View Details</a>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="sv-card">
-          <div class="sv-card-img">
-            <img
-              src="assets/northern-lights.jpg"
-              alt="Aurora borealis over snowy landscape"
-            />
-            <span class="sv-badge sv-badge--best">Best Seller</span>
-          </div>
-          <div class="sv-card-content">
-            <h3>Northern Lights Explorer</h3>
-            <p class="sv-location">📍 Tromsø, Norway</p>
-            <p class="sv-duration">⏳ 6 days</p>
-            <div class="sv-price-area">
-              <span class="sv-price--deal">R22,300</span>
-            </div>
-            <a href="#" class="btn btn-primary">View Details</a>
-          </div>
-        </article>
-      </section>
-
-      <!-- Special Deals Section -->
-      <section class="sv-deals-highlight" aria-labelledby="sv-deals-heading">
-        <h2 id="sv-deals-heading">Limited-Time Deals</h2>
-        <div class="sv-deals-container">
-          <div class="sv-deal-card">
+      <!-- Special Deals (also filterable) -->
+      <section class="sv-section sv-deals" id="deals-section">
+        <h2 class="sv-section-title">Limited‑Time Deals</h2>
+        <div class="sv-deals-grid">
+          <div
+            class="sv-deal-card"
+            data-category="deal"
+            data-region="south-america"
+            data-price="23199"
+            data-location="Patagonia"
+          >
             <h3>Early Bird Patagonia</h3>
-            <p>Book 60 days ahead and save <strong>20%</strong></p>
-            <span class="sv-price--deal">from R23,199</span>
+            <p>Book 60 days ahead → <strong>20% off</strong></p>
+            <strong class="sv-price">from R23,199</strong>
           </div>
-          <div class="sv-deal-card">
+          <div
+            class="sv-deal-card"
+            data-category="deal"
+            data-region="asia"
+            data-price="7440"
+            data-location="Bali"
+          >
             <h3>Last Minute Bali</h3>
-            <p>Depart within 14 days and get <strong>15% off</strong></p>
-            <span class="sv-price--deal">from R7,440</span>
+            <p>Depart in 14 days → <strong>15% off</strong></p>
+            <strong class="sv-price">from R7,440</strong>
           </div>
+        </div>
+      </section>
+
+      <!-- HOTELS -->
+      <section class="sv-section">
+        <h2 class="sv-section-title">Find Your Stay</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="africa"
+            data-price="2450"
+            data-location="Marrakech, Morocco"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Riad+Marrakech"
+                alt="Riad courtyard"
+              />
+              <span class="sv-badge best">Top Rated</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Riad Kheirredine</h3>
+              <p class="sv-loc">📍 Marrakech, Morocco</p>
+              <p class="sv-rating">⭐ 4.9 (320 reviews)</p>
+              <div class="sv-price">
+                <strong>R2,450</strong>
+                <s>R3,200</s>
+                <span class="sv-discount">23% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a href="#" class="btn">Book Room</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="asia"
+            data-price="1899"
+            data-location="Canggu, Bali"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Como+Uma+Canggu"
+                alt="Infinity pool"
+              />
+              <span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Como Uma Canggu</h3>
+              <p class="sv-loc">📍 Canggu, Bali</p>
+              <p class="sv-rating">⭐ 4.7 (189 reviews)</p>
+              <div class="sv-price">
+                <strong>R1,899</strong>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a href="#" class="btn">Book Room</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="south-america"
+            data-price="3999"
+            data-location="Torres del Paine, Chile"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=EcoCamp+Patagonia"
+                alt="Mountain lodge"
+              />
+            </div>
+            <div class="sv-card-body">
+              <h3>EcoCamp Patagonia</h3>
+              <p class="sv-loc">📍 Torres del Paine, Chile</p>
+              <p class="sv-rating">⭐ 4.8 (95 reviews)</p>
+              <div class="sv-price">
+                <strong>R3,999</strong>
+                <s>R4,800</s>
+                <span class="sv-discount">17% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a href="#" class="btn">Book Room</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="europe"
+            data-price="5200"
+            data-location="Tromsø, Norway"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://placehold.co/400x250?text=Igloo+Hotel"
+                alt="Glass igloo"
+              />
+              <span class="sv-badge limited">Limited</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Lyngen North Igloo Hotel</h3>
+              <p class="sv-loc">📍 Tromsø, Norway</p>
+              <p class="sv-rating">⭐ 4.9 (67 reviews)</p>
+              <div class="sv-price">
+                <strong>R5,200</strong>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a href="#" class="btn">Book Room</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- FLIGHTS -->
+      <section class="sv-section">
+        <h2 class="sv-section-title">Book Your Flight</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="africa"
+            data-price="7850"
+            data-location="Marrakech"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span> → <span>RAK</span>
+              </div>
+              <p class="sv-loc">Johannesburg → Marrakech</p>
+              <p class="sv-dur">⏳ 11h 30m (1 stop)</p>
+              <div class="sv-price">
+                <strong>R7,850</strong>
+                <s>R9,200</s>
+                <span class="sv-discount">15% off</span>
+              </div>
+              <p class="sv-date">12 Jul 2026</p>
+              <a href="#" class="btn">Book Flight</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="asia"
+            data-price="12300"
+            data-location="Bali"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>CPT</span> → <span>DPS</span>
+              </div>
+              <p class="sv-loc">Cape Town → Denpasar (Bali)</p>
+              <p class="sv-dur">⏳ 18h 20m (2 stops)</p>
+              <div class="sv-price">
+                <strong>R12,300</strong>
+              </div>
+              <p class="sv-date">28 Aug 2026</p>
+              <a href="#" class="btn">Book Flight</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="south-america"
+            data-price="18500"
+            data-location="Punta Arenas"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span> → <span>PUQ</span>
+              </div>
+              <p class="sv-loc">Johannesburg → Punta Arenas</p>
+              <p class="sv-dur">⏳ 21h 15m (2 stops)</p>
+              <div class="sv-price">
+                <strong>R18,500</strong>
+                <s>R22,000</s>
+                <span class="sv-discount">16% off</span>
+              </div>
+              <p class="sv-date">05 Oct 2026</p>
+              <a href="#" class="btn">Book Flight</a>
+            </div>
+          </article>
+
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="europe"
+            data-price="16200"
+            data-location="Tromsø"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span> → <span>TOS</span>
+              </div>
+              <p class="sv-loc">Johannesburg → Tromsø</p>
+              <p class="sv-dur">⏳ 15h 40m (1 stop)</p>
+              <div class="sv-price">
+                <strong>R16,200</strong>
+              </div>
+              <p class="sv-date">20 Nov 2026</p>
+              <a href="#" class="btn">Book Flight</a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
 
-    <!-- Footer (consistent) -->
     <footer>
-      <p>&copy; 2025 VoyaBite. All rights reserved.</p>
-      <nav aria-label="Footer navigation">
+      <p>&copy; 2025 Voya Bite. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="services.html">Experiences</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </footer>
+    
   </body>
 </html>

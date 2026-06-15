@@ -250,101 +250,132 @@ header::before {
   border-radius: 10px;
 }
 
-/* ============================
-   SERVICES PAGE (VoyaBite)
-   Author: Ihtishaam / Team
+/* ===========================================
+   SERVICES PAGE (Voya Bite) – Modern & Clean
+   No overlaps, perfectly centered
    Prefix: sv-
-   ============================ */
+   =========================================== */
 
-/* ---------- Hero Section ---------- */
-.sv-page-hero {
-  padding: 4rem 1rem 2rem;
+/* --- Hero --- */
+.sv-hero {
   text-align: center;
-  background-color: var(--extra-light);
+  padding: 4rem 1rem 2rem;
+  background: var(--extra-light);
 }
-.sv-page-hero h1 {
+.sv-hero h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 0.5rem;
 }
-.sv-page-hero p {
+.sv-hero p {
+  color: var(--text-light);
   max-width: 600px;
   margin: 0 auto;
-  color: var(--text-light);
-  font-size: 1.1rem;
 }
 
-/* ---------- Filter Bar ---------- */
-.sv-filter-bar {
+/* --- Filter bar --- */
+.sv-filter {
   max-width: var(--max-width);
-  margin: 2rem auto 1rem;
+  margin: 2rem auto 0;
   padding: 0 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
 }
-.sv-filter-bar input,
-.sv-filter-bar select {
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--extra-light);
-  border-radius: 2rem;
-  font-size: 1rem;
+.sv-filter input,
+.sv-filter select {
+  padding: 0.75rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 3rem;
   font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
   outline: none;
   flex: 1 1 200px;
+  transition: border-color 0.2s;
 }
-.sv-filter-bar input:focus,
-.sv-filter-bar select:focus {
+.sv-filter input:focus,
+.sv-filter select:focus {
   border-color: var(--primary-color);
 }
-#sv-filter-btn {
-  padding: 0.75rem 2rem;
-  background-color: var(--primary-color);
-  color: var(--white);
-  border: none;
-  border-radius: 2rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+
+/* Price range container (new) */
+.sv-price-range {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1 1 200px;
 }
-#sv-filter-btn:hover {
-  background-color: var(--primary-color-dark);
+.sv-price-range input {
+  flex: 1;
+  min-width: 0;
 }
 
-/* ---------- Experiences Grid ---------- */
-.sv-grid {
+#sv-filter-btn {
+  padding: 0.75rem 2rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+#sv-filter-btn:hover {
+  background: var(--primary-color-dark);
+}
+
+/* --- Shared section spacing --- */
+.sv-section {
+  padding: 4rem 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 1rem 4rem;
+}
+.sv-section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.sv-section-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+}
+
+/* --- Card grid --- */
+.sv-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* Card */
+/* --- Individual card --- */
 .sv-card {
-  background-color: var(--white);
+  background: #fff;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+    transform 0.25s,
+    box-shadow 0.25s;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .sv-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Card Image */
+/* Image container */
 .sv-card-img {
   position: relative;
+  height: 200px;
   overflow: hidden;
-  height: 220px;
 }
 .sv-card-img img {
   width: 100%;
@@ -358,141 +389,198 @@ header::before {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  padding: 0.4rem 1.2rem;
+  padding: 0.3rem 1rem;
   border-radius: 2rem;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--white);
-  background-color: var(--primary-color);
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: var(--primary-color);
 }
-.sv-badge--hot {
-  background-color: #e63946;
+.sv-badge.hot {
+  background: #e63946;
 }
-.sv-badge--limited {
-  background-color: #f4a261;
+.sv-badge.limited {
+  background: #f4a261;
 }
-.sv-badge--best {
-  background-color: #2a9d8f;
+.sv-badge.best {
+  background: #2a9d8f;
 }
 
-/* Card Content */
-.sv-card-content {
+/* Card body */
+.sv-card-body {
   padding: 1.5rem;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
-.sv-card-content h3 {
-  font-size: 1.4rem;
+.sv-card-body h3 {
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-dark);
   margin-bottom: 0.5rem;
+  color: var(--text-dark);
 }
-.sv-location,
-.sv-duration {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.95rem;
+.sv-loc,
+.sv-dur,
+.sv-rating {
+  font-size: 0.9rem;
   color: var(--text-light);
   margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.sv-per-night {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.1rem;
+  margin-bottom: 0.8rem;
 }
 
-/* Price Area */
-.sv-price-area {
+/* Price area */
+.sv-price {
   margin-top: auto;
   padding-top: 1rem;
   display: flex;
-  align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.4rem;
 }
-.sv-price--deal {
-  font-size: 1.3rem;
+.sv-price strong {
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-dark);
 }
-.sv-price--original {
-  font-size: 1rem;
-  color: var(--text-light);
-  text-decoration: line-through;
+.sv-price s {
+  color: #999;
+  font-size: 0.95rem;
 }
 .sv-discount {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #e63946;
-  background-color: #fce4e4;
-  padding: 0.2rem 0.8rem;
+  background: #fce4e4;
+  padding: 0.15rem 0.6rem;
   border-radius: 1rem;
 }
 
 /* Button inside card */
-.sv-card-content .btn {
+.sv-card-body .btn {
   margin-top: 1rem;
   align-self: flex-start;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 2rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+  display: inline-block;
+}
+.sv-card-body .btn:hover {
+  background: var(--primary-color-dark);
 }
 
-/* ---------- Special Deals Section ---------- */
-.sv-deals-highlight {
-  background-color: var(--extra-light);
-  padding: 4rem 1rem;
-}
-.sv-deals-highlight h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.sv-deals-container {
+/* --- Deals section (centered) --- */
+.sv-deals {
+  background: var(--extra-light);
+  border-radius: 2rem;
+  margin: 0 auto 2rem;
+  padding: 3rem 1.5rem;
   max-width: var(--max-width);
-  margin: 0 auto;
+  width: calc(100% - 2rem);
+}
+.sv-deals-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 .sv-deal-card {
-  background-color: var(--white);
+  background: #fff;
   border-radius: 1.5rem;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s;
 }
 .sv-deal-card:hover {
   transform: scale(1.02);
 }
 .sv-deal-card h3 {
-  font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
 }
 .sv-deal-card p {
   color: var(--text-light);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
-.sv-deal-card .sv-price--deal {
-  font-size: 1.5rem;
+.sv-deal-card .sv-price {
+  justify-content: center;
+  margin-top: 0;
+}
+
+/* --- Flight card specifics --- */
+.sv-flight-card {
+  border: 2px solid #f0f0f0;
+}
+.sv-flight-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+.sv-flight-route span {
+  background: var(--extra-light);
+  padding: 0.25rem 0.8rem;
+  border-radius: 0.5rem;
+}
+.sv-date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: -0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* --- Footer (if not already styled globally) --- */
+footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: #f9f9f9;
+  color: var(--text-light);
+}
+footer nav {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+footer a {
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
+}
+footer a:hover {
   color: var(--primary-color);
 }
 
-/* ---------- Responsive (matching Zanda’s breakpoint) ---------- */
-@media (min-width: 768px) {
+/* --- Responsive --- */
+@media (min-width: 640px) {
   .sv-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .sv-deals-container {
+  .sv-deals-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (min-width: 1024px) {
   .sv-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .sv-filter-bar {
+  .sv-filter {
     flex-wrap: nowrap;
   }
 }
