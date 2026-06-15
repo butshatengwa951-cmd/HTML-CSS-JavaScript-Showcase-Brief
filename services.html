@@ -1,159 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover VoyaBite's handpicked travel experiences and adventure deals.">
-  <title>Experiences | VoyaBite</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover VoyaBite's handpicked travel experiences and adventure deals."
+    />
+    <title>Experiences | VoyaBite</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#sv-main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Skip Link for Accessibility -->
-  <a href="#sv-main-content" class="skip-link">Skip to main content</a>
+    <!-- Header & Navigation (consistent with other pages) -->
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.png" alt="VoyaBite logo" width="150" />
+        </a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" aria-current="page">Experiences</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- Header & Navigation (consistent with other pages) -->
-  <header>
-    <nav aria-label="Main navigation">
-      <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="VoyaBite logo" width="150">
-      </a>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html" aria-current="page">Experiences</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main id="sv-main-content">
+      <!-- Hero Section -->
+      <section class="sv-page-hero">
+        <h1>Find Your Next Adventure</h1>
+        <p>
+          Bite‑sized escapes, big memories. Hand‑picked trips at unbeatable
+          value.
+        </p>
+      </section>
 
-  <main id="sv-main-content">
+      <!-- Filter / Search Bar -->
+      <section class="sv-filter-bar" aria-label="Filter experiences">
+        <input
+          type="text"
+          id="sv-search"
+          placeholder="Search by destination or keyword..."
+        />
+        <select id="sv-region-filter" aria-label="Filter by region">
+          <option value="">All Regions</option>
+          <option value="africa">Africa</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="south-america">South America</option>
+        </select>
+        <button type="button" id="sv-filter-btn">Filter</button>
+      </section>
 
-    <!-- Hero Section -->
-    <section class="sv-page-hero">
-      <h1>Find Your Next Adventure</h1>
-      <p>Bite‑sized escapes, big memories. Hand‑picked trips at unbeatable value.</p>
-    </section>
+      <!-- Experiences Grid -->
+      <section class="sv-grid" aria-labelledby="sv-experiences-heading">
+        <h2 id="sv-experiences-heading" class="sr-only">
+          Available Experiences
+        </h2>
 
-    <!-- Filter / Search Bar -->
-    <section class="sv-filter-bar" aria-label="Filter experiences">
-      <input type="text" id="sv-search" placeholder="Search by destination or keyword...">
-      <select id="sv-region-filter" aria-label="Filter by region">
-        <option value="">All Regions</option>
-        <option value="africa">Africa</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="south-america">South America</option>
-      </select>
-      <button type="button" id="sv-filter-btn">Filter</button>
-    </section>
-
-    <!-- Experiences Grid -->
-    <section class="sv-grid" aria-labelledby="sv-experiences-heading">
-      <h2 id="sv-experiences-heading" class="sr-only">Available Experiences</h2>
-
-      <!-- Card 1 -->
-      <article class="sv-card">
-        <div class="sv-card-img">
-          <img src="assets/morocco-desert.jpg" alt="Camel caravan in Sahara desert">
-          <span class="sv-badge sv-badge--hot">Hot Deal</span>
-        </div>
-        <div class="sv-card-content">
-          <h3>Moroccan Deserts & Souks</h3>
-          <p class="sv-location">📍 Marrakech, Morocco</p>
-          <p class="sv-duration">⏳ 7 days</p>
-          <div class="sv-price-area">
-            <span class="sv-price--deal">R12,499</span>
-            <span class="sv-price--original">R15,200</span>
-            <span class="sv-discount">18% off</span>
+        <!-- Card 1 -->
+        <article class="sv-card">
+          <div class="sv-card-img">
+            <img
+              src="assets/morocco-desert.jpg"
+              alt="Camel caravan in Sahara desert"
+            />
+            <span class="sv-badge sv-badge--hot">Hot Deal</span>
           </div>
-          <a href="#" class="btn btn-primary">View Details</a>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="sv-card">
-        <div class="sv-card-img">
-          <img src="assets/patagonia.jpg" alt="Mountains in Patagonia">
-          <!-- No badge -->
-        </div>
-        <div class="sv-card-content">
-          <h3>Patagonia Hiking Adventure</h3>
-          <p class="sv-location">📍 Torres del Paine, Chile</p>
-          <p class="sv-duration">⏳ 10 days</p>
-          <div class="sv-price-area">
-            <span class="sv-price--deal">R28,999</span>
-            <!-- No original price if not on deal -->
+          <div class="sv-card-content">
+            <h3>Moroccan Deserts & Souks</h3>
+            <p class="sv-location">📍 Marrakech, Morocco</p>
+            <p class="sv-duration">⏳ 7 days</p>
+            <div class="sv-price-area">
+              <span class="sv-price--deal">R12,499</span>
+              <span class="sv-price--original">R15,200</span>
+              <span class="sv-discount">18% off</span>
+            </div>
+            <a href="#" class="btn btn-primary">View Details</a>
           </div>
-          <a href="#" class="btn btn-primary">View Details</a>
-        </div>
-      </article>
+        </article>
 
-      <!-- Card 3 -->
-      <article class="sv-card">
-        <div class="sv-card-img">
-          <img src="assets/bali-surf.jpg" alt="Surfing at sunset in Bali">
-          <span class="sv-badge sv-badge--limited">Limited Spaces</span>
-        </div>
-        <div class="sv-card-content">
-          <h3>Bali Surf & Yoga Retreat</h3>
-          <p class="sv-location">📍 Canggu, Bali</p>
-          <p class="sv-duration">⏳ 5 days</p>
-          <div class="sv-price-area">
-            <span class="sv-price--deal">R8,750</span>
-            <span class="sv-price--original">R10,500</span>
-            <span class="sv-discount">17% off</span>
+        <!-- Card 2 -->
+        <article class="sv-card">
+          <div class="sv-card-img">
+            <img src="assets/patagonia.jpg" alt="Mountains in Patagonia" />
+            <!-- No badge -->
           </div>
-          <a href="#" class="btn btn-primary">View Details</a>
-        </div>
-      </article>
-
-      <!-- Card 4 -->
-      <article class="sv-card">
-        <div class="sv-card-img">
-          <img src="assets/northern-lights.jpg" alt="Aurora borealis over snowy landscape">
-          <span class="sv-badge sv-badge--best">Best Seller</span>
-        </div>
-        <div class="sv-card-content">
-          <h3>Northern Lights Explorer</h3>
-          <p class="sv-location">📍 Tromsø, Norway</p>
-          <p class="sv-duration">⏳ 6 days</p>
-          <div class="sv-price-area">
-            <span class="sv-price--deal">R22,300</span>
+          <div class="sv-card-content">
+            <h3>Patagonia Hiking Adventure</h3>
+            <p class="sv-location">📍 Torres del Paine, Chile</p>
+            <p class="sv-duration">⏳ 10 days</p>
+            <div class="sv-price-area">
+              <span class="sv-price--deal">R28,999</span>
+              <!-- No original price if not on deal -->
+            </div>
+            <a href="#" class="btn btn-primary">View Details</a>
           </div>
-          <a href="#" class="btn btn-primary">View Details</a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="sv-card">
+          <div class="sv-card-img">
+            <img src="assets/bali-surf.jpg" alt="Surfing at sunset in Bali" />
+            <span class="sv-badge sv-badge--limited">Limited Spaces</span>
+          </div>
+          <div class="sv-card-content">
+            <h3>Bali Surf & Yoga Retreat</h3>
+            <p class="sv-location">📍 Canggu, Bali</p>
+            <p class="sv-duration">⏳ 5 days</p>
+            <div class="sv-price-area">
+              <span class="sv-price--deal">R8,750</span>
+              <span class="sv-price--original">R10,500</span>
+              <span class="sv-discount">17% off</span>
+            </div>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="sv-card">
+          <div class="sv-card-img">
+            <img
+              src="assets/northern-lights.jpg"
+              alt="Aurora borealis over snowy landscape"
+            />
+            <span class="sv-badge sv-badge--best">Best Seller</span>
+          </div>
+          <div class="sv-card-content">
+            <h3>Northern Lights Explorer</h3>
+            <p class="sv-location">📍 Tromsø, Norway</p>
+            <p class="sv-duration">⏳ 6 days</p>
+            <div class="sv-price-area">
+              <span class="sv-price--deal">R22,300</span>
+            </div>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Special Deals Section -->
+      <section class="sv-deals-highlight" aria-labelledby="sv-deals-heading">
+        <h2 id="sv-deals-heading">Limited-Time Deals</h2>
+        <div class="sv-deals-container">
+          <div class="sv-deal-card">
+            <h3>Early Bird Patagonia</h3>
+            <p>Book 60 days ahead and save <strong>20%</strong></p>
+            <span class="sv-price--deal">from R23,199</span>
+          </div>
+          <div class="sv-deal-card">
+            <h3>Last Minute Bali</h3>
+            <p>Depart within 14 days and get <strong>15% off</strong></p>
+            <span class="sv-price--deal">from R7,440</span>
+          </div>
         </div>
-      </article>
+      </section>
+    </main>
 
-    </section>
-
-    <!-- Special Deals Section -->
-    <section class="sv-deals-highlight" aria-labelledby="sv-deals-heading">
-      <h2 id="sv-deals-heading">Limited-Time Deals</h2>
-      <div class="sv-deals-container">
-        <div class="sv-deal-card">
-          <h3>Early Bird Patagonia</h3>
-          <p>Book 60 days ahead and save <strong>20%</strong></p>
-          <span class="sv-price--deal">from R23,199</span>
-        </div>
-        <div class="sv-deal-card">
-          <h3>Last Minute Bali</h3>
-          <p>Depart within 14 days and get <strong>15% off</strong></p>
-          <span class="sv-price--deal">from R7,440</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer (consistent) -->
-  <footer>
-    <p>&copy; 2025 VoyaBite. All rights reserved.</p>
-    <nav aria-label="Footer navigation">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </footer>
-
-</body>
+    <!-- Footer (consistent) -->
+    <footer>
+      <p>&copy; 2025 VoyaBite. All rights reserved.</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </footer>
+  </body>
 </html>

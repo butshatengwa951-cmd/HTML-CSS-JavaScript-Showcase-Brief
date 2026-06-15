@@ -249,3 +249,250 @@ header::before {
   padding: 1rem;
   border-radius: 10px;
 }
+
+/* ============================
+   SERVICES PAGE (VoyaBite)
+   Author: Ihtishaam / Team
+   Prefix: sv-
+   ============================ */
+
+/* ---------- Hero Section ---------- */
+.sv-page-hero {
+  padding: 4rem 1rem 2rem;
+  text-align: center;
+  background-color: var(--extra-light);
+}
+.sv-page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+.sv-page-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* ---------- Filter Bar ---------- */
+.sv-filter-bar {
+  max-width: var(--max-width);
+  margin: 2rem auto 1rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.sv-filter-bar input,
+.sv-filter-bar select {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--extra-light);
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+  outline: none;
+  flex: 1 1 200px;
+}
+.sv-filter-bar input:focus,
+.sv-filter-bar select:focus {
+  border-color: var(--primary-color);
+}
+#sv-filter-btn {
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#sv-filter-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* ---------- Experiences Grid ---------- */
+.sv-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Card */
+.sv-card {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.sv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Image */
+.sv-card-img {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+.sv-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badge */
+.sv-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+.sv-badge--hot {
+  background-color: #e63946;
+}
+.sv-badge--limited {
+  background-color: #f4a261;
+}
+.sv-badge--best {
+  background-color: #2a9d8f;
+}
+
+/* Card Content */
+.sv-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.sv-card-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+.sv-location,
+.sv-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+/* Price Area */
+.sv-price-area {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.sv-price--deal {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.sv-price--original {
+  font-size: 1rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+.sv-discount {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e63946;
+  background-color: #fce4e4;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+}
+
+/* Button inside card */
+.sv-card-content .btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+/* ---------- Special Deals Section ---------- */
+.sv-deals-highlight {
+  background-color: var(--extra-light);
+  padding: 4rem 1rem;
+}
+.sv-deals-highlight h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sv-deals-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.sv-deal-card {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+.sv-deal-card:hover {
+  transform: scale(1.02);
+}
+.sv-deal-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.sv-deal-card p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+.sv-deal-card .sv-price--deal {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* ---------- Responsive (matching Zanda’s breakpoint) ---------- */
+@media (min-width: 768px) {
+  .sv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sv-deals-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sv-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sv-filter-bar {
+    flex-wrap: nowrap;
+  }
+}
