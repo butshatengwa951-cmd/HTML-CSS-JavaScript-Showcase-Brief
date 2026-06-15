@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+:root {
+  --primary-color: #3d8fc4;
+  --primary-color-dark: #1d6b9e;
+  --text-dark: #0a0a0a;
+  --text-light: #737373;
+  --extra-light: #f3f4f6;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section_container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section_header {
+  margin-bottom: 5px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.section_description {
+  max-width: 600px;
+  margin-inline: auto;
+  color: var(text-light);
+  text-align: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scroll-behavior: "DM Sans";
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+nav {
+  position: fixed;
+  isolation: isolute;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav_header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav_logo .logo {
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.nav_menu_btn {
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-size: 2rem;
+  line-height: 1;
+  display: block;
+}
+
+.nav_links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.nav_links.open {
+  transform: translateY(100%);
+}
+
+.nav_links a {
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.nav_links a:hover {
+  color: var(--text-dark);
+}
+.nav_btns {
+  display: none;
+}
+
+header {
+  margin-top: 5rem;
+  padding-inline: 1rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: calc(100% - 2rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  background-position: center center;
+  background: cover;
+  background-repeat: no-repeat;
+  border-radius: 3rem;
+  z-index: -1;
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding: 2rem 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav_header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav_logo .logo {
+    color: var(--text-dark);
+  }
+
+  .nav_menu_btn {
+    display: none;
+  }
+
+  .nav_links {
+    position: static;
+    width: fit-content;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none !important;
+  }
+
+  .nav_links a {
+    color: var(--text-dark);
+  }
+
+  .nav_links a:hover {
+    color: var(--primary-color);
+  }
+
+  .nav_links li:last-child {
+    display: none;
+  }
+
+  .nav_btns {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nav_btns button {
+    padding: 0.75rem 2rem;
+    background-color: var(--text-dark);
+  }
+}
+
+#home {
+  margin-top: 1rem;
+  background-image: url("https://i.ibb.co/YBJztcFc/Travel-3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-content {
+  color: black;
+  padding: 1rem;
+  border-radius: 10px;
+}
