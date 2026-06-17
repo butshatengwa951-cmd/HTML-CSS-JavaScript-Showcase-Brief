@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("open");
     });
 
-    // Close menu when a nav link is clicked
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
@@ -27,8 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("sv-search");
   const regionSelect = document.getElementById("sv-region-filter");
   const typeSelect = document.getElementById("sv-type-filter");
-  const minPriceInput = document.getElementById("sv-price-min");
-  const maxPriceInput = document.getElementById("sv-price-max");
+  const priceSelect = document.getElementById("sv-price-filter");
 
   const allCards = document.querySelectorAll(".sv-card, .sv-deal-card");
 
@@ -50,16 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchTerm = searchInput.value.trim().toLowerCase();
     const selectedRegion = regionSelect.value;
     const selectedType = typeSelect.value;
-    const minPrice = parseFloat(minPriceInput.value) || 0;
-    const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
+    const selectedPriceRange = priceSelect.value;
 
-    if (minPrice > maxPrice && maxPriceInput.value) {
-      minPriceInput.style.borderColor = "#e63946";
-      maxPriceInput.style.borderColor = "#e63946";
-      return;
-    } else {
-      minPriceInput.style.borderColor = "";
-      maxPriceInput.style.borderColor = "";
+    let minPrice = 0;
+    let maxPrice = Infinity;
+
+    if (selectedPriceRange) {
+      const [min, max] = selectedPriceRange.split("-").map(Number);
+      minPrice = min;
+      maxPrice = max;
     }
 
     let visibleCount = 0;
@@ -85,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (card.dataset.category !== selectedType) show = false;
       }
 
-      if (show && (minPrice > 0 || maxPrice < Infinity)) {
+      if (show && selectedPriceRange) {
         const price = parseFloat(card.dataset.price);
         if (isNaN(price) || price < minPrice || price > maxPrice) show = false;
       }

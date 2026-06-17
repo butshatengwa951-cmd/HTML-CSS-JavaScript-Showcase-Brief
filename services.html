@@ -64,7 +64,7 @@
         </p>
       </section>
 
-      <!-- Extended Filter Bar -->
+      <!-- Filter Bar -->
       <div class="sv-filter" id="sv-filter-bar">
         <input
           type="text"
@@ -77,6 +77,7 @@
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
           <option value="south-america">South America</option>
+          <option value="oceania">Oceania</option>
         </select>
         <select id="sv-type-filter">
           <option value="">All Types</option>
@@ -85,14 +86,17 @@
           <option value="flight">Flights</option>
           <option value="deal">Deals</option>
         </select>
-        <div class="sv-price-range">
-          <input type="number" id="sv-price-min" placeholder="Min R" min="0" />
-          <input type="number" id="sv-price-max" placeholder="Max R" min="0" />
-        </div>
+        <select id="sv-price-filter">
+          <option value="">All Prices</option>
+          <option value="0-5000">Under R5,000</option>
+          <option value="5000-10000">R5,000 – R10,000</option>
+          <option value="10000-20000">R10,000 – R20,000</option>
+          <option value="20000-999999">Over R20,000</option>
+        </select>
         <button id="sv-filter-btn">Filter</button>
       </div>
 
-      <!-- EXPERIENCES -->
+      <!-- EXPERIENCES (6) -->
       <section class="sv-section">
         <h2 class="sv-section-title">Top Adventures</h2>
         <div class="sv-grid">
@@ -222,6 +226,74 @@
               >
             </div>
           </article>
+
+          <!-- NEW Adventure 5 -->
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="africa"
+            data-price="15600"
+            data-location="Serengeti, Tanzania"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/C5DbpzX7/serengeti-safari-experience.jpg"
+                alt="Serengeti safari"
+              />
+              <span class="sv-badge best">Best Seller</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Serengeti Safari Experience</h3>
+              <p class="sv-loc">📍 Serengeti, Tanzania</p>
+              <p class="sv-dur">⏳ 8 days</p>
+              <div class="sv-price">
+                <strong>R15,600</strong>
+                <s>R18,900</s>
+                <span class="sv-discount">17% off</span>
+              </div>
+              <a
+                href="https://www.intrepidtravel.com/en/tanzania"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >View Details</a
+              >
+            </div>
+          </article>
+
+          <!-- NEW Adventure 6 -->
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="oceania"
+            data-price="19500"
+            data-location="Queenstown, New Zealand"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/q30J3ppr/new-zealand-thrill-seeker.jpg"
+                alt="New Zealand adventure"
+              />
+              <span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>New Zealand Thrill Seeker</h3>
+              <p class="sv-loc">📍 Queenstown, New Zealand</p>
+              <p class="sv-dur">⏳ 12 days</p>
+              <div class="sv-price">
+                <strong>R19,500</strong>
+                <s>R24,000</s>
+                <span class="sv-discount">19% off</span>
+              </div>
+              <a
+                href="https://www.intrepidtravel.com/en/new-zealand"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >View Details</a
+              >
+            </div>
+          </article>
         </div>
       </section>
 
@@ -254,7 +326,7 @@
         </div>
       </section>
 
-      <!-- HOTELS -->
+      <!-- HOTELS (6) -->
       <section class="sv-section">
         <h2 class="sv-section-title">Find Your Stay</h2>
         <div class="sv-grid">
@@ -388,10 +460,78 @@
               >
             </div>
           </article>
+
+          <!-- NEW Hotel 5 -->
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="africa"
+            data-price="3800"
+            data-location="Serengeti, Tanzania"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/yFTF1f94/serengeti-safari-lodge.jpg"
+                alt="Serengeti lodge"
+              />
+              <span class="sv-badge best">Top Rated</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Serengeti Safari Lodge</h3>
+              <p class="sv-loc">📍 Serengeti, Tanzania</p>
+              <p class="sv-rating">⭐ 4.8 (210 reviews)</p>
+              <div class="sv-price">
+                <strong>R3,800</strong>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="https://www.booking.com/hotel/tz/serengeti-safari-lodge.html"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >Book Room</a
+              >
+            </div>
+          </article>
+
+          <!-- NEW Hotel 6 -->
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="oceania"
+            data-price="2800"
+            data-location="Queenstown, New Zealand"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/0jhkCRRB/lakeview-queenstown.jpg"
+                alt="Queenstown lake view hotel"
+              />
+              <span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Lakeview Queenstown</h3>
+              <p class="sv-loc">📍 Queenstown, New Zealand</p>
+              <p class="sv-rating">⭐ 4.9 (178 reviews)</p>
+              <div class="sv-price">
+                <strong>R2,800</strong>
+                <s>R3,400</s>
+                <span class="sv-discount">18% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="https://www.booking.com/hotel/nz/lakeview-queenstown.html"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >Book Room</a
+              >
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- FLIGHTS -->
+      <!-- FLIGHTS (6) -->
       <section class="sv-section">
         <h2 class="sv-section-title">Book Your Flight</h2>
         <div class="sv-grid">
@@ -506,40 +646,118 @@
               >
             </div>
           </article>
+
+          <!-- NEW Flight 5 -->
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="africa"
+            data-price="5400"
+            data-location="Serengeti"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span> → <span>JRO</span>
+              </div>
+              <p class="sv-loc">Johannesburg → Kilimanjaro</p>
+              <p class="sv-dur">⏳ 5h 10m (direct)</p>
+              <div class="sv-price">
+                <strong>R5,400</strong>
+                <s>R6,800</s>
+                <span class="sv-discount">21% off</span>
+              </div>
+              <p class="sv-date">15 Aug 2026</p>
+              <a
+                href="https://www.skyscanner.net/transport/flights/jnb/jro/260815/"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >Book Flight</a
+              >
+            </div>
+          </article>
+
+          <!-- NEW Flight 6 -->
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="oceania"
+            data-price="22100"
+            data-location="Queenstown"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span> → <span>ZQN</span>
+              </div>
+              <p class="sv-loc">Johannesburg → Queenstown</p>
+              <p class="sv-dur">⏳ 22h 40m (2 stops)</p>
+              <div class="sv-price">
+                <strong>R22,100</strong>
+              </div>
+              <p class="sv-date">10 Dec 2026</p>
+              <a
+                href="https://www.skyscanner.net/transport/flights/jnb/zqn/261210/"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >Book Flight</a
+              >
+            </div>
+          </article>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+  <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img
-            class="footer-logo"
-            src="https://i.ibb.co/d9XW23k/Voya-Byte-Logo.png"
-            alt="Voya Bite Logo"
-          />
-          <p>
-            Bite-sized escapes, big memories. Curated trips, hotels & flights.
-          </p>
+          <a class="footer-logo" href="https://ibb.co/4g9nZ7tM"><img src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png" alt="Screenshot 2026 06 10 152732 Copy" border="0"></a>
+          <p>Building clean and stylish web pages with HTML and CSS.</p>
         </div>
         <div class="footer-links">
           <h4>Quick Links</h4>
-          <a href="home.html">Home</a>
-          <a href="about-us.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="FAQ.html">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#Interests">Interests</a>
+          <a href="#contact">Contact</a>
         </div>
+
         <div class="footer-contact">
-          <h4>Contact</h4>
-          <p>info@voyabite.com</p>
-          <p>+27 21 123 4567</p>
-          <p>Cape Town, South Africa</p>
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 com194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"/></svg>
+              info@devteam.com
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"/></svg>
+              27+ 63 326 4567
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+              Imam Haron Road, Lansdowne, 7780
+            </li>
+          
         </div>
+
+        <div class="footer-follow">
+          <h4>Follow Us</h4>
+          <ul class="footer-list">
+            <li>
+              <i class="fa fa-github" style="font-size:24px"></i>
+            </li>    
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size:24px"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- <div class="QR-code">
+          <a href="https://ibb.co/Qv8WdFPY"><img src="https://i.ibb.co/SwQkrXtV/qr-code-1781681586380.jpg" alt="qr code 1781681586380" border="0"></a>
+        </div> -->
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Voya Bite. All rights reserved.</p>
+        <p>© 2026 Html and Css Profile. Crafted with care and simplicity.</p>
       </div>
     </footer>
 
