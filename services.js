@@ -1,38 +1,51 @@
 /* ==============================
    VOYA BITE – SERVICES PAGE JS
-   Filtering, Booking Modal, etc.
+   Burger Menu, Filtering, Booking Modal
    ============================== */
 document.addEventListener("DOMContentLoaded", () => {
-  // Only run on the Services page
+  // ---------- BURGER MENU TOGGLE ----------
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+  }
+
+  // ---------- FILTERING ----------
   const filterBtn = document.getElementById("sv-filter-btn");
   if (!filterBtn) return;
 
-  // ---------- FILTERING ----------
   const searchInput = document.getElementById("sv-search");
   const regionSelect = document.getElementById("sv-region-filter");
   const typeSelect = document.getElementById("sv-type-filter");
   const minPriceInput = document.getElementById("sv-price-min");
   const maxPriceInput = document.getElementById("sv-price-max");
 
-  // All filterable items (adventures, hotels, flights, deals)
   const allCards = document.querySelectorAll(".sv-card, .sv-deal-card");
 
-  // Helper: clear all filters
-  function clearFilters() {
-    searchInput.value = "";
-    regionSelect.value = "";
-    typeSelect.value = "";
-    minPriceInput.value = "";
-    maxPriceInput.value = "";
-    showAllCards();
-  }
+  const noResultsMsg = document.createElement("div");
+  noResultsMsg.id = "sv-no-results";
+  noResultsMsg.innerHTML = `
+    <div style="text-align: center; padding: 3rem 1rem;">
+      <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🔍</span>
+      <h3 style="margin-bottom: 0.5rem; color: var(--text-dark);">No Results Found</h3>
+      <p style="color: var(--text-light);">Try adjusting your filters or search terms.</p>
+    </div>
+  `;
+  noResultsMsg.style.display = "none";
 
-  // Show all cards
-  function showAllCards() {
-    allCards.forEach((card) => (card.style.display = ""));
-  }
+  const filterBar = document.getElementById("sv-filter-bar");
+  filterBar.after(noResultsMsg);
 
-  // Main filter logic
   filterBtn.addEventListener("click", () => {
     const searchTerm = searchInput.value.trim().toLowerCase();
     const selectedRegion = regionSelect.value;
@@ -40,9 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minPrice = parseFloat(minPriceInput.value) || 0;
     const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
 
-    // Simple validation: min > max? Swap automatically
     if (minPrice > maxPrice && maxPriceInput.value) {
-      // Visual feedback – highlight inputs
       minPriceInput.style.borderColor = "#e63946";
       maxPriceInput.style.borderColor = "#e63946";
       return;
@@ -56,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     allCards.forEach((card) => {
       let show = true;
 
-      // Text search (location or title)
       if (searchTerm) {
         const location = (card.dataset.location || "").toLowerCase();
         const title = (
@@ -67,17 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // Region filter
       if (show && selectedRegion) {
         if (card.dataset.region !== selectedRegion) show = false;
       }
 
-      // Type filter (adventure, hotel, flight, deal)
       if (show && selectedType) {
         if (card.dataset.category !== selectedType) show = false;
       }
 
-      // Price range
       if (show && (minPrice > 0 || maxPrice < Infinity)) {
         const price = parseFloat(card.dataset.price);
         if (isNaN(price) || price < minPrice || price > maxPrice) show = false;
@@ -87,22 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (show) visibleCount++;
     });
 
-    // Optional: Show "no results" message (you can add a <p id="no-results">No trips found.</p>)
-    let noResultsMsg = document.getElementById("no-results");
-    if (!noResultsMsg) {
-      noResultsMsg = document.createElement("p");
-      noResultsMsg.id = "no-results";
-      noResultsMsg.style.textAlign = "center";
-      noResultsMsg.style.color = "var(--text-light)";
-      noResultsMsg.style.marginTop = "2rem";
-      document.querySelector("main").appendChild(noResultsMsg);
-    }
-    noResultsMsg.textContent =
-      visibleCount === 0 ? "No results found. Try adjusting your filters." : "";
+    noResultsMsg.style.display = visibleCount === 0 ? "block" : "none";
   });
-
-  // Live filtering as you type (optional – uncomment if desired)
-  // searchInput.addEventListener('input', () => filterBtn.click());
 
   // ---------- BOOKING MODAL ----------
   const modal = document.createElement("div");
@@ -132,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) closeModal();
   });
 
-  // Open modal on any "Book" button click
   document.querySelectorAll(".sv-card-body .btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -140,19 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle form submission (mock)
   document.getElementById("sv-booking-form").addEventListener("submit", (e) => {
     e.preventDefault();
     alert("Booking confirmed! (demo)");
     closeModal();
     e.target.reset();
-  });
-
-  // ---------- SMOOTH SCROLL FOR NAV LINKS ----------
-  document.querySelectorAll('nav a[href^="index.html#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      // Only if we are on the same page or need to redirect? For services page we are not on index.
-      // No action needed, browser will navigate.
-    });
   });
 });

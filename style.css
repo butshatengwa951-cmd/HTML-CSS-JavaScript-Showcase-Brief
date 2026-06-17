@@ -33,7 +33,7 @@
 .section_description {
   max-width: 600px;
   margin-inline: auto;
-  color: var(text-light);
+  color: var(--text-light);
   text-align: center;
 }
 
@@ -76,7 +76,7 @@ ul {
 
 html,
 body {
-  scroll-behavior: "DM Sans";
+  scroll-behavior: smooth;
 }
 
 body {
@@ -85,7 +85,7 @@ body {
 
 nav {
   position: fixed;
-  isolation: isolute;
+  isolation: isolate;
   top: 0;
   width: 100%;
   z-index: 9;
@@ -109,6 +109,8 @@ nav {
   font-size: 2rem;
   color: var(--white);
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .material-symbols-outlined {
@@ -146,34 +148,16 @@ nav {
 .nav_links a:hover {
   color: var(--text-dark);
 }
+
 .nav_btns {
   display: none;
 }
 
-header {
-  margin-top: 5rem;
-  padding-inline: 1rem;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
+#sv-main-content {
+  margin-top: 4rem;
 }
 
-header::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: calc(100% - 2rem);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% -50%);
-  background-position: center center;
-  background: cover;
-  background-repeat: no-repeat;
-  border-radius: 3rem;
-  z-index: -1;
-}
-
-@media (width > 768px) {
+@media (min-width: 769px) {
   nav {
     position: static;
     padding: 2rem 1rem;
@@ -225,10 +209,39 @@ header::before {
     display: flex;
     justify-content: flex-end;
   }
+
   .nav_btns button {
     padding: 0.75rem 2rem;
     background-color: var(--text-dark);
   }
+
+  #sv-main-content {
+    margin-top: 0;
+  }
+}
+
+/* Home page header */
+header {
+  margin-top: 5rem;
+  padding-inline: 1rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: calc(100% - 2rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 3rem;
+  z-index: -1;
 }
 
 #home {
@@ -252,14 +265,11 @@ header::before {
 
 /* ===========================================
    SERVICES PAGE (Voya Bite) – Modern & Clean
-   No overlaps, perfectly centered
-   Prefix: sv-
    =========================================== */
 
-/* --- Hero --- */
 .sv-hero {
   text-align: center;
-  padding: 4rem 1rem 2rem;
+  padding: 3rem 1rem 2rem;
   background: var(--extra-light);
 }
 .sv-hero h1 {
@@ -274,15 +284,15 @@ header::before {
   margin: 0 auto;
 }
 
-/* --- Filter bar --- */
 .sv-filter {
   max-width: var(--max-width);
-  margin: 2rem auto 0;
+  margin: 2rem auto;
   padding: 0 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  justify-content: center;
 }
 .sv-filter input,
 .sv-filter select {
@@ -300,7 +310,6 @@ header::before {
   border-color: var(--primary-color);
 }
 
-/* Price range container (new) */
 .sv-price-range {
   display: flex;
   gap: 0.5rem;
@@ -322,12 +331,18 @@ header::before {
   cursor: pointer;
   transition: background 0.3s;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 #sv-filter-btn:hover {
   background: var(--primary-color-dark);
 }
 
-/* --- Shared section spacing --- */
+#sv-no-results {
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
 .sv-section {
   padding: 4rem 1rem;
   max-width: var(--max-width);
@@ -337,23 +352,16 @@ header::before {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   color: var(--text-dark);
 }
-.sv-section-subtitle {
-  text-align: center;
-  color: var(--text-light);
-  margin-bottom: 2.5rem;
-}
 
-/* --- Card grid --- */
 .sv-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* --- Individual card --- */
 .sv-card {
   background: #fff;
   border-radius: 1.5rem;
@@ -371,7 +379,6 @@ header::before {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Image container */
 .sv-card-img {
   position: relative;
   height: 200px;
@@ -384,7 +391,6 @@ header::before {
   display: block;
 }
 
-/* Badge */
 .sv-badge {
   position: absolute;
   top: 1rem;
@@ -408,7 +414,6 @@ header::before {
   background: #2a9d8f;
 }
 
-/* Card body */
 .sv-card-body {
   padding: 1.5rem;
   display: flex;
@@ -438,7 +443,6 @@ header::before {
   margin-bottom: 0.8rem;
 }
 
-/* Price area */
 .sv-price {
   margin-top: auto;
   padding-top: 1rem;
@@ -465,7 +469,6 @@ header::before {
   border-radius: 1rem;
 }
 
-/* Button inside card */
 .sv-card-body .btn {
   margin-top: 1rem;
   align-self: flex-start;
@@ -482,7 +485,6 @@ header::before {
   background: var(--primary-color-dark);
 }
 
-/* --- Deals section (centered) --- */
 .sv-deals {
   background: var(--extra-light);
   border-radius: 2rem;
@@ -519,7 +521,6 @@ header::before {
   margin-top: 0;
 }
 
-/* --- Flight card specifics --- */
 .sv-flight-card {
   border: 2px solid #f0f0f0;
 }
@@ -544,30 +545,62 @@ header::before {
   margin-bottom: 0.8rem;
 }
 
-/* --- Footer (if not already styled globally) --- */
-footer {
-  padding: 2rem 1rem;
-  text-align: center;
-  background: #f9f9f9;
-  color: var(--text-light);
-}
-footer nav {
-  margin-top: 0.8rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-footer a {
-  color: var(--text-dark);
-  font-weight: 500;
-  text-decoration: none;
-}
-footer a:hover {
-  color: var(--primary-color);
+/* ===========================================
+   FOOTER
+   =========================================== */
+.site-footer {
+  background: #004aad;
+  color: white;
+  padding: 40px 10%;
 }
 
-/* --- Responsive --- */
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  max-width: 300px;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-links a:hover {
+  color: #cfe2ff;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
 @media (min-width: 640px) {
   .sv-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -576,6 +609,7 @@ footer a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (min-width: 1024px) {
   .sv-grid {
     grid-template-columns: repeat(3, 1fr);
