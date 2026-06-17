@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Carousel</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #111;
+        padding: 20px;
+      }
+
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .slides {
+        position: relative;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      .slide img {
+        width: 100%;
+        display: block;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        z-index: 10;
+        transition: 0.3s;
+      }
+
+      .nav:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      .prev {
+        left: 20px;
+      }
+
+      .next {
+        right: 20px;
+      }
+
+      .progress-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .progress-bar span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: #ff4d4d;
+        animation: progress 5s linear infinite;
+      }
+
+      @keyframes progress {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .slide img {
+          height: 350px;
+        }
+
+        .nav {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .slide img {
+          height: 250px;
+        }
+
+        .prev {
+          left: 10px;
+        }
+
+        .next {
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="slides">
+        <div class="slide active">
+          <img src="https://picsum.photos/id/1015/1000/500" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1016/1000/500" alt="" />
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1018/1000/500" alt="" />
+        </div>
+      </div>
+
+      <button class="nav prev">&#10094;</button>
+      <button class="nav next">&#10095;</button>
+
+      <div class="progress-bar">
+        <span></span>
+      </div>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const nextBtn = document.querySelector(".next");
+      const prevBtn = document.querySelector(".prev");
+      const progress = document.querySelector(".progress-bar span");
+
+      let index = 0;
+      const intervalTime = 5000;
+      let autoSlide;
+
+      function showSlide(i) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        slides[i].classList.add("active");
+
+        progress.style.animation = "none";
+        progress.offsetHeight;
+        progress.style.animation = `progress ${intervalTime}ms linear`;
+      }
+
+      function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }
+
+      function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+      }
+
+      function startAutoSlide() {
+        autoSlide = setInterval(nextSlide, intervalTime);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlide);
+        startAutoSlide();
+      }
+
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoSlide();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoSlide();
+      });
+
+      showSlide(index);
+      startAutoSlide();
+    </script>
+  </body>
+</html>
