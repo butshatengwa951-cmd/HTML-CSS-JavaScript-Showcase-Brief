@@ -5,46 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ</title>
     <style>
-      .sentence-container {
-        font-family: sans-serif;
-        font-size: 18px;
-        line-height: 1.6;
-        margin: 20px;
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+      :root {
+        --primary-color: #3d8fc4;
+        --primary-color-dark: #1d6b9e;
+        --text-dark: #0a0a0a;
+        --text-light: #5b5b5b;
+        --surface: #f8fafc;
+        --white: #ffffff;
+        --border: #d9e7f2;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: linear-gradient(180deg, #eef7ff 0%, #f9fbff 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 16px;
+      }
+
+      #FAQ-Page {
+        width: min(100%, 980px);
+        background: var(--white);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(13, 38, 76, 0.08);
+        padding: 48px 24px;
+      }
+
+      .Header-Section {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 32px;
+      }
+
+      .Header-Section h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        color: var(--text-dark);
+        margin-bottom: 12px;
+      }
+
+      .Header-Section p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-light);
+      }
+
+      .FAQ-Section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .FAQ1,
+      .FAQ2,
+      .FAQ3 {
+        text-align: center;
+      }
+
+      .FAQ1 h2,
+      .FAQ2 h2,
+      .FAQ3 h2 {
+        font-size: 1.5rem;
+        color: var(--primary-color-dark);
+        margin-bottom: 14px;
       }
 
       .faq-item {
-        margin-bottom: 12px;
+        width: min(100%, 760px);
+        margin: 0 auto 12px;
       }
 
       .dropdown-trigger {
         width: 100%;
-        background: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        color: #0066cc;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--primary-color-dark);
         cursor: pointer;
         font: inherit;
-        padding: 12px 14px;
+        font-weight: 600;
+        padding: 14px 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 8px;
-        transition: background 0.2s;
-        text-align: left;
+        gap: 10px;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+        text-align: center;
       }
 
       .dropdown-trigger:hover {
-        background: #e8f2ff;
+        background: #eef7ff;
       }
 
       .dropdown-trigger.active {
-        background: #e6f0ff;
+        background: #e7f3ff;
       }
 
       .arrow {
         display: inline-block;
         transition: transform 0.2s ease;
-        font-size: 12px;
+        font-size: 0.9rem;
       }
 
       .dropdown-trigger.active .arrow {
@@ -53,16 +124,100 @@
 
       .dropdown-paragraph {
         display: none;
-        background-color: #fafafa;
-        border-left: 4px solid #0066cc;
-        margin: 0 0 10px 0;
-        padding: 12px 16px;
-        color: #333;
-        border-radius: 0 4px 4px 0;
+        background: #fbfdff;
+        border-left: 4px solid var(--primary-color);
+        margin: 0;
+        padding: 14px 16px;
+        color: var(--text-light);
+        border-radius: 0 8px 8px 0;
+        line-height: 1.6;
+        text-align: center;
       }
 
       .dropdown-paragraph.show {
         display: block;
+      }
+
+      .Submit-Section {
+        margin-top: 32px;
+      }
+
+      .Submit-Message {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .Submit-Message h2 {
+        font-size: 1.1rem;
+        color: var(--text-dark);
+        margin-bottom: 12px;
+      }
+
+      .Submit-Message textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        resize: vertical;
+      }
+
+      .Submit-Message button {
+        margin-top: 10px;
+        background: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.5rem;
+        font: inherit;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .Submit-Message button:hover {
+        background: var(--primary-color-dark);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px 10px;
+        }
+
+        #FAQ-Page {
+          padding: 32px 14px;
+        }
+
+        .Header-Section {
+          margin-bottom: 24px;
+        }
+
+        .dropdown-trigger {
+          padding: 12px;
+          font-size: 0.95rem;
+        }
+
+        .dropdown-paragraph {
+          padding: 12px;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .Header-Section h1 {
+          font-size: 1.8rem;
+        }
+
+        .FAQ1 h2,
+        .FAQ2 h2,
+        .FAQ3 h2 {
+          font-size: 1.2rem;
+        }
+
+        .Submit-Message h2 {
+          font-size: 1rem;
+        }
       }
     </style>
   </head>
@@ -206,6 +361,21 @@
             </p>
           </div>
         </section>
+      </div>
+      <div class="Submit-Section">
+        <form
+          class="Submit-Message"
+          action="https://formspree.io/f/mpqeezky"
+          method="post"
+        >
+          <h2>
+            Have a specific question? Just type it out in the provided textbox
+            below.
+          </h2>
+          <textarea rows="5" cols="100" name="message" id="message"></textarea
+          ><br />
+          <button type="submit">Send</button>
+        </form>
       </div>
     </div>
 
