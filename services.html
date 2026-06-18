@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-color="blue">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover Voya Bite's handpicked travel experiences, hotels, and flights."
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Experiences | Voya Bite</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/favicon-512x512.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="theme-controls">
+      <button
+        id="theme-toggle"
+        class="theme-btn"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <div class="color-switcher">
+        <button
+          class="color-btn active"
+          data-color="blue"
+          title="Blue theme"
+          style="background: #2c7ab5"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="green"
+          title="Green theme"
+          style="background: #219a52"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="purple"
+          title="Purple theme"
+          style="background: #7d3c98"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="orange"
+          title="Orange theme"
+          style="background: #d35400"
+        ></button>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav_header">
+        <div class="nav_logo">
+          <a href="home.html"
+            ><img
+              src="https://i.ibb.co/gZ7MMqFb/Voya-Byte-Logo-removebg-preview.png"
+              alt="Voya Bite logo"
+              width="200"
+              height="53"
+          /></a>
+        </div>
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <ul class="nav_links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav_btns">
+        <button class="btn btn-outline" onclick="openCustomTripForm()">
+          Plan My Trip
+        </button>
+      </div>
+    </nav>
+
+    <main id="sv-main-content">
+      <section class="sv-hero">
+        <div class="sv-hero-overlay"></div>
+        <div class="sv-hero-content">
+          <h1>Find Your Next Adventure</h1>
+          <p>
+            Bite-sized escapes, big memories. Curated trips, hotels and flights.
+          </p>
+          <a href="#sv-filter-bar" class="btn sv-hero-cta">Explore Now</a>
+        </div>
+      </section>
+
+      <div class="sv-filter" id="sv-filter-bar">
+        <input
+          type="text"
+          id="sv-search"
+          placeholder="Search destinations..."
+        />
+        <select id="sv-region-filter">
+          <option value="">All Regions</option>
+          <option value="africa">Africa</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="south-america">South America</option>
+          <option value="oceania">Oceania</option>
+        </select>
+        <select id="sv-type-filter">
+          <option value="">All Types</option>
+          <option value="adventure">Adventures</option>
+          <option value="hotel">Hotels</option>
+          <option value="flight">Flights</option>
+          <option value="deal">Deals</option>
+        </select>
+        <select id="sv-price-filter">
+          <option value="">All Prices</option>
+          <option value="0-5000">Under R5,000</option>
+          <option value="5000-10000">R5,000 - R10,000</option>
+          <option value="10000-20000">R10,000 - R20,000</option>
+          <option value="20000-999999">Over R20,000</option>
+        </select>
+        <button id="sv-filter-btn">Filter</button>
+      </div>
+
+      <section class="sv-section">
+        <h2 class="sv-section-title">Top Adventures</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="africa"
+            data-price="12499"
+            data-location="Marrakech, Morocco"
+            data-base-price="12499"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/N6XydfCg/souks.jpg"
+                alt="Sahara camel caravan"
+                loading="lazy"
+              /><span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Moroccan Deserts & Souks</h3>
+              <p class="sv-loc">Marrakech, Morocco</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">7 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price">
+                <strong>R12,499</strong><s>R15,200</s
+                ><span class="sv-discount">18% off</span>
+              </div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Moroccan Deserts & Souks',
+                    'Adventure',
+                    '12499',
+                    'Marrakech, Morocco',
+                    '7 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="south-america"
+            data-price="28999"
+            data-location="Torres del Paine, Chile"
+            data-base-price="28999"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/4wKf2LCB/patagonia-hike.jpg"
+                alt="Patagonia mountains"
+                loading="lazy"
+              />
+            </div>
+            <div class="sv-card-body">
+              <h3>Patagonia Hiking</h3>
+              <p class="sv-loc">Torres del Paine, Chile</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">10 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price"><strong>R28,999</strong></div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Patagonia Hiking',
+                    'Adventure',
+                    '28999',
+                    'Torres del Paine, Chile',
+                    '10 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="asia"
+            data-price="8750"
+            data-location="Canggu, Bali"
+            data-base-price="8750"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/TMvtvFG7/surfing.jpg"
+                alt="Surfer at sunset"
+                loading="lazy"
+              /><span class="sv-badge limited">Limited</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Bali Surf & Yoga Retreat</h3>
+              <p class="sv-loc">Canggu, Bali</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">5 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price">
+                <strong>R8,750</strong><s>R10,500</s
+                ><span class="sv-discount">17% off</span>
+              </div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Bali Surf & Yoga Retreat',
+                    'Adventure',
+                    '8750',
+                    'Canggu, Bali',
+                    '5 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="europe"
+            data-price="22300"
+            data-location="Tromso, Norway"
+            data-base-price="22300"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/RG87GLR9/northen-lights.jpg"
+                alt="Aurora borealis"
+                loading="lazy"
+              /><span class="sv-badge best">Best Seller</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Northern Lights Explorer</h3>
+              <p class="sv-loc">Tromso, Norway</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">6 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price"><strong>R22,300</strong></div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Northern Lights Explorer',
+                    'Adventure',
+                    '22300',
+                    'Tromso, Norway',
+                    '6 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="africa"
+            data-price="15600"
+            data-location="Serengeti, Tanzania"
+            data-base-price="15600"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/C5DbpzX7/serengeti-safari-experience.jpg"
+                alt="Serengeti safari"
+                loading="lazy"
+              /><span class="sv-badge best">Best Seller</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Serengeti Safari Experience</h3>
+              <p class="sv-loc">Serengeti, Tanzania</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">8 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price">
+                <strong>R15,600</strong><s>R18,900</s
+                ><span class="sv-discount">17% off</span>
+              </div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Serengeti Safari Experience',
+                    'Adventure',
+                    '15600',
+                    'Serengeti, Tanzania',
+                    '8 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="adventure"
+            data-region="oceania"
+            data-price="19500"
+            data-location="Queenstown, New Zealand"
+            data-base-price="19500"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/q30J3ppr/new-zealand-thrill-seeker.jpg"
+                alt="New Zealand adventure"
+                loading="lazy"
+              /><span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>New Zealand Thrill Seeker</h3>
+              <p class="sv-loc">Queenstown, New Zealand</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">12 days</span
+                ><span class="sv-tag">Adventure</span>
+              </div>
+              <div class="sv-price">
+                <strong>R19,500</strong><s>R24,000</s
+                ><span class="sv-discount">19% off</span>
+              </div>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'New Zealand Thrill Seeker',
+                    'Adventure',
+                    '19500',
+                    'Queenstown, New Zealand',
+                    '12 days',
+                  );
+                "
+                >Book Now</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sv-section sv-deals" id="deals-section">
+        <h2 class="sv-section-title">Limited-Time Deals</h2>
+        <div class="sv-deals-grid">
+          <div
+            class="sv-deal-card"
+            data-category="deal"
+            data-region="south-america"
+            data-price="23199"
+            data-location="Patagonia"
+            data-base-price="23199"
+          >
+            <h3>Early Bird Patagonia</h3>
+            <p>Book 60 days ahead &mdash; <strong>20% off</strong></p>
+            <strong class="sv-price">from R23,199</strong>
+            <p class="sv-deal-dates">Must book 60+ days in advance</p>
+            <a
+              href="#"
+              class="btn"
+              onclick="
+                event.preventDefault();
+                openBookingForm(
+                  'Early Bird Patagonia',
+                  'Deal',
+                  '23199',
+                  'Patagonia',
+                  '60 days advance',
+                );
+              "
+              >Book Now</a
+            >
+          </div>
+          <div
+            class="sv-deal-card"
+            data-category="deal"
+            data-region="asia"
+            data-price="7440"
+            data-location="Bali"
+            data-base-price="7440"
+          >
+            <h3>Last Minute Bali</h3>
+            <p>Depart in 14 days &mdash; <strong>15% off</strong></p>
+            <strong class="sv-price">from R7,440</strong>
+            <p class="sv-deal-dates">Departure within 14 days</p>
+            <a
+              href="#"
+              class="btn"
+              onclick="
+                event.preventDefault();
+                openBookingForm(
+                  'Last Minute Bali',
+                  'Deal',
+                  '7440',
+                  'Bali',
+                  '14 days departure',
+                );
+              "
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="sv-section">
+        <h2 class="sv-section-title">Find Your Stay</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="africa"
+            data-price="2450"
+            data-location="Marrakech, Morocco"
+            data-base-price="2450"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/Xf9FyXf9/riad-kheirredine.jpg"
+                alt="Riad courtyard"
+                loading="lazy"
+              /><span class="sv-badge best">Top Rated</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Riad Kheirredine</h3>
+              <p class="sv-loc">Marrakech, Morocco</p>
+              <p class="sv-rating">4.9 (320 reviews)</p>
+              <div class="sv-price">
+                <strong>R2,450</strong><s>R3,200</s
+                ><span class="sv-discount">23% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Riad Kheirredine',
+                    'Hotel',
+                    '2450',
+                    'Marrakech, Morocco',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="asia"
+            data-price="1899"
+            data-location="Canggu, Bali"
+            data-base-price="1899"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/TqnqPnJC/como-uma.jpg"
+                alt="Infinity pool"
+                loading="lazy"
+              /><span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Como Uma Canggu</h3>
+              <p class="sv-loc">Canggu, Bali</p>
+              <p class="sv-rating">4.7 (189 reviews)</p>
+              <div class="sv-price"><strong>R1,899</strong></div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Como Uma Canggu',
+                    'Hotel',
+                    '1899',
+                    'Canggu, Bali',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="south-america"
+            data-price="3999"
+            data-location="Torres del Paine, Chile"
+            data-base-price="3999"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/4w9TRNnC/ecocamp.jpg"
+                alt="Mountain lodge"
+                loading="lazy"
+              />
+            </div>
+            <div class="sv-card-body">
+              <h3>EcoCamp Patagonia</h3>
+              <p class="sv-loc">Torres del Paine, Chile</p>
+              <p class="sv-rating">4.8 (95 reviews)</p>
+              <div class="sv-price">
+                <strong>R3,999</strong><s>R4,800</s
+                ><span class="sv-discount">17% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'EcoCamp Patagonia',
+                    'Hotel',
+                    '3999',
+                    'Torres del Paine, Chile',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="europe"
+            data-price="5200"
+            data-location="Tromso, Norway"
+            data-base-price="5200"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/LXTTCkGT/Igloo-hotel.jpg"
+                alt="Glass igloo"
+                loading="lazy"
+              /><span class="sv-badge limited">Limited</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Lyngen North Igloo Hotel</h3>
+              <p class="sv-loc">Tromso, Norway</p>
+              <p class="sv-rating">4.9 (67 reviews)</p>
+              <div class="sv-price"><strong>R5,200</strong></div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Lyngen North Igloo Hotel',
+                    'Hotel',
+                    '5200',
+                    'Tromso, Norway',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="africa"
+            data-price="3800"
+            data-location="Serengeti, Tanzania"
+            data-base-price="3800"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/yFTF1f94/serengeti-safari-lodge.jpg"
+                alt="Serengeti lodge"
+                loading="lazy"
+              /><span class="sv-badge best">Top Rated</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Serengeti Safari Lodge</h3>
+              <p class="sv-loc">Serengeti, Tanzania</p>
+              <p class="sv-rating">4.8 (210 reviews)</p>
+              <div class="sv-price"><strong>R3,800</strong></div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Serengeti Safari Lodge',
+                    'Hotel',
+                    '3800',
+                    'Serengeti, Tanzania',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card"
+            data-category="hotel"
+            data-region="oceania"
+            data-price="2800"
+            data-location="Queenstown, New Zealand"
+            data-base-price="2800"
+          >
+            <div class="sv-card-img">
+              <img
+                src="https://i.ibb.co/0jhkCRRB/lakeview-queenstown.jpg"
+                alt="Queenstown lake view hotel"
+                loading="lazy"
+              /><span class="sv-badge hot">Hot Deal</span>
+            </div>
+            <div class="sv-card-body">
+              <h3>Lakeview Queenstown</h3>
+              <p class="sv-loc">Queenstown, New Zealand</p>
+              <p class="sv-rating">4.9 (178 reviews)</p>
+              <div class="sv-price">
+                <strong>R2,800</strong><s>R3,400</s
+                ><span class="sv-discount">18% off</span>
+              </div>
+              <p class="sv-per-night">per night</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Lakeview Queenstown',
+                    'Hotel',
+                    '2800',
+                    'Queenstown, New Zealand',
+                    'per night',
+                  );
+                "
+                >Book Room</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sv-section">
+        <h2 class="sv-section-title">Book Your Flight</h2>
+        <div class="sv-grid">
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="africa"
+            data-price="7850"
+            data-location="Marrakech"
+            data-base-price="7850"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>RAK</span>
+              </div>
+              <p class="sv-loc">Johannesburg to Marrakech</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">11h 30m</span
+                ><span class="sv-tag">1 stop</span>
+              </div>
+              <div class="sv-price">
+                <strong>R7,850</strong><s>R9,200</s
+                ><span class="sv-discount">15% off</span>
+              </div>
+              <p class="sv-date">12 Jul 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight JNB to RAK',
+                    'Flight',
+                    '7850',
+                    'Johannesburg to Marrakech',
+                    '12 Jul 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="asia"
+            data-price="12300"
+            data-location="Bali"
+            data-base-price="12300"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>CPT</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>DPS</span>
+              </div>
+              <p class="sv-loc">Cape Town to Denpasar (Bali)</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">18h 20m</span
+                ><span class="sv-tag">2 stops</span>
+              </div>
+              <div class="sv-price"><strong>R12,300</strong></div>
+              <p class="sv-date">28 Aug 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight CPT to DPS',
+                    'Flight',
+                    '12300',
+                    'Cape Town to Denpasar (Bali)',
+                    '28 Aug 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="south-america"
+            data-price="18500"
+            data-location="Punta Arenas"
+            data-base-price="18500"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>PUQ</span>
+              </div>
+              <p class="sv-loc">Johannesburg to Punta Arenas</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">21h 15m</span
+                ><span class="sv-tag">2 stops</span>
+              </div>
+              <div class="sv-price">
+                <strong>R18,500</strong><s>R22,000</s
+                ><span class="sv-discount">16% off</span>
+              </div>
+              <p class="sv-date">05 Oct 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight JNB to PUQ',
+                    'Flight',
+                    '18500',
+                    'Johannesburg to Punta Arenas',
+                    '05 Oct 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="europe"
+            data-price="16200"
+            data-location="Tromso"
+            data-base-price="16200"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>TOS</span>
+              </div>
+              <p class="sv-loc">Johannesburg to Tromso</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">15h 40m</span
+                ><span class="sv-tag">1 stop</span>
+              </div>
+              <div class="sv-price"><strong>R16,200</strong></div>
+              <p class="sv-date">20 Nov 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight JNB to TOS',
+                    'Flight',
+                    '16200',
+                    'Johannesburg to Tromso',
+                    '20 Nov 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="africa"
+            data-price="5400"
+            data-location="Serengeti"
+            data-base-price="5400"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>JRO</span>
+              </div>
+              <p class="sv-loc">Johannesburg to Kilimanjaro</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">5h 10m</span
+                ><span class="sv-tag">Direct</span>
+              </div>
+              <div class="sv-price">
+                <strong>R5,400</strong><s>R6,800</s
+                ><span class="sv-discount">21% off</span>
+              </div>
+              <p class="sv-date">15 Aug 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight JNB to JRO',
+                    'Flight',
+                    '5400',
+                    'Johannesburg to Kilimanjaro',
+                    '15 Aug 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+          <article
+            class="sv-card sv-flight-card"
+            data-category="flight"
+            data-region="oceania"
+            data-price="22100"
+            data-location="Queenstown"
+            data-base-price="22100"
+          >
+            <div class="sv-card-body">
+              <div class="sv-flight-route">
+                <span>JNB</span><span class="sv-flight-arrow">&rarr;</span
+                ><span>ZQN</span>
+              </div>
+              <p class="sv-loc">Johannesburg to Queenstown</p>
+              <div class="sv-info-tags">
+                <span class="sv-tag">22h 40m</span
+                ><span class="sv-tag">2 stops</span>
+              </div>
+              <div class="sv-price"><strong>R22,100</strong></div>
+              <p class="sv-date">10 Dec 2026</p>
+              <a
+                href="#"
+                class="btn"
+                onclick="
+                  event.preventDefault();
+                  openBookingForm(
+                    'Flight JNB to ZQN',
+                    'Flight',
+                    '22100',
+                    'Johannesburg to Queenstown',
+                    '10 Dec 2026',
+                  );
+                "
+                >Book Flight</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="booking-form-modal" class="booking-modal">
+      <div class="booking-modal-content booking-form-content">
+        <span class="booking-modal-close" onclick="closeBookingForm()"
+          >&times;</span
+        >
+        <div class="booking-form-container">
+          <h2>Complete Your Booking</h2>
+          <p id="booking-item-title" class="booking-item-title"></p>
+          <form id="booking-details-form" onsubmit="return false;" novalidate>
+            <div class="form-group">
+              <label for="full-name">Full Name</label
+              ><input
+                type="text"
+                id="full-name"
+                required
+                placeholder="Enter your full name (e.g., John Smith)"
+              /><span class="error-message" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label
+              ><input
+                type="email"
+                id="email"
+                required
+                placeholder="your@email.com"
+              /><span class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label
+              ><input
+                type="tel"
+                id="phone"
+                required
+                placeholder="+27 123 456 7890"
+              /><span class="error-message" id="phone-error"></span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="check-in">Start Date</label
+                ><input type="date" id="check-in" required /><span
+                  class="error-message"
+                  id="checkin-error"
+                ></span>
+              </div>
+              <div class="form-group">
+                <label for="check-out">End Date</label
+                ><input type="date" id="check-out" /><span
+                  class="error-message"
+                  id="checkout-error"
+                ></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adults">Adults (12+ years)</label
+                ><input type="number" id="adults" min="1" max="10" value="1" />
+              </div>
+              <div class="form-group">
+                <label for="children">Children (2-11 years)</label
+                ><input
+                  type="number"
+                  id="children"
+                  min="0"
+                  max="10"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="special-requests">Special Requests</label
+              ><textarea
+                id="special-requests"
+                rows="3"
+                placeholder="Any special requirements..."
+              ></textarea>
+            </div>
+            <div class="booking-summary">
+              <h3>Booking Summary</h3>
+              <div class="summary-row">
+                <span>Item:</span><span id="summary-item"></span>
+              </div>
+              <div class="summary-row">
+                <span>Base Price:</span><span id="summary-base-price"></span>
+              </div>
+              <div
+                class="summary-row"
+                id="adult-extra-row"
+                style="display: none"
+              >
+                <span>Additional Adults:</span
+                ><span id="summary-adult-extra"></span>
+              </div>
+              <div
+                class="summary-row"
+                id="child-extra-row"
+                style="display: none"
+              >
+                <span>Children:</span><span id="summary-child-extra"></span>
+              </div>
+              <div class="summary-row total">
+                <span>Total:</span><span id="summary-total"></span>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn booking-submit-btn"
+              onclick="submitBookingForm(event)"
+            >
+              Confirm & Download Ticket
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="booking-modal" class="booking-modal">
+      <div class="booking-modal-content">
+        <span class="booking-modal-close" onclick="closeModal()">&times;</span>
+        <div id="booking-modal-body"></div>
+      </div>
+    </div>
+
+    <button id="sv-back-to-top" aria-label="Back to top">&uarr;</button>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo" href="https://ibb.co/4g9nZ7tM"
+            ><img
+              src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png"
+              alt="Voya Bite Logo"
+              border="0"
+          /></a>
+          <p>
+            Bite-sized escapes, big memories. Curated trips, hotels and flights.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="home.html">Home</a>
+          <a href="about-us.html">About Us</a>
+          <a href="FAQ.html">FAQ's</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"
+                />
+              </svg>
+              info@voyabite.com
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"
+                />
+              </svg>
+              +27 800 123 456
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+                />
+              </svg>
+              Imam Haron Road, Lansdowne, 7780
+            </li>
+          </ul>
+        </div>
+        <div class="footer-follow">
+          <h4>Follow Us</h4>
+          <ul class="footer-list">
+            <li><i class="fa fa-github" style="font-size: 24px"></i></li>
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Voya Bite. Crafted with care and simplicity.</p>
+      </div>
+    </footer>
+
+    <script src="services.js"></script>
+  </body>
+</html>
