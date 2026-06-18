@@ -1,3 +1,6 @@
+// ========================================
+// MAIN.JS FILE
+// ========================================
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 
@@ -30,3 +33,8 @@ ScrollReveal().reveal(".banner-card", {
   ...scrollRevealOption,
   interval: 500,
 });
+
+// ScrollReveal().reveal(".img-card", {
+//   duration: 1000,
+//   interval: 500,
+// });
