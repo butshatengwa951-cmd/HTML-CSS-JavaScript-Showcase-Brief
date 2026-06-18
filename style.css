@@ -359,6 +359,21 @@ header::before {
   margin: 0;
 }
 
+/* .journey-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  transition: 0.3s;
+}
+.feature-card:hover .journey-card-content {
+  top: 0;
+} */
 .banner-container {
   display: grid;
   gap: 2rem;
@@ -368,7 +383,7 @@ header::before {
   margin: 1px;
   padding: 2px;
   text-align: center;
-  background-color: #d9d2d2;
+  background-color: var(--extra-light);
   border-radius: 2rem;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
@@ -468,15 +483,19 @@ header::before {
   gap: 2px;
 }
 
-.reviews .star {
+/* .reviews .star {
   width: 18px;
   height: 18px;
-  fill: #f59e0b; /* Vibrant gold color */
-}
+  fill: #f59e0b; Vibrant gold color
+} */
 
-.material-symbols-outlined.filled {
-  font-variation-settings: "FILL" 1; /* Toggles outline to filled */
+/* .material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1; /* Toggles outline to filled
   color: orange;
+} */
+.star-rating {
+  color: #ffcc00; /* Gold color */
+  font-size: 24px;
 }
 
 /* .box-top {
