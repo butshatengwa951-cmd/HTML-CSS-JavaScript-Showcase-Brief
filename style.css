@@ -368,14 +368,14 @@ header::before {
   margin: 1px;
   padding: 2px;
   text-align: center;
-  background-color: var(--extra-light);
+  background-color: #d9d2d2;
   border-radius: 2rem;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .banner-card h4 {
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
@@ -384,11 +384,14 @@ header::before {
 }
 
 .ratings-container {
+  background-color: #e8e1e1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
 }
 
 #header {
@@ -784,6 +787,16 @@ header::before {
 .section-img {
   margin-bottom: 20px;
 }
+
+.img-header {
+  font-size: 5rem;
+  font-family: "DM Sans", sans-serif;
+}
+.section-img p {
+  color: var(--text-light);
+  text-align: center;
+}
+
 .img-header {
   max-width: 700px;
   margin-inline: auto;
@@ -806,9 +819,11 @@ header::before {
   overflow: hidden;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.02);
 }
+
 .img-card img {
   transition: 0.3s;
 }
+
 .img-card:hover img {
   transform: scale(1.1);
 }
@@ -842,3 +857,17 @@ header::before {
   color: var(--text-light);
   border-color: var(--primary-color);
 }
+
+.thin {
+  max-height: 200px;
+  padding-block: 1rem;
+  overflow: hidden;
+  background-color: var(--primary-color-dark);
+  margin-bottom: 1rem;
+}
+
+/* .thin {
+  padding-top: 5rem;
+  margin-top: 5rem;
+  /* background-image: url("https://i.ibb.co/9K9SQnn/Let-the-sea-set-u-free.jpg"); 
+}*/
