@@ -1,3 +1,4 @@
+/* About-us.css */
 *{
     margin:0;
     padding:0;
@@ -43,7 +44,6 @@ nav ul li a:hover{
 }
 
 /* Hero */
-
 .about-hero{
     background:linear-gradient(rgba(0,74,173,0.7),
     rgba(0,74,173,0.7)),
