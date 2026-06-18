@@ -1,138 +1,184 @@
-/* ==============================
-   VOYA BITE – SERVICES PAGE JS
-   Burger Menu, Filtering, Booking Modal
-   ============================== */
-document.addEventListener("DOMContentLoaded", () => {
-  // ---------- BURGER MENU TOGGLE ----------
-  const menuBtn = document.getElementById("menu-btn");
-  const navLinks = document.getElementById("nav-links");
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+const backToTopBtn = document.getElementById("sv-back-to-top");
 
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.add("visible");
+  } else {
+    backToTopBtn.classList.remove("visible");
   }
+});
 
-  // ---------- FILTERING ----------
-  const filterBtn = document.getElementById("sv-filter-btn");
-  if (!filterBtn) return;
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
-  const searchInput = document.getElementById("sv-search");
-  const regionSelect = document.getElementById("sv-region-filter");
-  const typeSelect = document.getElementById("sv-type-filter");
-  const priceSelect = document.getElementById("sv-price-filter");
+// ============================================
+// STICKY FILTER BAR SHADOW ON SCROLL
+// ============================================
+const filterBar = document.getElementById("sv-filter-bar");
 
-  const allCards = document.querySelectorAll(".sv-card, .sv-deal-card");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    filterBar.classList.add("scrolled");
+  } else {
+    filterBar.classList.remove("scrolled");
+  }
+});
 
-  const noResultsMsg = document.createElement("div");
-  noResultsMsg.id = "sv-no-results";
-  noResultsMsg.innerHTML = `
-    <div style="text-align: center; padding: 3rem 1rem;">
-      <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🔍</span>
-      <h3 style="margin-bottom: 0.5rem; color: var(--text-dark);">No Results Found</h3>
-      <p style="color: var(--text-light);">Try adjusting your filters or search terms.</p>
-    </div>
-  `;
-  noResultsMsg.style.display = "none";
+// ============================================
+// FILTER FUNCTIONALITY
+// ============================================
+document.getElementById("sv-filter-btn").addEventListener("click", () => {
+  const searchTerm = document.getElementById("sv-search").value.toLowerCase();
+  const region = document.getElementById("sv-region-filter").value;
+  const type = document.getElementById("sv-type-filter").value;
+  const priceRange = document.getElementById("sv-price-filter").value;
 
-  const filterBar = document.getElementById("sv-filter-bar");
-  filterBar.after(noResultsMsg);
+  const cards = document.querySelectorAll(".sv-card, .sv-deal-card");
+  let totalVisibleCards = 0;
 
-  filterBtn.addEventListener("click", () => {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const selectedRegion = regionSelect.value;
-    const selectedType = typeSelect.value;
-    const selectedPriceRange = priceSelect.value;
+  cards.forEach((card) => {
+    const cardCategory = card.dataset.category;
+    const cardRegion = card.dataset.region;
+    const cardPrice = parseInt(card.dataset.price);
+    const cardLocation = card.dataset.location
+      ? card.dataset.location.toLowerCase()
+      : "";
 
-    let minPrice = 0;
-    let maxPrice = Infinity;
+    let showCard = true;
 
-    if (selectedPriceRange) {
-      const [min, max] = selectedPriceRange.split("-").map(Number);
-      minPrice = min;
-      maxPrice = max;
+    // Filter by search term
+    if (searchTerm && !cardLocation.includes(searchTerm)) {
+      showCard = false;
     }
 
-    let visibleCount = 0;
+    // Filter by region
+    if (region && cardRegion !== region) {
+      showCard = false;
+    }
 
-    allCards.forEach((card) => {
-      let show = true;
+    // Filter by type
+    if (type && cardCategory !== type) {
+      showCard = false;
+    }
 
-      if (searchTerm) {
-        const location = (card.dataset.location || "").toLowerCase();
-        const title = (
-          card.querySelector("h3")?.textContent || ""
-        ).toLowerCase();
-        if (!location.includes(searchTerm) && !title.includes(searchTerm)) {
-          show = false;
-        }
+    // Filter by price
+    if (priceRange) {
+      const [min, max] = priceRange.split("-").map(Number);
+      if (cardPrice < min || cardPrice > max) {
+        showCard = false;
       }
+    }
 
-      if (show && selectedRegion) {
-        if (card.dataset.region !== selectedRegion) show = false;
-      }
+    // Show or hide card
+    card.style.display = showCard ? "" : "none";
 
-      if (show && selectedType) {
-        if (card.dataset.category !== selectedType) show = false;
-      }
-
-      if (show && selectedPriceRange) {
-        const price = parseFloat(card.dataset.price);
-        if (isNaN(price) || price < minPrice || price > maxPrice) show = false;
-      }
-
-      card.style.display = show ? "" : "none";
-      if (show) visibleCount++;
-    });
-
-    noResultsMsg.style.display = visibleCount === 0 ? "block" : "none";
+    if (showCard) {
+      totalVisibleCards++;
+    }
   });
 
-  // ---------- BOOKING MODAL ----------
-  const modal = document.createElement("div");
-  modal.id = "sv-booking-modal";
-  modal.style.cssText = `
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); display: none; justify-content: center;
-    align-items: center; z-index: 999;
-  `;
-  modal.innerHTML = `
-    <div style="background: #fff; border-radius: 1.5rem; padding: 2rem; max-width: 500px; width: 90%; position: relative;">
-      <button id="sv-close-modal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
-      <h3 style="margin-bottom: 1rem;">Book Your Trip</h3>
-      <form id="sv-booking-form">
-        <input type="text" placeholder="Full Name" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:1rem; border:2px solid #eee;">
-        <input type="email" placeholder="Email" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:1rem; border:2px solid #eee;">
-        <input type="date" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:1rem; border:2px solid #eee;">
-        <button type="submit" class="btn" style="width:100%;">Confirm Booking</button>
-      </form>
-    </div>
-  `;
-  document.body.appendChild(modal);
-
-  const closeModal = () => (modal.style.display = "none");
-  modal.querySelector("#sv-close-modal").addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
+  // Handle section visibility
+  const sections = document.querySelectorAll(".sv-section");
+  sections.forEach((section) => {
+    const visibleCards = section.querySelectorAll(
+      '.sv-card:not([style*="display: none"]), .sv-deal-card:not([style*="display: none"])',
+    );
+    if (visibleCards.length === 0) {
+      section.style.display = "none";
+    } else {
+      section.style.display = "";
+    }
   });
 
-  document.querySelectorAll(".sv-card-body .btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modal.style.display = "flex";
-    });
+  // Handle no results message
+  handleNoResultsMessage(totalVisibleCards);
+});
+
+// ============================================
+// NO RESULTS MESSAGE HANDLER
+// ============================================
+function handleNoResultsMessage(visibleCount) {
+  // Remove existing message if any
+  const existingMessage = document.getElementById("sv-no-results");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // If no cards are visible, show message
+  if (visibleCount === 0) {
+    const noResultsMessage = document.createElement("div");
+    noResultsMessage.id = "sv-no-results";
+    noResultsMessage.className = "sv-no-results";
+    noResultsMessage.innerHTML = `
+      <div class="sv-no-results-content">
+        <span class="sv-no-results-icon">🔍</span>
+        <h3>No Results Available</h3>
+        <p>We couldn't find any matches for your current filters. Try adjusting your search criteria or clearing the filters.</p>
+        <button id="sv-clear-filters" class="btn">Clear All Filters</button>
+      </div>
+    `;
+
+    // Insert after the filter bar
+    const filterBar = document.getElementById("sv-filter-bar");
+    filterBar.parentNode.insertBefore(noResultsMessage, filterBar.nextSibling);
+
+    // Add event listener to clear filters button
+    document
+      .getElementById("sv-clear-filters")
+      .addEventListener("click", clearAllFilters);
+  }
+}
+
+// ============================================
+// CLEAR ALL FILTERS
+// ============================================
+function clearAllFilters() {
+  // Clear all filter inputs
+  document.getElementById("sv-search").value = "";
+  document.getElementById("sv-region-filter").value = "";
+  document.getElementById("sv-type-filter").value = "";
+  document.getElementById("sv-price-filter").value = "";
+
+  // Show all cards
+  const cards = document.querySelectorAll(".sv-card, .sv-deal-card");
+  cards.forEach((card) => {
+    card.style.display = "";
   });
 
-  document.getElementById("sv-booking-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Booking confirmed! (demo)");
-    closeModal();
-    e.target.reset();
+  // Show all sections
+  const sections = document.querySelectorAll(".sv-section");
+  sections.forEach((section) => {
+    section.style.display = "";
   });
+
+  // Remove no results message
+  const noResultsMessage = document.getElementById("sv-no-results");
+  if (noResultsMessage) {
+    noResultsMessage.remove();
+  }
+}
+
+// ============================================
+// MOBILE MENU TOGGLE
+// ============================================
+document.getElementById("menu-btn").addEventListener("click", () => {
+  document.getElementById("nav-links").classList.toggle("active");
+});
+
+// ============================================
+// LIVE SEARCH (Optional - updates as you type)
+// ============================================
+document.getElementById("sv-search").addEventListener("input", () => {
+  // Trigger filter on enter key or after 500ms of no typing
+  clearTimeout(window.searchTimeout);
+  window.searchTimeout = setTimeout(() => {
+    document.getElementById("sv-filter-btn").click();
+  }, 500);
 });

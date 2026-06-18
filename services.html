@@ -56,12 +56,16 @@
     </nav>
 
     <main id="sv-main-content">
-      <!-- Hero -->
+      <!-- HERO SECTION -->
       <section class="sv-hero">
-        <h1>Find Your Next Adventure</h1>
-        <p>
-          Bite-sized escapes, big memories. Curated trips, hotels & flights.
-        </p>
+        <div class="sv-hero-overlay"></div>
+        <div class="sv-hero-content">
+          <h1>Find Your Next Adventure</h1>
+          <p>
+            Bite-sized escapes, big memories. Curated trips, hotels & flights.
+          </p>
+          <a href="#sv-filter-bar" class="btn sv-hero-cta">Explore Now</a>
+        </div>
       </section>
 
       <!-- Filter Bar -->
@@ -96,10 +100,11 @@
         <button id="sv-filter-btn">Filter</button>
       </div>
 
-      <!-- EXPERIENCES (6) -->
+      <!-- ADVENTURES -->
       <section class="sv-section">
         <h2 class="sv-section-title">Top Adventures</h2>
         <div class="sv-grid">
+          <!-- Card 1 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -111,6 +116,7 @@
               <img
                 src="https://i.ibb.co/N6XydfCg/souks.jpg"
                 alt="Sahara camel caravan"
+                loading="lazy"
               />
               <span class="sv-badge hot">Hot Deal</span>
             </div>
@@ -133,6 +139,7 @@
             </div>
           </article>
 
+          <!-- Card 2 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -144,6 +151,7 @@
               <img
                 src="https://i.ibb.co/4wKf2LCB/patagonia-hike.jpg"
                 alt="Patagonia mountains"
+                loading="lazy"
               />
             </div>
             <div class="sv-card-body">
@@ -163,6 +171,7 @@
             </div>
           </article>
 
+          <!-- Card 3 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -174,6 +183,7 @@
               <img
                 src="https://i.ibb.co/TMvtvFG7/surfing.jpg"
                 alt="Surfer at sunset"
+                loading="lazy"
               />
               <span class="sv-badge limited">Limited</span>
             </div>
@@ -196,6 +206,7 @@
             </div>
           </article>
 
+          <!-- Card 4 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -207,6 +218,7 @@
               <img
                 src="https://i.ibb.co/RG87GLR9/northen-lights.jpg"
                 alt="Aurora borealis"
+                loading="lazy"
               />
               <span class="sv-badge best">Best Seller</span>
             </div>
@@ -227,7 +239,7 @@
             </div>
           </article>
 
-          <!-- NEW Adventure 5 -->
+          <!-- Card 5 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -239,6 +251,7 @@
               <img
                 src="https://i.ibb.co/C5DbpzX7/serengeti-safari-experience.jpg"
                 alt="Serengeti safari"
+                loading="lazy"
               />
               <span class="sv-badge best">Best Seller</span>
             </div>
@@ -261,7 +274,7 @@
             </div>
           </article>
 
-          <!-- NEW Adventure 6 -->
+          <!-- Card 6 -->
           <article
             class="sv-card"
             data-category="adventure"
@@ -273,6 +286,7 @@
               <img
                 src="https://i.ibb.co/q30J3ppr/new-zealand-thrill-seeker.jpg"
                 alt="New Zealand adventure"
+                loading="lazy"
               />
               <span class="sv-badge hot">Hot Deal</span>
             </div>
@@ -297,7 +311,7 @@
         </div>
       </section>
 
-      <!-- Special Deals -->
+      <!-- LIMITED-TIME DEALS -->
       <section class="sv-section sv-deals" id="deals-section">
         <h2 class="sv-section-title">Limited‑Time Deals</h2>
         <div class="sv-deals-grid">
@@ -326,10 +340,11 @@
         </div>
       </section>
 
-      <!-- HOTELS (6) -->
+      <!-- HOTELS -->
       <section class="sv-section">
         <h2 class="sv-section-title">Find Your Stay</h2>
         <div class="sv-grid">
+          <!-- Hotel 1 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -341,6 +356,7 @@
               <img
                 src="https://i.ibb.co/Xf9FyXf9/riad-kheirredine.jpg"
                 alt="Riad courtyard"
+                loading="lazy"
               />
               <span class="sv-badge best">Top Rated</span>
             </div>
@@ -364,6 +380,7 @@
             </div>
           </article>
 
+          <!-- Hotel 2 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -375,6 +392,7 @@
               <img
                 src="https://i.ibb.co/TqnqPnJC/como-uma.jpg"
                 alt="Infinity pool"
+                loading="lazy"
               />
               <span class="sv-badge hot">Hot Deal</span>
             </div>
@@ -396,6 +414,7 @@
             </div>
           </article>
 
+          <!-- Hotel 3 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -407,6 +426,7 @@
               <img
                 src="https://i.ibb.co/4w9TRNnC/ecocamp.jpg"
                 alt="Mountain lodge"
+                loading="lazy"
               />
             </div>
             <div class="sv-card-body">
@@ -429,6 +449,7 @@
             </div>
           </article>
 
+          <!-- Hotel 4 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -440,6 +461,7 @@
               <img
                 src="https://i.ibb.co/LXTTCkGT/Igloo-hotel.jpg"
                 alt="Glass igloo"
+                loading="lazy"
               />
               <span class="sv-badge limited">Limited</span>
             </div>
@@ -461,7 +483,7 @@
             </div>
           </article>
 
-          <!-- NEW Hotel 5 -->
+          <!-- Hotel 5 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -473,6 +495,7 @@
               <img
                 src="https://i.ibb.co/yFTF1f94/serengeti-safari-lodge.jpg"
                 alt="Serengeti lodge"
+                loading="lazy"
               />
               <span class="sv-badge best">Top Rated</span>
             </div>
@@ -494,7 +517,7 @@
             </div>
           </article>
 
-          <!-- NEW Hotel 6 -->
+          <!-- Hotel 6 -->
           <article
             class="sv-card"
             data-category="hotel"
@@ -506,6 +529,7 @@
               <img
                 src="https://i.ibb.co/0jhkCRRB/lakeview-queenstown.jpg"
                 alt="Queenstown lake view hotel"
+                loading="lazy"
               />
               <span class="sv-badge hot">Hot Deal</span>
             </div>
@@ -531,10 +555,11 @@
         </div>
       </section>
 
-      <!-- FLIGHTS (6) -->
+      <!-- FLIGHTS -->
       <section class="sv-section">
         <h2 class="sv-section-title">Book Your Flight</h2>
         <div class="sv-grid">
+          <!-- Flight 1 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -564,6 +589,7 @@
             </div>
           </article>
 
+          <!-- Flight 2 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -591,6 +617,7 @@
             </div>
           </article>
 
+          <!-- Flight 3 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -620,6 +647,7 @@
             </div>
           </article>
 
+          <!-- Flight 4 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -647,7 +675,7 @@
             </div>
           </article>
 
-          <!-- NEW Flight 5 -->
+          <!-- Flight 5 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -677,7 +705,7 @@
             </div>
           </article>
 
-          <!-- NEW Flight 6 -->
+          <!-- Flight 6 -->
           <article
             class="sv-card sv-flight-card"
             data-category="flight"
@@ -708,56 +736,13 @@
       </section>
     </main>
 
-  <footer class="site-footer">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="footer-logo" href="https://ibb.co/4g9nZ7tM"><img src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png" alt="Screenshot 2026 06 10 152732 Copy" border="0"></a>
-          <p>Building clean and stylish web pages with HTML and CSS.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#Interests">Interests</a>
-          <a href="#contact">Contact</a>
-        </div>
+    <!-- Back-to-top button -->
+    <button id="sv-back-to-top" aria-label="Back to top">↑</button>
 
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <ul>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 com194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"/></svg>
-              info@devteam.com
-            </li>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"/></svg>
-              27+ 63 326 4567
-            </li>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
-              Imam Haron Road, Lansdowne, 7780
-            </li>
-          
-        </div>
-
-        <div class="footer-follow">
-          <h4>Follow Us</h4>
-          <ul class="footer-list">
-            <li>
-              <i class="fa fa-github" style="font-size:24px"></i>
-            </li>    
-            <li>
-              <i class="fa fa-linkedin-square" style="font-size:24px"></i>
-            </li>
-          </ul>
-        </div>
-
-        <!-- <div class="QR-code">
-          <a href="https://ibb.co/Qv8WdFPY"><img src="https://i.ibb.co/SwQkrXtV/qr-code-1781681586380.jpg" alt="qr code 1781681586380" border="0"></a>
-        </div> -->
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Html and Css Profile. Crafted with care and simplicity.</p>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Voya Bite. All rights reserved.</p>
       </div>
     </footer>
 
