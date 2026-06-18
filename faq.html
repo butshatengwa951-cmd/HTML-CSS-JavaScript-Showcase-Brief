@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <title>FAQ</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
@@ -18,19 +22,109 @@
       }
 
       * {
-        box-sizing: border-box;
-        margin: 0;
         padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        scroll-behavior: smooth;
       }
 
       body {
         font-family: "DM Sans", sans-serif;
         background: linear-gradient(180deg, #eef7ff 0%, #f9fbff 100%);
         min-height: 100vh;
+        padding: 0;
+      }
+
+      img {
         display: flex;
+        width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      nav {
+        position: fixed;
+        isolation: isolate;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9;
+        background: var(--primary-color-dark);
+      }
+
+      .nav_header {
+        padding: 1rem 1.5rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--primary-color-dark);
+      }
+
+      .nav_logo a {
+        display: inline-flex;
+      }
+
+      .nav_logo img {
+        width: 200px;
+        height: auto;
+        display: block;
+      }
+
+      .nav_menu_btn {
+        font-size: 2rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      .material-symbols-outlined {
+        font-size: 2rem;
+        line-height: 1;
+        display: block;
+      }
+
+      .nav_links {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
         justify-content: center;
-        align-items: flex-start;
-        padding: 40px 16px;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--primary-color-dark);
+        transition: transform 0.5s;
+        z-index: -1;
+      }
+
+      .nav_links.open {
+        transform: translateY(100%);
+      }
+
+      .nav_links a {
+        font-weight: 600;
+        color: var(--white);
+        white-space: nowrap;
+      }
+
+      .nav_links a:hover {
+        color: #d8f5d6;
       }
 
       #FAQ-Page {
@@ -39,6 +133,86 @@
         border-radius: 18px;
         box-shadow: 0 10px 30px rgba(13, 38, 76, 0.08);
         padding: 48px 24px;
+        margin: 5rem auto 2rem;
+      }
+
+      .site-footer {
+        background: var(--primary-color-dark);
+        color: #f8fafc;
+        padding: 60px 24px 36px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-brand,
+      .footer-links,
+      .footer-contact,
+      .footer-follow {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-logo {
+        display: inline-block;
+        width: 150px;
+        margin-bottom: 12px;
+      }
+
+      .footer-logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .footer-links h4,
+      .footer-contact h4,
+      .footer-follow h4 {
+        margin: 0;
+        color: #d8f5d6;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.95rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        transition: color 0.25s ease;
+      }
+
+      .footer-links a:hover {
+        color: #fff;
+      }
+
+      .footer-contact ul,
+      .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-contact li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(248, 250, 252, 0.9);
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding-top: 24px;
+        border-top: 1px solid rgba(18, 14, 14, 0.12);
+        text-align: center;
+        color: rgba(248, 250, 252, 0.75);
+        font-size: 0.95rem;
       }
 
       .Header-Section {
@@ -180,12 +354,62 @@
         background: var(--primary-color-dark);
       }
 
-      @media (max-width: 768px) {
-        body {
-          padding: 20px 10px;
+      @media (min-width: 769px) {
+        nav {
+          position: static;
+          width: 100%;
+          padding: 1.5rem 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+          background-color: var(--primary-color-dark);
         }
 
+        .nav_header {
+          flex: 1;
+          padding: 0;
+          background-color: transparent;
+        }
+
+        .nav_logo img {
+          width: 200px;
+        }
+
+        .nav_menu_btn {
+          display: none;
+        }
+
+        .nav_links {
+          position: static;
+          width: fit-content;
+          padding: 0;
+          flex-direction: row;
+          background-color: transparent;
+          transform: none !important;
+        }
+
+        .nav_links a {
+          color: var(--white);
+        }
+
+        .nav_links a:hover {
+          color: #d8f5d6;
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
         #FAQ-Page {
+          margin: 6rem 10px 2rem;
           padding: 32px 14px;
         }
 
@@ -201,6 +425,10 @@
         .dropdown-paragraph {
           padding: 12px;
           font-size: 0.95rem;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -222,9 +450,33 @@
     </style>
   </head>
   <body>
+    <nav>
+      <div class="nav_header">
+        <div class="nav_logo">
+          <a href="home.html">
+            <img
+              src="https://i.ibb.co/d9XW23k/Voya-Byte-Logo.png"
+              alt="Voya Bite logo"
+              width="200"
+              height="53"
+            />
+          </a>
+        </div>
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <ul class="nav_links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="FAQ.html" aria-current="page">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
     <div id="FAQ-Page">
       <div class="Header-Section">
-        <!-- Add Nav Bar Code Here -->
         <h1>Frequently Asked Questions</h1>
         <p>
           Welcome to <b>VOYA BYTE'S FAQ</b> Page! Here you can find all your
@@ -287,7 +539,7 @@
             <p id="activities-1" class="dropdown-paragraph">
               VOYA BYTE offers a wide range of activities and experiences from
               different parts of the world, including adventure, sightseeing,
-              cultural experiences, outdoor activities, and more.
+              cultural experiences, outdoor activities and more.
             </p>
           </div>
 
@@ -306,7 +558,7 @@
 
           <div class="faq-item">
             <button class="dropdown-trigger" data-target="activities-3">
-              Are the activities suitable for solo travelers, couples, and
+              Are the activities suitable for solo travelers, couples and
               groups?
               <span class="arrow">▼</span>
             </button>
@@ -337,7 +589,7 @@
 
           <div class="faq-item">
             <button class="dropdown-trigger" data-target="support-2">
-              Can I use Voyabyte to plan an entire trip?<span class="arrow"
+              Can I use VOYA BYTE to plan an entire trip?<span class="arrow"
                 >▼</span
               >
             </button>
@@ -379,29 +631,131 @@
       </div>
     </div>
 
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo" href="https://ibb.co/4g9nZ7tM">
+            <img
+              src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png"
+              alt="Voya Bite logo"
+            />
+          </a>
+          <p>Building clean and stylish web pages with HTML and CSS.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="home.html">Home</a>
+          <a href="about-us.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 com194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"
+                />
+              </svg>
+              info@devteam.com
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"
+                />
+              </svg>
+              27+ 63 326 4567
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+                />
+              </svg>
+              Imam Haron Road, Lansdowne, 7780
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-follow">
+          <h4>Follow Us</h4>
+          <ul class="footer-list">
+            <li>
+              <i class="fa fa-github" style="font-size: 24px"></i>
+            </li>
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Html and Css Profile. Crafted with care and simplicity.</p>
+      </div>
+    </footer>
+
     <script>
-      document.querySelectorAll(".dropdown-trigger").forEach((button) => {
-        button.addEventListener("click", () => {
-          const targetId = button.getAttribute("data-target");
-          const paragraph = document.getElementById(targetId);
-          const isOpen = paragraph.classList.contains("show");
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
 
-          document
-            .querySelectorAll(".dropdown-paragraph.show")
-            .forEach((item) => {
-              item.classList.remove("show");
+        if (menuBtn && navLinks) {
+          menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+          });
+
+          navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("open");
             });
+          });
+        }
 
-          document
-            .querySelectorAll(".dropdown-trigger.active")
-            .forEach((item) => {
-              item.classList.remove("active");
-            });
+        document.querySelectorAll(".dropdown-trigger").forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-target");
+            const paragraph = document.getElementById(targetId);
+            const isOpen = paragraph.classList.contains("show");
 
-          if (!isOpen) {
-            paragraph.classList.add("show");
-            button.classList.add("active");
-          }
+            document
+              .querySelectorAll(".dropdown-paragraph.show")
+              .forEach((item) => {
+                item.classList.remove("show");
+              });
+
+            document
+              .querySelectorAll(".dropdown-trigger.active")
+              .forEach((item) => {
+                item.classList.remove("active");
+              });
+
+            if (!isOpen) {
+              paragraph.classList.add("show");
+              button.classList.add("active");
+            }
+          });
         });
       });
     </script>
