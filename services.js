@@ -98,17 +98,17 @@ function validatePhone(phone) {
   return "";
 }
 function validateCheckIn(date) {
-  if (!date) return "Check-in date is required";
+  if (!date) return "Start date is required";
   const selected = new Date(date);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  if (selected < today) return "Check-in date cannot be in the past";
+  if (selected < today) return "Start date cannot be in the past";
   return "";
 }
 function validateCheckOut(checkIn, checkOut) {
   if (!checkOut) return "";
   if (new Date(checkOut) <= new Date(checkIn))
-    return "Check-out must be after check-in";
+    return "End date must be after start date";
   return "";
 }
 
@@ -196,10 +196,8 @@ function autoSetCheckOut() {
   const category = currentBookingData.category.toLowerCase();
   const checkInValue = document.getElementById("check-in").value;
   if (!checkInValue) return;
-
   const checkIn = new Date(checkInValue);
   let daysToAdd = 0;
-
   if (category === "adventure") {
     const match = currentBookingData.duration.match(/(\d+)/);
     if (match) daysToAdd = parseInt(match[1]);
@@ -213,7 +211,6 @@ function autoSetCheckOut() {
       daysToAdd = 14;
     else daysToAdd = 3;
   }
-
   if (daysToAdd > 0) {
     const checkOut = new Date(checkIn);
     checkOut.setDate(checkOut.getDate() + daysToAdd);
@@ -288,10 +285,8 @@ function updatePriceDisplay() {
         pricing.totalAdultCost.toLocaleString() +
         " (" +
         pricing.adults +
-        " adult" +
+        " adult ticket" +
         (pricing.adults > 1 ? "s" : "") +
-        " x R" +
-        pricing.adultTicketPrice.toLocaleString() +
         ")";
     } else {
       adultExtraRow.style.display = "none";
@@ -304,10 +299,8 @@ function updatePriceDisplay() {
         pricing.totalChildCost.toLocaleString() +
         " (" +
         pricing.children +
-        " child" +
-        (pricing.children > 1 ? "ren" : "") +
-        " x R" +
-        pricing.childTicketPrice.toLocaleString() +
+        " child ticket" +
+        (pricing.children > 1 ? "s" : "") +
         ")";
     } else {
       childExtraRow.style.display = "none";
@@ -391,9 +384,7 @@ function setupPriceListeners() {
 // OPEN BOOKING FORM (Specific Bookings)
 // ============================================
 function openBookingForm(itemName, category, price, location, duration) {
-  // Hide custom trip fields
   hideCustomFields();
-
   const numPrice = parseInt(price) || 0;
   currentBookingData = {
     itemName,
@@ -403,19 +394,15 @@ function openBookingForm(itemName, category, price, location, duration) {
     location,
     duration,
   };
-
   document.getElementById("booking-item-title").textContent =
     itemName + " - " + category;
   document.getElementById("summary-item").textContent = itemName;
-
   setFormDateConstraints(category, itemName);
   updateFormLabels(category);
-
   document.getElementById("booking-form-modal").style.display = "block";
   document.getElementById("booking-details-form").reset();
   document.getElementById("adults").value = 1;
   document.getElementById("children").value = 0;
-
   clearAllErrors();
   updatePriceDisplay();
 }
@@ -432,30 +419,24 @@ function openCustomTripForm() {
     location: "To be determined",
     duration: "Flexible",
   };
-
   document.getElementById("booking-item-title").textContent =
     "Custom Trip Inquiry";
   document.getElementById("summary-item").textContent = "Custom Trip";
-
   const today = new Date().toISOString().split("T")[0];
   document.getElementById("check-in").setAttribute("min", today);
   document.getElementById("check-out").setAttribute("min", today);
-
   updateFormLabels("custom");
   showCustomFields();
-
   document.getElementById("booking-form-modal").style.display = "block";
   document.getElementById("booking-details-form").reset();
   document.getElementById("adults").value = 1;
   document.getElementById("children").value = 0;
-
   clearAllErrors();
   updatePriceDisplay();
 }
 
 function hideCustomFields() {
-  const fields = ["destination-group", "trip-type-group", "budget-group"];
-  fields.forEach((id) => {
+  ["destination-group", "trip-type-group", "budget-group"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.style.display = "none";
   });
@@ -504,7 +485,6 @@ function showCustomFields() {
       { value: "50000+", text: "R50,000+" },
     ],
   );
-
   ["destination-group", "trip-type-group", "budget-group"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.style.display = "block";
@@ -526,16 +506,15 @@ function createCustomField(
     el = document.createElement("div");
     el.id = id;
     el.className = "form-group";
-    let innerHTML = '<label for="' + inputId + '">' + label + "</label>";
+    let html = '<label for="' + inputId + '">' + label + "</label>";
     if (type === "select" && options) {
-      innerHTML += '<select id="' + inputId + '">';
+      html += '<select id="' + inputId + '">';
       options.forEach((opt) => {
-        innerHTML +=
-          '<option value="' + opt.value + '">' + opt.text + "</option>";
+        html += '<option value="' + opt.value + '">' + opt.text + "</option>";
       });
-      innerHTML += "</select>";
+      html += "</select>";
     } else {
-      innerHTML +=
+      html +=
         '<input type="' +
         type +
         '" id="' +
@@ -544,7 +523,7 @@ function createCustomField(
         placeholder +
         '">';
     }
-    el.innerHTML = innerHTML;
+    el.innerHTML = html;
     const refEl = document.getElementById(refId);
     if (refEl) {
       if (position === "before") refEl.parentNode.insertBefore(el, refEl);
@@ -559,7 +538,6 @@ function setFormDateConstraints(category, itemName) {
   const today = new Date();
   const todayStr = today.toISOString().split("T")[0];
   let minDate = todayStr;
-
   if (category.toLowerCase() === "deal") {
     if (itemName.includes("Early Bird")) {
       const earlyBirdDate = new Date(today);
@@ -571,7 +549,6 @@ function setFormDateConstraints(category, itemName) {
       minDate = lastMinuteDate.toISOString().split("T")[0];
     }
   }
-
   document.getElementById("check-in").setAttribute("min", minDate);
   document.getElementById("check-out").setAttribute("min", minDate);
 }
@@ -580,7 +557,6 @@ function updateFormLabels(category) {
   const checkInLabel = document.querySelector('label[for="check-in"]');
   const checkOutLabel = document.querySelector('label[for="check-out"]');
   const adultsLabel = document.querySelector('label[for="adults"]');
-
   switch (category.toLowerCase()) {
     case "flight":
       if (checkInLabel) checkInLabel.textContent = "Departure Date";
@@ -623,7 +599,6 @@ function closeBookingForm() {
 // ============================================
 function submitBookingForm(event) {
   if (event) event.preventDefault();
-
   const fullName = document.getElementById("full-name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -665,7 +640,6 @@ function submitBookingForm(event) {
     specialRequests: document.getElementById("special-requests").value.trim(),
   };
 
-  // Add custom trip data if visible
   const destinationEl = document.getElementById("destination");
   const tripTypeEl = document.getElementById("trip-type");
   const budgetEl = document.getElementById("budget");
@@ -702,155 +676,174 @@ function generateBookingPDF(formData) {
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 20;
-    let y = 25;
+    const margin = 18;
+    let y = 20;
 
-    // Header
+    // ============================================
+    // HEADER
+    // ============================================
     doc.setFillColor(40, 40, 40);
-    doc.rect(0, 0, pageWidth, 40, "F");
+    doc.rect(0, 0, pageWidth, 35, "F");
     doc.setTextColor(255, 255, 255);
-    doc.setFontSize(22);
+    doc.setFontSize(20);
     doc.setFont("helvetica", "bold");
-    doc.text("VOYA BITE", pageWidth / 2, 18, { align: "center" });
-    doc.setFontSize(9);
+    doc.text("VOYA BITE", pageWidth / 2, 15, { align: "center" });
+    doc.setFontSize(8);
     doc.setFont("helvetica", "normal");
     doc.text(
-      formData.isCustomTrip
-        ? "TRIP INQUIRY CONFIRMATION"
-        : "BOOKING CONFIRMATION",
+      formData.isCustomTrip ? "TRIP INQUIRY" : "BOOKING CONFIRMATION",
       pageWidth / 2,
-      28,
+      24,
       { align: "center" },
     );
 
-    // Reference Code Box
-    y = 55;
+    // ============================================
+    // BOOKING CODE + STATUS
+    // ============================================
+    y = 46;
     doc.setDrawColor(60, 60, 60);
     doc.setLineWidth(0.5);
-    doc.rect(margin, y - 5, pageWidth - margin * 2, 20);
+    doc.rect(margin, y - 4, pageWidth - margin * 2, 16);
     doc.setFillColor(245, 245, 245);
-    doc.rect(margin, y - 5, pageWidth - margin * 2, 20, "F");
+    doc.rect(margin, y - 4, pageWidth - margin * 2, 16, "F");
     doc.setTextColor(40, 40, 40);
-    doc.setFontSize(10);
+    doc.setFontSize(9);
     doc.setFont("helvetica", "bold");
-    doc.text("REFERENCE CODE:", margin + 5, y + 2);
+    doc.text("BOOKING CODE:", margin + 4, y + 2);
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(14);
+    doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
-    doc.text(bookingCode, margin + 5, y + 8);
+    doc.text(bookingCode, margin + 4, y + 7);
 
     if (!formData.isCustomTrip) {
       doc.setTextColor(39, 174, 96);
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.text("CONFIRMED", pageWidth - margin - 5, y + 5, { align: "right" });
-    } else {
-      doc.setTextColor(230, 126, 34);
       doc.setFontSize(10);
       doc.setFont("helvetica", "bold");
-      doc.text("AWAITING REVIEW", pageWidth - margin - 5, y + 5, {
+      doc.text("CONFIRMED", pageWidth - margin - 4, y + 4, { align: "right" });
+    } else {
+      doc.setTextColor(230, 126, 34);
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "bold");
+      doc.text("PENDING REVIEW", pageWidth - margin - 4, y + 4, {
         align: "right",
       });
     }
 
-    // Guest Details
-    y = 85;
+    // ============================================
+    // GUEST DETAILS
+    // ============================================
+    y = 74;
     doc.setTextColor(40, 40, 40);
-    doc.setFontSize(12);
+    doc.setFontSize(11);
     doc.setFont("helvetica", "bold");
     doc.text("GUEST DETAILS", margin, y);
-    y += 6;
+    y += 4;
     doc.setDrawColor(40, 40, 40);
-    doc.setLineWidth(0.6);
+    doc.setLineWidth(0.5);
     doc.line(margin, y, pageWidth - margin, y);
-    y += 10;
-    doc.setFontSize(10);
+    y += 8;
+    doc.setFontSize(9);
 
-    let guestData = [
-      ["Guest Name:", formData.fullName],
+    const guestData = [
+      ["Name:", formData.fullName],
       ["Email:", formData.email],
       ["Phone:", formData.phone],
-      [
-        "Travelers:",
-        formData.adults +
-          " adults" +
-          (parseInt(formData.children) > 0
-            ? ", " + formData.children + " children"
-            : ""),
-      ],
     ];
-
-    if (formData.isCustomTrip) {
-      guestData.push(
-        ["Destination:", formData.destination || "Not specified"],
-        ["Trip Type:", formData.tripType || "Not specified"],
-        ["Budget:", formData.budget || "Not specified"],
-      );
-    }
-
-    guestData.push(["Special Requests:", formData.specialRequests || "None"]);
-
     guestData.forEach(([label, value]) => {
       doc.setFont("helvetica", "bold");
       doc.text(label, margin, y);
       doc.setFont("helvetica", "normal");
-      doc.text(value, margin + 45, y);
-      y += 8;
+      doc.text(value, margin + 32, y);
+      y += 7;
     });
 
-    // Booking/Inquiry Details
-    y += 6;
-    doc.setFontSize(12);
+    // ============================================
+    // TRIP / INQUIRY DETAILS
+    // ============================================
+    y += 4;
+    doc.setFontSize(11);
     doc.setFont("helvetica", "bold");
     doc.text(
-      formData.isCustomTrip ? "TRIP DETAILS" : "BOOKING DETAILS",
+      formData.isCustomTrip ? "INQUIRY DETAILS" : "TRIP DETAILS",
       margin,
       y,
     );
-    y += 6;
+    y += 4;
     doc.setDrawColor(40, 40, 40);
     doc.line(margin, y, pageWidth - margin, y);
-    y += 10;
-    doc.setFontSize(10);
+    y += 8;
+    doc.setFontSize(9);
 
-    let bookingData = [
-      ["Item:", currentBookingData.itemName],
-      [
-        "Location:",
-        formData.isCustomTrip
-          ? formData.destination || "TBD"
-          : currentBookingData.location,
-      ],
-      ["Duration:", currentBookingData.duration],
-      ["Start Date:", formData.checkIn || "N/A"],
-      ["End Date:", formData.checkOut || "N/A"],
-      ["Inquiry Date:", bookingDate],
-    ];
+    if (formData.isCustomTrip) {
+      const inquiryData = [
+        ["Trip Type:", formData.tripType || "Not specified"],
+        ["Destination:", formData.destination || "Not specified"],
+        ["Budget:", formData.budget || "Not specified"],
+        [
+          "Travelers:",
+          formData.adults +
+            " adult(s)" +
+            (parseInt(formData.children) > 0
+              ? ", " + formData.children + " child(ren)"
+              : ""),
+        ],
+        ["Start Date:", formData.checkIn || "Not specified"],
+        ["End Date:", formData.checkOut || "Not specified"],
+        ["Inquiry Date:", bookingDate],
+      ];
+      inquiryData.forEach(([label, value]) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(label, margin, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(value, margin + 38, y);
+        y += 7;
+      });
+    } else {
+      const tripData = [
+        ["Trip:", currentBookingData.itemName],
+        ["Category:", currentBookingData.category],
+        ["Location:", currentBookingData.location],
+        ["Duration:", currentBookingData.duration],
+        [
+          "Travelers:",
+          formData.adults +
+            " adult(s)" +
+            (parseInt(formData.children) > 0
+              ? ", " + formData.children + " child(ren)"
+              : ""),
+        ],
+        ["Start Date:", formData.checkIn || "Not specified"],
+        ["End Date:", formData.checkOut || "Not specified"],
+        ["Booked On:", bookingDate],
+      ];
+      tripData.forEach(([label, value]) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(label, margin, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(value, margin + 38, y);
+        y += 7;
+      });
+    }
 
-    bookingData.forEach(([label, value]) => {
-      doc.setFont("helvetica", "bold");
-      doc.text(label, margin, y);
-      doc.setFont("helvetica", "normal");
-      doc.text(value, margin + 45, y);
-      y += 8;
-    });
-
-    // Price Section (only for confirmed bookings)
+    // ============================================
+    // PRICE / QUOTE SECTION
+    // ============================================
+    y += 4;
     if (!formData.isCustomTrip) {
-      y += 6;
       doc.setFillColor(245, 245, 245);
 
       if (pricing.isFlight) {
-        let priceBoxH = 18;
-        if (pricing.adults > 1) priceBoxH += 8;
-        if (pricing.children > 0) priceBoxH += 8;
-        if (pricing.discount > 0) priceBoxH += 16;
-        priceBoxH += 8;
-        doc.rect(margin, y - 3, pageWidth - margin * 2, priceBoxH, "F");
+        let boxH = 16;
+        if (pricing.adults > 1) boxH += 7;
+        if (pricing.children > 0) boxH += 7;
+        if (pricing.discount > 0) boxH += 14;
+        boxH += 10;
+
+        doc.rect(margin, y - 2, pageWidth - margin * 2, boxH, "F");
         doc.setTextColor(40, 40, 40);
-        doc.setFontSize(10);
+        doc.setFontSize(9);
         doc.setFont("helvetica", "bold");
-        doc.text("Ticket Price (per adult):", margin + 3, y + 3);
+        doc.text("Price per adult ticket:", margin + 3, y + 3);
         doc.setFont("helvetica", "normal");
         doc.text(
           "R" + pricing.adultTicketPrice.toLocaleString(),
@@ -858,8 +851,9 @@ function generateBookingPDF(formData) {
           y + 3,
           { align: "right" },
         );
+
         if (pricing.adults > 1) {
-          y += 8;
+          y += 7;
           doc.setFont("helvetica", "bold");
           doc.text(
             "Adult Tickets (" + pricing.adults + "x):",
@@ -875,10 +869,10 @@ function generateBookingPDF(formData) {
           );
         }
         if (pricing.children > 0) {
-          y += 8;
+          y += 7;
           doc.setFont("helvetica", "bold");
           doc.text(
-            "Child Tickets (" + pricing.children + "x at 25% off):",
+            "Child Tickets (" + pricing.children + "x, 25% off):",
             margin + 3,
             y + 3,
           );
@@ -891,16 +885,16 @@ function generateBookingPDF(formData) {
           );
         }
         if (pricing.discount > 0) {
-          y += 8;
+          y += 7;
           doc.setDrawColor(180, 180, 180);
           doc.line(margin + 3, y + 1, pageWidth - margin - 3, y + 1);
           doc.setTextColor(39, 174, 96);
           doc.setFont("helvetica", "bold");
-          doc.text("Group Discount (10%):", margin + 3, y + 5);
+          doc.text("Group Discount (10%):", margin + 3, y + 4);
           doc.text(
             "-R" + pricing.discount.toLocaleString(),
             pageWidth - margin - 3,
-            y + 5,
+            y + 4,
             { align: "right" },
           );
         }
@@ -908,24 +902,25 @@ function generateBookingPDF(formData) {
         doc.setDrawColor(180, 180, 180);
         doc.line(margin + 3, y - 1, pageWidth - margin - 3, y - 1);
         doc.setTextColor(0, 0, 0);
-        doc.setFontSize(12);
+        doc.setFontSize(11);
         doc.setFont("helvetica", "bold");
-        doc.text("TOTAL:", margin + 3, y + 5);
-        doc.setFontSize(13);
+        doc.text("TOTAL:", margin + 3, y + 4);
+        doc.setFontSize(12);
         doc.text(
           "R" + pricing.totalPrice.toLocaleString(),
           pageWidth - margin - 3,
-          y + 5,
+          y + 4,
           { align: "right" },
         );
       } else {
-        let priceBoxH = 18;
-        if (pricing.adultExtraCost > 0) priceBoxH += 8;
-        if (pricing.childCost > 0) priceBoxH += 8;
-        priceBoxH += 8;
-        doc.rect(margin, y - 3, pageWidth - margin * 2, priceBoxH, "F");
+        let boxH = 16;
+        if (pricing.adultExtraCost > 0) boxH += 7;
+        if (pricing.childCost > 0) boxH += 7;
+        boxH += 10;
+
+        doc.rect(margin, y - 2, pageWidth - margin * 2, boxH, "F");
         doc.setTextColor(40, 40, 40);
-        doc.setFontSize(10);
+        doc.setFontSize(9);
         doc.setFont("helvetica", "bold");
         doc.text("Base Price:", margin + 3, y + 3);
         doc.setFont("helvetica", "normal");
@@ -935,10 +930,15 @@ function generateBookingPDF(formData) {
           y + 3,
           { align: "right" },
         );
+
         if (pricing.adultExtraCost > 0) {
-          y += 8;
+          y += 7;
           doc.setFont("helvetica", "bold");
-          doc.text("Extra Adults:", margin + 3, y + 3);
+          doc.text(
+            "Extra Adults (" + pricing.extraAdults + "):",
+            margin + 3,
+            y + 3,
+          );
           doc.setFont("helvetica", "normal");
           doc.text(
             "R" + pricing.adultExtraCost.toLocaleString(),
@@ -948,9 +948,9 @@ function generateBookingPDF(formData) {
           );
         }
         if (pricing.childCost > 0) {
-          y += 8;
+          y += 7;
           doc.setFont("helvetica", "bold");
-          doc.text("Children:", margin + 3, y + 3);
+          doc.text("Children (" + pricing.children + "):", margin + 3, y + 3);
           doc.setFont("helvetica", "normal");
           doc.text(
             "R" + pricing.childCost.toLocaleString(),
@@ -962,82 +962,82 @@ function generateBookingPDF(formData) {
         y += 10;
         doc.setDrawColor(180, 180, 180);
         doc.line(margin + 3, y - 1, pageWidth - margin - 3, y - 1);
-        doc.setFontSize(12);
+        doc.setFontSize(11);
         doc.setFont("helvetica", "bold");
         doc.setTextColor(0, 0, 0);
-        doc.text("TOTAL:", margin + 3, y + 5);
-        doc.setFontSize(13);
+        doc.text("TOTAL:", margin + 3, y + 4);
+        doc.setFontSize(12);
         doc.text(
           "R" + pricing.totalPrice.toLocaleString(),
           pageWidth - margin - 3,
-          y + 5,
+          y + 4,
           { align: "right" },
         );
       }
     } else {
-      y += 8;
       doc.setFillColor(255, 243, 205);
-      doc.rect(margin, y - 3, pageWidth - margin * 2, 15, "F");
+      doc.rect(margin, y - 2, pageWidth - margin * 2, 13, "F");
       doc.setTextColor(150, 100, 0);
-      doc.setFontSize(10);
+      doc.setFontSize(9);
       doc.setFont("helvetica", "bold");
       doc.text(
         "A travel specialist will contact you within 24 hours with a personalized quote.",
-        margin + 5,
+        margin + 4,
         y + 3,
       );
     }
 
-    // Important Information
-    y += 20;
+    // ============================================
+    // IMPORTANT INFORMATION
+    // ============================================
+    y += 16;
     doc.setTextColor(40, 40, 40);
-    doc.setFontSize(11);
+    doc.setFontSize(10);
     doc.setFont("helvetica", "bold");
     doc.text("IMPORTANT INFORMATION", margin, y);
-    y += 5;
+    y += 4;
     doc.setDrawColor(40, 40, 40);
     doc.line(margin, y, pageWidth - margin, y);
-    y += 9;
-    doc.setFontSize(8.5);
+    y += 7;
+    doc.setFontSize(8);
     doc.setFont("helvetica", "normal");
     doc.setTextColor(80, 80, 80);
 
-    let info = formData.isCustomTrip
+    const info = formData.isCustomTrip
       ? [
           "A travel specialist will review your inquiry and contact you shortly.",
           "This is not a confirmed booking - it is an inquiry only.",
-          "Prices will be confirmed upon consultation with our team.",
           "For immediate assistance, contact support@voyabite.com",
           "Please save this reference code for your records.",
         ]
       : [
           "Please save this booking code for future reference.",
-          "Present this booking code and ID at check-in/boarding.",
-          "Free cancellation up to 48 hours before departure.",
-          "For assistance, contact support@voyabite.com",
-          "This is an electronic ticket - no physical copy required.",
+          "Present this booking code and valid ID at check-in.",
+          "Free cancellation up to 48 hours before start date.",
+          "For changes or assistance, contact support@voyabite.com",
         ];
-
     info.forEach((line) => {
       doc.text(line, margin, y);
       y += 6;
     });
 
-    // Footer
+    // ============================================
+    // FOOTER (fixed at bottom of page)
+    // ============================================
     doc.setFillColor(40, 40, 40);
-    doc.rect(0, pageHeight - 22, pageWidth, 22, "F");
+    doc.rect(0, pageHeight - 18, pageWidth, 18, "F");
     doc.setTextColor(200, 200, 200);
-    doc.setFontSize(7.5);
+    doc.setFontSize(7);
     doc.text(
       "Voya Bite Travel Solutions | support@voyabite.com | +27 800 123 456",
       pageWidth / 2,
-      pageHeight - 12,
+      pageHeight - 10,
       { align: "center" },
     );
     doc.text(
       "Computer-generated document - no signature required.",
       pageWidth / 2,
-      pageHeight - 6,
+      pageHeight - 5,
       { align: "center" },
     );
 
@@ -1049,7 +1049,7 @@ function generateBookingPDF(formData) {
         ".pdf",
     );
     updateModalWithCode(bookingCode, formData);
-  }, 1200);
+  }, 1000);
 }
 
 // ============================================
@@ -1071,10 +1071,12 @@ function showProcessingModal() {
 
 function updateModalWithCode(bookingCode, formData) {
   const pricing = calculateTotalPrice();
-  let pd = "<p><strong>" + currentBookingData.itemName + "</strong></p>";
+  let pd = "";
 
   if (formData.isCustomTrip) {
+    pd += "<p><strong>Custom Trip Inquiry</strong></p>";
     pd += "<p>Destination: " + (formData.destination || "TBD") + "</p>";
+    pd += "<p>Type: " + (formData.tripType || "Not specified") + "</p>";
     pd += "<p>" + (formData.checkIn || "Date TBD") + "</p>";
     pd +=
       "<p>Travelers: " +
@@ -1089,6 +1091,7 @@ function updateModalWithCode(bookingCode, formData) {
         : "") +
       "</p>";
   } else {
+    pd += "<p><strong>" + currentBookingData.itemName + "</strong></p>";
     pd += "<p>" + currentBookingData.location + "</p>";
     pd += "<p>" + (formData.checkIn || "Date TBD") + "</p>";
     if (pricing.isFlight) {
@@ -1118,7 +1121,10 @@ function updateModalWithCode(bookingCode, formData) {
           : "") +
         "</p>";
     }
-    pd += "<p>R" + currentBookingData.price.toLocaleString() + "</p>";
+    pd +=
+      "<p><strong>R" +
+      currentBookingData.price.toLocaleString() +
+      "</strong></p>";
   }
 
   const title = formData.isCustomTrip
@@ -1128,9 +1134,6 @@ function updateModalWithCode(bookingCode, formData) {
   const note1 = formData.isCustomTrip
     ? "Your trip inquiry has been submitted. A travel specialist will contact you within 24 hours."
     : "Your booking PDF has been downloaded automatically.";
-  const note2 = formData.isCustomTrip
-    ? "We will send a personalized quote to " + formData.email
-    : "A confirmation email will be sent to " + formData.email;
 
   document.getElementById("booking-modal-body").innerHTML =
     '<div class="booking-confirmation"><div class="booking-success-icon">' +
@@ -1145,8 +1148,6 @@ function updateModalWithCode(bookingCode, formData) {
     pd +
     '</div><p class="booking-note">' +
     note1 +
-    '</p><p class="booking-note">' +
-    note2 +
     '</p><button class="btn" onclick="closeModal()">Done</button></div>';
 }
 
@@ -1186,16 +1187,13 @@ document.getElementById("sv-filter-btn").addEventListener("click", () => {
   const region = document.getElementById("sv-region-filter").value;
   const type = document.getElementById("sv-type-filter").value;
   const priceRange = document.getElementById("sv-price-filter").value;
-
   const cards = document.querySelectorAll(".sv-card, .sv-deal-card");
   let totalVisibleCards = 0;
-
   cards.forEach((card) => {
     const cardCategory = card.dataset.category;
     const cardRegion = card.dataset.region;
     const cardPrice = parseInt(card.dataset.price);
     const cardLocation = (card.dataset.location || "").toLowerCase();
-
     let showCard = true;
     if (searchTerm && !cardLocation.includes(searchTerm)) showCard = false;
     if (region && cardRegion !== region) showCard = false;
@@ -1204,25 +1202,21 @@ document.getElementById("sv-filter-btn").addEventListener("click", () => {
       const [min, max] = priceRange.split("-").map(Number);
       if (cardPrice < min || cardPrice > max) showCard = false;
     }
-
     card.style.display = showCard ? "" : "none";
     if (showCard) totalVisibleCards++;
   });
-
   document.querySelectorAll(".sv-section").forEach((section) => {
     const visibleCards = section.querySelectorAll(
       '.sv-card:not([style*="display: none"]), .sv-deal-card:not([style*="display: none"])',
     );
     section.style.display = visibleCards.length === 0 ? "none" : "";
   });
-
   handleNoResultsMessage(totalVisibleCards);
 });
 
 function handleNoResultsMessage(visibleCount) {
   const existingMessage = document.getElementById("sv-no-results");
   if (existingMessage) existingMessage.remove();
-
   if (visibleCount === 0) {
     const msg = document.createElement("div");
     msg.id = "sv-no-results";
