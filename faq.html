@@ -1,409 +1,333 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" data-color="blue">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
-      :root {
-        --primary-color: #3d8fc4;
-        --primary-color-dark: #1d6b9e;
-        --text-dark: #0a0a0a;
-        --text-light: #5b5b5b;
-        --surface: #f8fafc;
-        --white: #ffffff;
-        --border: #d9e7f2;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: "DM Sans", sans-serif;
-        background: linear-gradient(180deg, #eef7ff 0%, #f9fbff 100%);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 40px 16px;
-      }
-
-      #FAQ-Page {
-        width: min(100%, 980px);
-        background: var(--white);
-        border-radius: 18px;
-        box-shadow: 0 10px 30px rgba(13, 38, 76, 0.08);
-        padding: 48px 24px;
-      }
-
-      .Header-Section {
-        text-align: center;
-        max-width: 760px;
-        margin: 0 auto 32px;
-      }
-
-      .Header-Section h1 {
-        font-size: clamp(2rem, 3vw, 3rem);
-        color: var(--text-dark);
-        margin-bottom: 12px;
-      }
-
-      .Header-Section p {
-        font-size: 1rem;
-        line-height: 1.7;
-        color: var(--text-light);
-      }
-
-      .FAQ-Section {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .FAQ1,
-      .FAQ2,
-      .FAQ3 {
-        text-align: center;
-      }
-
-      .FAQ1 h2,
-      .FAQ2 h2,
-      .FAQ3 h2 {
-        font-size: 1.5rem;
-        color: var(--primary-color-dark);
-        margin-bottom: 14px;
-      }
-
-      .faq-item {
-        width: min(100%, 760px);
-        margin: 0 auto 12px;
-      }
-
-      .dropdown-trigger {
-        width: 100%;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        color: var(--primary-color-dark);
-        cursor: pointer;
-        font: inherit;
-        font-weight: 600;
-        padding: 14px 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        transition:
-          background 0.2s ease,
-          transform 0.2s ease;
-        text-align: center;
-      }
-
-      .dropdown-trigger:hover {
-        background: #eef7ff;
-      }
-
-      .dropdown-trigger.active {
-        background: #e7f3ff;
-      }
-
-      .arrow {
-        display: inline-block;
-        transition: transform 0.2s ease;
-        font-size: 0.9rem;
-      }
-
-      .dropdown-trigger.active .arrow {
-        transform: rotate(180deg);
-      }
-
-      .dropdown-paragraph {
-        display: none;
-        background: #fbfdff;
-        border-left: 4px solid var(--primary-color);
-        margin: 0;
-        padding: 14px 16px;
-        color: var(--text-light);
-        border-radius: 0 8px 8px 0;
-        line-height: 1.6;
-        text-align: center;
-      }
-
-      .dropdown-paragraph.show {
-        display: block;
-      }
-
-      .Submit-Section {
-        margin-top: 32px;
-      }
-
-      .Submit-Message {
-        max-width: 760px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .Submit-Message h2 {
-        font-size: 1.1rem;
-        color: var(--text-dark);
-        margin-bottom: 12px;
-      }
-
-      .Submit-Message textarea {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        padding: 12px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        resize: vertical;
-      }
-
-      .Submit-Message button {
-        margin-top: 10px;
-        background: var(--primary-color);
-        color: var(--white);
-        border: none;
-        border-radius: 999px;
-        padding: 0.8rem 1.5rem;
-        font: inherit;
-        cursor: pointer;
-        transition: background 0.2s ease;
-      }
-
-      .Submit-Message button:hover {
-        background: var(--primary-color-dark);
-      }
-
-      @media (max-width: 768px) {
-        body {
-          padding: 20px 10px;
-        }
-
-        #FAQ-Page {
-          padding: 32px 14px;
-        }
-
-        .Header-Section {
-          margin-bottom: 24px;
-        }
-
-        .dropdown-trigger {
-          padding: 12px;
-          font-size: 0.95rem;
-        }
-
-        .dropdown-paragraph {
-          padding: 12px;
-          font-size: 0.95rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .Header-Section h1 {
-          font-size: 1.8rem;
-        }
-
-        .FAQ1 h2,
-        .FAQ2 h2,
-        .FAQ3 h2 {
-          font-size: 1.2rem;
-        }
-
-        .Submit-Message h2 {
-          font-size: 1rem;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/favicon-512x512.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>FAQ | Voya Bite</title>
   </head>
   <body>
-    <div id="FAQ-Page">
-      <div class="Header-Section">
-        <!-- Add Nav Bar Code Here -->
-        <h1>Frequently Asked Questions</h1>
-        <p>
-          Welcome to <b>VOYA BYTE'S FAQ</b> Page! Here you can find all your
-          <i>essential answers</i> to those <i>essential questions</i> you might
-          have whilst exploring <b>VOYA BYTE</b>.
-        </p>
-      </div>
-
-      <div class="FAQ-Section">
-        <section class="FAQ1">
-          <h2>Travel Bookings</h2>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="travel-1">
-              What does VOYA BYTE'S travel service include?<span class="arrow"
-                >▼</span
-              >
-            </button>
-            <p id="travel-1" class="dropdown-paragraph">
-              VOYA BYTE'S travel service helps you book a full stay experience,
-              including hotel options and car rental coverage, so you can plan
-              your trip more easily in one place.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="travel-2">
-              Can I book both accommodation and a rental car through VOYA
-              BYTE?<span class="arrow">▼</span>
-            </button>
-            <p id="travel-2" class="dropdown-paragraph">
-              Yes. VOYA BYTE is designed to help users book accommodation along
-              with car rental coverage, making it easier to organize transport
-              and staying arrangements together.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="travel-3">
-              Is VOYA BYTE only for hotel bookings? <span class="arrow">▼</span>
-            </button>
-            <p id="travel-3" class="dropdown-paragraph">
-              No. VOYA BYTE focuses on travel experiences, so it includes hotel
-              coverage as well as car rental coverage, giving you more
-              flexibility when planning your trip.
-            </p>
-          </div>
-        </section>
-
-        <section class="FAQ2">
-          <h2>Activities & Experiences</h2>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="activities-1">
-              What kind of activities can I find on VOYA BYTE?<span
-                class="arrow"
-                >▼</span
-              >
-            </button>
-            <p id="activities-1" class="dropdown-paragraph">
-              VOYA BYTE offers a wide range of activities and experiences from
-              different parts of the world, including adventure, sightseeing,
-              cultural experiences, outdoor activities, and more.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="activities-2">
-              Can I book activities in different countries?<span class="arrow"
-                >▼</span
-              >
-            </button>
-            <p id="activities-2" class="dropdown-paragraph">
-              Yes. VOYA BYTE allows users to discover and book activities across
-              different parts of the world, so you can explore experiences no
-              matter where you are traveling.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="activities-3">
-              Are the activities suitable for solo travelers, couples, and
-              groups?
-              <span class="arrow">▼</span>
-            </button>
-            <p id="activities-3" class="dropdown-paragraph">
-              Yes. VOYA BYTE offers experiences for different travel styles,
-              whether you are exploring alone, traveling with a partner, or
-              planning a group adventure.
-            </p>
-          </div>
-        </section>
-
-        <section class="FAQ3">
-          <h2>Booking Support</h2>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="support-1">
-              How do I know which option is best for my trip?<span class="arrow"
-                >▼</span
-              >
-            </button>
-            <p id="support-1" class="dropdown-paragraph">
-              You can choose based on your travel goal. If you need a place to
-              stay and transport, the travel section is ideal. If you are
-              looking for things to do, the activities section is the best place
-              to start.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="support-2">
-              Can I use Voyabyte to plan an entire trip?<span class="arrow"
-                >▼</span
-              >
-            </button>
-            <p id="support-2" class="dropdown-paragraph">
-              Yes. VOYA BYTE helps users discover and book both stays and
-              activities, so you can build a complete travel plan in one
-              website.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <button class="dropdown-trigger" data-target="support-3">
-              What makes VOYA BYTE different from other travel websites?
-              <span class="arrow">▼</span>
-            </button>
-            <p id="support-3" class="dropdown-paragraph">
-              VOYA BYTE combines travel and adventure in one platform. It does
-              not just help you book a stay — it also helps you find exciting
-              activities around the world, making trip planning easier and more
-              enjoyable.
-            </p>
-          </div>
-        </section>
-      </div>
-      <div class="Submit-Section">
-        <form
-          class="Submit-Message"
-          action="https://formspree.io/f/mpqeezky"
-          method="post"
-        >
-          <h2>
-            Have a specific question? Just type it out in the provided textbox
-            below.
-          </h2>
-          <textarea rows="5" cols="100" name="message" id="message"></textarea
-          ><br />
-          <button type="submit">Send</button>
-        </form>
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+      <button
+        id="theme-toggle"
+        class="theme-btn"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <div class="color-switcher">
+        <button
+          class="color-btn active"
+          data-color="blue"
+          title="Blue theme"
+          style="background: #2c7ab5"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="green"
+          title="Green theme"
+          style="background: #219a52"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="purple"
+          title="Purple theme"
+          style="background: #7d3c98"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="orange"
+          title="Orange theme"
+          style="background: #d35400"
+        ></button>
       </div>
     </div>
 
-    <script>
-      document.querySelectorAll(".dropdown-trigger").forEach((button) => {
-        button.addEventListener("click", () => {
-          const targetId = button.getAttribute("data-target");
-          const paragraph = document.getElementById(targetId);
-          const isOpen = paragraph.classList.contains("show");
+    <!-- Shared Navigation -->
+    <nav>
+      <div class="nav_header">
+        <div class="nav_logo">
+          <a href="index.html"
+            ><img
+              src="https://i.ibb.co/d9XW23k/Voya-Byte-Logo.png"
+              alt="Voya Bite logo"
+              width="200"
+              height="53"
+          /></a>
+        </div>
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <ul class="nav_links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="FAQ.html" aria-current="page">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav_btns">
+        <a href="services.html" class="btn">Book Trip</a>
+      </div>
+    </nav>
 
-          document
-            .querySelectorAll(".dropdown-paragraph.show")
-            .forEach((item) => {
-              item.classList.remove("show");
-            });
+    <main>
+      <div id="faq-page">
+        <div class="faq-header">
+          <h1>Frequently Asked Questions</h1>
+          <p>
+            Welcome to <b>VOYA BITE'S FAQ</b> Page! Here you can find all your
+            <i>essential answers</i> to those <i>essential questions</i> you
+            might have whilst exploring <b>VOYA BITE</b>.
+          </p>
+        </div>
 
-          document
-            .querySelectorAll(".dropdown-trigger.active")
-            .forEach((item) => {
-              item.classList.remove("active");
-            });
+        <div class="faq-section">
+          <section class="faq-group">
+            <h2>Travel Bookings</h2>
 
-          if (!isOpen) {
-            paragraph.classList.add("show");
-            button.classList.add("active");
-          }
-        });
-      });
-    </script>
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="travel-1">
+                What does VOYA BITE'S travel service include?<span
+                  class="faq-arrow"
+                  >▼</span
+                >
+              </button>
+              <p id="travel-1" class="faq-paragraph">
+                VOYA BITE'S travel service helps you book a full stay
+                experience, including hotel options and car rental coverage, so
+                you can plan your trip more easily in one place.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="travel-2">
+                Can I book both accommodation and a rental car through VOYA
+                BITE?<span class="faq-arrow">▼</span>
+              </button>
+              <p id="travel-2" class="faq-paragraph">
+                Yes. VOYA BITE is designed to help users book accommodation
+                along with car rental coverage, making it easier to organize
+                transport and staying arrangements together.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="travel-3">
+                Is VOYA BITE only for hotel bookings?
+                <span class="faq-arrow">▼</span>
+              </button>
+              <p id="travel-3" class="faq-paragraph">
+                No. VOYA BITE focuses on travel experiences, so it includes
+                hotel coverage as well as car rental coverage, giving you more
+                flexibility when planning your trip.
+              </p>
+            </div>
+          </section>
+
+          <section class="faq-group">
+            <h2>Activities & Experiences</h2>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="activities-1">
+                What kind of activities can I find on VOYA BITE?<span
+                  class="faq-arrow"
+                  >▼</span
+                >
+              </button>
+              <p id="activities-1" class="faq-paragraph">
+                VOYA BITE offers a wide range of activities and experiences from
+                different parts of the world, including adventure, sightseeing,
+                cultural experiences, outdoor activities, and more.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="activities-2">
+                Can I book activities in different countries?<span
+                  class="faq-arrow"
+                  >▼</span
+                >
+              </button>
+              <p id="activities-2" class="faq-paragraph">
+                Yes. VOYA BITE allows users to discover and book activities
+                across different parts of the world, so you can explore
+                experiences no matter where you are traveling.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="activities-3">
+                Are the activities suitable for solo travelers, couples, and
+                groups?
+                <span class="faq-arrow">▼</span>
+              </button>
+              <p id="activities-3" class="faq-paragraph">
+                Yes. VOYA BITE offers experiences for different travel styles,
+                whether you are exploring alone, traveling with a partner, or
+                planning a group adventure.
+              </p>
+            </div>
+          </section>
+
+          <section class="faq-group">
+            <h2>Booking Support</h2>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="support-1">
+                How do I know which option is best for my trip?<span
+                  class="faq-arrow"
+                  >▼</span
+                >
+              </button>
+              <p id="support-1" class="faq-paragraph">
+                You can choose based on your travel goal. If you need a place to
+                stay and transport, the travel section is ideal. If you are
+                looking for things to do, the activities section is the best
+                place to start.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="support-2">
+                Can I use VOYA BITE to plan an entire trip?<span
+                  class="faq-arrow"
+                  >▼</span
+                >
+              </button>
+              <p id="support-2" class="faq-paragraph">
+                Yes. VOYA BITE helps users discover and book both stays and
+                activities, so you can build a complete travel plan in one
+                website.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" data-target="support-3">
+                What makes VOYA BITE different from other travel websites?
+                <span class="faq-arrow">▼</span>
+              </button>
+              <p id="support-3" class="faq-paragraph">
+                VOYA BITE combines travel and adventure in one platform. It does
+                not just help you book a stay — it also helps you find exciting
+                activities around the world, making trip planning easier and
+                more enjoyable.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <div class="faq-submit">
+          <form
+            class="faq-message"
+            action="https://formspree.io/f/mpqeezky"
+            method="post"
+          >
+            <h2>
+              Have a specific question? Just type it out in the provided textbox
+              below.
+            </h2>
+            <textarea rows="5" cols="100" name="message" id="message"></textarea
+            ><br />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo" href="index.html"
+            ><img
+              src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png"
+              alt="Voya Bite Logo"
+          /></a>
+          <p>Bite-sized escapes, big memories.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="FAQ.html">FAQ's</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"
+                /></svg
+              >info@voyabite.com
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"
+                /></svg
+              >+27 800 123 456
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+                /></svg
+              >Cape Town, South Africa
+            </li>
+          </ul>
+        </div>
+        <div class="footer-follow">
+          <h4>Follow Us</h4>
+          <ul class="footer-list">
+            <li><i class="fa fa-github" style="font-size: 24px"></i></li>
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Voya Bite. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>
