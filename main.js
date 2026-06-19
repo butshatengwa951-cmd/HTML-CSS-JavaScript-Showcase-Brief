@@ -7,8 +7,8 @@
 // 1. THEME MANAGEMENT (Ihtishaam)
 // ============================================
 function initTheme() {
-  const savedTheme = localStorage.getItem("voya-theme") || "light";
-  const savedColor = localStorage.getItem("voya-color") || "blue";
+  const savedTheme = localStorage.getItem("vb-theme") || "light";
+  const savedColor = localStorage.getItem("vb-color") || "blue";
   document.documentElement.setAttribute("data-theme", savedTheme);
   document.documentElement.setAttribute("data-color", savedColor);
   updateThemeIcon(savedTheme);
@@ -18,18 +18,18 @@ function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute("data-theme");
   const newTheme = currentTheme === "light" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("voya-theme", newTheme);
+  localStorage.setItem("vb-theme", newTheme);
   updateThemeIcon(newTheme);
 }
 function updateThemeIcon(theme) {
   const icon = document.querySelector(
-    "#theme-toggle .material-symbols-outlined",
+    "#theme-toggle.material-symbols-outlined",
   );
   if (icon) icon.textContent = theme === "dark" ? "light_mode" : "dark_mode";
 }
 function setColor(color) {
   document.documentElement.setAttribute("data-color", color);
-  localStorage.setItem("voya-color", color);
+  localStorage.setItem("vb-color", color);
   updateActiveColorBtn(color);
 }
 function updateActiveColorBtn(color) {
@@ -171,6 +171,8 @@ function setupRealTimeValidation() {
     pi = document.getElementById("phone"),
     ci = document.getElementById("check-in"),
     coi = document.getElementById("check-out");
+  if (!ni || !ei || !pi || !ci || !coi) return;
+
   ni.addEventListener("blur", function () {
     const e = validateFullName(this.value);
     showFieldError("name-error", e);
@@ -587,7 +589,7 @@ function clearAllErrors() {
     el.classList.remove("show");
   });
   document
-    .querySelectorAll(".form-group input, .form-group textarea")
+    .querySelectorAll(".form-group input,.form-group textarea")
     .forEach((el) => el.classList.remove("error", "valid"));
 }
 function closeBookingForm() {
@@ -640,6 +642,25 @@ function submitBookingForm(event) {
     fd.tripType = te ? te.value : "";
     fd.budget = be ? be.value : "";
   }
+
+  // --- SEND TO LEDGER ---
+  const pricing = calculateTotalPrice();
+  const bookingForLedger = {
+    name: fd.fullName,
+    package: currentBookingData.itemName,
+    price: pricing.totalPrice,
+    email: fd.email,
+    phone: fd.phone,
+    startDate: fd.checkIn,
+    endDate: fd.checkOut,
+    adults: fd.adults,
+    children: fd.children,
+    location: currentBookingData.location,
+    category: currentBookingData.category,
+  };
+  localStorage.setItem("voyaBiteNewBooking", JSON.stringify(bookingForLedger));
+  // --- END SEND TO LEDGER ---
+
   closeBookingForm();
   generateBookingPDF(fd);
 }
@@ -983,6 +1004,7 @@ function showProcessingModal() {
     currentBookingData.location +
     "</p><p>Generating your confirmation...</p></div>";
 }
+
 function updateModalWithCode(bookingCode, formData) {
   const pricing = calculateTotalPrice();
   let pd = "";
@@ -1067,6 +1089,7 @@ function updateModalWithCode(bookingCode, formData) {
     note1 +
     '</p><button class="btn" onclick="closeModal()">Done</button></div>';
 }
+
 function closeModal() {
   document.getElementById("booking-modal").style.display = "none";
 }
@@ -1152,6 +1175,11 @@ function clearAllFilters() {
 // ============================================
 function initAboutPage() {
   if (!document.querySelector(".about-team")) return;
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      alert("Welcome to the Voya Bite Team Page!");
+    }, 500);
+  });
   document.querySelectorAll(".about-member").forEach((member) => {
     member.addEventListener("click", () => {
       alert(
@@ -1226,3 +1254,98 @@ document.addEventListener("DOMContentLoaded", function () {
   initBackToTop();
   initPageSpecific();
 });
+function initContactPage() {
+  if (!document.getElementById("contactForm")) return;
+
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = document.getElementById("btnText");
+  const btnLoading = document.getElementById("btnLoading");
+  const successMessage = document.getElementById("successMessage");
+  const errorMessage = document.getElementById("errorMessage");
+  const messageInput = document.getElementById("message");
+  const charCount = document.getElementById("charCount");
+
+  messageInput.addEventListener("input", function () {
+    const length = this.value.length;
+    charCount.textContent = length;
+    if (length > 500) {
+      this.value = this.value.substring(0, 500);
+      charCount.textContent = 500;
+    }
+    charCount.parentElement.classList.toggle("warning", length > 450);
+  });
+
+  function validateField(field) {
+    const errorElement = document.getElementById(field.id + "Error");
+    if (!errorElement) return true;
+
+    if (field.type === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(field.value)) {
+        field.classList.add("error");
+        errorElement.classList.add("show");
+        return false;
+      }
+    } else if (field.value.trim() === "") {
+      field.classList.add("error");
+      errorElement.classList.add("show");
+      return false;
+    }
+    field.classList.remove("error");
+    errorElement.classList.remove("show");
+    return true;
+  }
+
+  const inputs = form.querySelectorAll("input, textarea");
+  inputs.forEach((input) => {
+    input.addEventListener("blur", () => validateField(input));
+    input.addEventListener("input", () => {
+      if (input.classList.contains("error")) validateField(input);
+    });
+  });
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    successMessage.classList.remove("show");
+    errorMessage.classList.remove("show");
+
+    let isValid = true;
+    inputs.forEach((input) => {
+      if (!validateField(input)) isValid = false;
+    });
+    if (!isValid) return;
+
+    submitBtn.disabled = true;
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline";
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        successMessage.classList.add("show");
+        form.reset();
+        charCount.textContent = "0";
+        charCount.parentElement.classList.remove("warning");
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => successMessage.classList.remove("show"), 5000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      errorMessage.classList.add("show");
+      errorMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => errorMessage.classList.remove("show"), 5000);
+    } finally {
+      submitBtn.disabled = false;
+      btnText.style.display = "inline";
+      btnLoading.style.display = "none";
+    }
+  });
+}
