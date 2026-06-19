@@ -204,7 +204,7 @@ ul {
 }
 
 /* ============================================
-   4. NAVIGATION (Shared)
+   4. NAVIGATION (Shared) - CORRECTED
    ============================================ */
 nav {
   display: flex;
@@ -242,14 +242,16 @@ nav {
   font-weight: 500;
   color: var(--text-dark);
   font-size: 0.95rem;
+  transition: color 0.2s ease;
 }
+/* Removed hover highlight - links stay the same color */
 .nav_links a:hover {
-  color: var(--primary-color);
-  font-weight: 600;
+  color: var(--text-dark);
 }
 
+/* Active page indicator - uses primary color from current theme */
 .nav_links a[aria-current="page"] {
-  color: #2c7ab5;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
