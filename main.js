@@ -1152,11 +1152,6 @@ function clearAllFilters() {
 // ============================================
 function initAboutPage() {
   if (!document.querySelector(".about-team")) return;
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      alert("Welcome to the Voya Bite Team Page!");
-    }, 500);
-  });
   document.querySelectorAll(".about-member").forEach((member) => {
     member.addEventListener("click", () => {
       alert(

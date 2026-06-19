@@ -249,36 +249,6 @@ nav {
   color: var(--text-dark);
 }
 
-/* Active page indicator - uses primary color from current theme */
-.nav_links a[aria-current="page"] {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-[data-theme="dark"] .nav_links a[aria-current="page"] {
-  color: #4da6d9;
-}
-
-[data-color="green"] .nav_links a[aria-current="page"] {
-  color: #2c7ab5;
-}
-
-[data-color="purple"] .nav_links a[aria-current="page"] {
-  color: #2c7ab5;
-}
-
-[data-color="orange"] .nav_links a[aria-current="page"] {
-  color: #2c7ab5;
-}
-
-.nav_links a[aria-current="page"] {
-  color: #2c7ab5;
-  font-weight: 600;
-}
-
-[data-theme="dark"] .nav_links a[aria-current="page"] {
-  color: #4da6d9;
-}
 .nav_btns .btn {
   padding: 0.55rem 1.4rem;
   background: var(--primary-color);
