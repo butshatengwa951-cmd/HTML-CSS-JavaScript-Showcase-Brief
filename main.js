@@ -38,3 +38,58 @@ ScrollReveal().reveal(".banner-card", {
 //   duration: 1000,
 //   interval: 500,
 // });
+
+// const hero = document.querySelector(".hero");
+// const cards = document.querySelectorAll(".card");
+// const nextBtn = document.getElementById("next");
+// const prevBtn = document.getElementById("prev");
+
+// let current = 0;
+
+// hero.style.setProperty(
+//     "--bg-current",
+//     `url(${cards[0].dataset.bg})`
+// );
+
+// function changeBackground(newImage) {
+//     hero.style.setProperty(
+//         "--bg-next",
+//         `url(${newImage})`
+//     );
+
+//     hero.classList.add("fade");
+
+//     setTimeout(() => {
+//         hero.style.setProperty(
+//             "--bg-current",
+//             `url(${newImage})`
+//         );
+//         hero.classList.remove("fade");
+//     }, 800);
+// }
+
+// function updateCarousel() {
+//     cards.forEach(card => card.classList.remove("active"));
+
+//     cards[current].classList.add("active");
+
+//     changeBackground(cards[current].dataset.bg);
+// }
+
+// nextBtn.addEventListener("click", () => {
+//     current = (current + 1) % cards.length;
+//     updateCarousel();
+// });
+
+// prevBtn.addEventListener("click", () => {
+//     current = (current - 1 + cards.length) % cards.length;
+//     updateCarousel();
+// });
+
+// cards.forEach((card, index) => {
+//     card.addEventListener("click", () => {
+//         current = index;
+//         updateCarousel();
+//     });
+// });
+
