@@ -1,445 +1,392 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" data-color="blue">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star_rate" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star_rate"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>Html, CSS and Javascript Project</title>
-
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Home | Voya Bite</title>
   </head>
   <body>
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+      <button
+        id="theme-toggle"
+        class="theme-btn"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <div class="color-switcher">
+        <button
+          class="color-btn active"
+          data-color="blue"
+          title="Blue theme"
+          style="background: #2c7ab5"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="green"
+          title="Green theme"
+          style="background: #219a52"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="purple"
+          title="Purple theme"
+          style="background: #7d3c98"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="orange"
+          title="Orange theme"
+          style="background: #d35400"
+        ></button>
+      </div>
+    </div>
+
+    <!-- Shared Navigation -->
     <nav>
       <div class="nav_header">
-        <div class="nav_logo" >
-          <a class="logo" href="https://ibb.co/4g9nZ7tM">
-            <img src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png" alt="Screenshot 2026 06 10 152732 Copy" border="0"
-            width: 500px; height: 200x;/></a>
-          </>
+        <div class="nav_logo">
+          <a href="index.html"
+            ><img
+              src="https://i.ibb.co/d9XW23k/Voya-Byte-Logo.png"
+              alt="Voya Bite logo"
+              width="200"
+              height="53"
+          /></a>
         </div>
-        <div class="nav_menu_btn" id="menu-btn">
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
           <span class="material-symbols-outlined">menu</span>
-        </div>
+        </button>
       </div>
-
       <ul class="nav_links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#Services">Services</a></li>
-        <li><a href="#Contact">Contact</a></li>
-        <li><a href="#team_page">Team Page</a></li>
-        <li><a href="#FAQ">FAQ</a></li>
-        <li><a href="#">Book Trip</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <div class="nav_btns">
-        <button class="btn">Book Trip</button>
+        <a href="services.html" class="btn">Book Trip</a>
       </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header id="home">
-      <div class="hero-overlay"></div>
-
-      <div class="header-container">
-        <div class="header-content">
-          <p class="hero-tagline">Elevate Your Travel Journey</p>
-
-          <h1>
-            Dream.<br />
-            Explore.<br />
-            Discover.
-          </h1>
-
-          <p class="hero-description">
+    <section class="home-hero" id="home">
+      <div class="home-overlay"></div>
+      <div class="home-container">
+        <div class="home-header-content">
+          <p class="home-tagline">Elevate Your Travel Journey</p>
+          <h1>Dream.<br />Explore.<br />Discover.</h1>
+          <p class="home-description">
             Discover breathtaking destinations, unforgettable adventures, and
             world-class travel experiences tailored just for you.
           </p>
-
           <div class="header-btns">
-            <button class="btn">Book A Trip Now</button>
+            <a href="services.html" class="btn">Book A Trip Now</a>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
     <main>
-      
-      <section class="feature-container">
-        <div class="feature-card">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m397-115-99-184-184-99 71-70 145 25 102-102-317-135 84-86 385 68 124-124q23-23 57-23t57 23q23 23 23 56.5T822-709L697-584l68 384-85 85-136-317-102 102 26 144-71 71Z"/></svg>
+      <!-- Features Section -->
+      <section class="home-features">
+        <div class="home-feature-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="m397-115-99-184-184-99 71-70 145 25 102-102-317-135 84-86 385 68 124-124q23-23 57-23t57 23q23 23 23 56.5T822-709L697-584l68 384-85 85-136-317-102 102 26 144-71 71Z"
+            />
+          </svg>
           <div>
             <h4>Best Destinations</h4>
             <p>Discover the most breathtaking places around the globe.</p>
-            <p></p>
           </div>
         </div>
-
-        <div class="feature-card">
-          
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#000000"
-            >
-              <path
-                d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"
-              />
-            </svg>
-            <div>
-              <h4>Best Prices Guarenteed</h4>
-              <p>Enjoy unbeatable prices with just a click.</p>
-              <p></p>
-            </div>
-        
+        <div class="home-feature-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"
+            />
+          </svg>
+          <div>
+            <h4>Best Prices Guaranteed</h4>
+            <p>Enjoy unbeatable prices with just a click.</p>
+          </div>
         </div>
-
-        <div class="feature-card">
-          
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
-              <path d="M536-343q26-26 24-60t-30-56q-79-62-164-115T199-682q54 83 107 167.5T418-347q20 29 56 29.5t62-25.5ZM205-160q-22 0-40.5-9.5T135-198q-28-48-42-100.5T79-406q1-56 18.5-109T146-616l48 76q-17 32-26 66.5t-9 69.5q0 44 11.5 85.5T205-240h551q21-36 32.5-76.5T800-400q0-133-93.5-226.5T480-720q-37 0-72.5 9T340-686l-76-48q48-32 102.5-49T480-800q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-400q0 54-14 105t-40 97q-11 19-30 28.5t-40 9.5H205Zm274-238Z"/></svg>
-            <div>
-              <h4>Instant Booking</h4>
-              <p>Secure your dream vacation with just a click.</p>
-              <p></p>
-            </div>
-        
+        <div class="home-feature-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="M536-343q26-26 24-60t-30-56q-79-62-164-115T199-682q54 83 107 167.5T418-347q20 29 56 29.5t62-25.5ZM205-160q-22 0-40.5-9.5T135-198q-28-48-42-100.5T79-406q1-56 18.5-109T146-616l48 76q-17 32-26 66.5t-9 69.5q0 44 11.5 85.5T205-240h551q21-36 32.5-76.5T800-400q0-133-93.5-226.5T480-720q-37 0-72.5 9T340-686l-76-48q48-32 102.5-49T480-800q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-400q0 54-14 105t-40 97q-11 19-30 28.5t-40 9.5H205Zm274-238Z"
+            />
+          </svg>
+          <div>
+            <h4>Instant Booking</h4>
+            <p>Secure your dream vacation with just a click.</p>
+          </div>
         </div>
-
-        <div class="feature-card">
-          
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Zm-80 160h160q17 0 28.5-11.5T600-360v-120q0-17-11.5-28.5T560-520v-40q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560v40q-17 0-28.5 11.5T360-480v120q0 17 11.5 28.5T400-320Zm40-200v-40q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560v40h-80Z"/>
-            </svg>
-            <div>
-              <h4>Secure Booking</h4>
-              <p>Your data and payments are 100% safe with us.</p>
-              <p></p>
-            </div>
-        
+        <div class="home-feature-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Zm-80 160h160q17 0 28.5-11.5T600-360v-120q0-17-11.5-28.5T560-520v-40q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560v40q-17 0-28.5 11.5T360-480v120q0 17 11.5 28.5T400-320Zm40-200v-40q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560v40h-80Z"
+            />
+          </svg>
+          <div>
+            <h4>Secure Booking</h4>
+            <p>Your data and payments are 100% safe with us.</p>
+          </div>
         </div>
-
-        <div class="feature-card">
-          
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Zm-80 160h160q17 0 28.5-11.5T600-360v-120q0-17-11.5-28.5T560-520v-40q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560v40q-17 0-28.5 11.5T360-480v120q0 17 11.5 28.5T400-320Zm40-200v-40q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560v40h-80Z"/>
-            </svg>
-            <div>
-              <h4>24/7 Cuatomer Support</h4>
-              <p>We are here to help you anytime, annywhere.</p>
-              <p></p>
-            </div>
-        
+        <div class="home-feature-card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Zm-80 160h160q17 0 28.5-11.5T600-360v-120q0-17-11.5-28.5T560-520v-40q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560v40q-17 0-28.5 11.5T360-480v120q0 17 11.5 28.5T400-320Zm40-200v-40q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560v40h-80Z"
+            />
+          </svg>
+          <div>
+            <h4>24/7 Customer Support</h4>
+            <p>We are here to help you anytime, anywhere.</p>
+          </div>
         </div>
       </section>
 
-      <section class="">
-        <div>
-
-        </div>
-      </section>
-
-      <!-- <section class="carousel">
-        <div class="list">
-
-          <div class="item">
-            <a href="https://ibb.co/KpKFSJWW"><img src="https://i.ibb.co/dwmGxRDD/City-of-Cape-Town.jpg" alt="City of Cape Town" border="0"></a>
-            <div class="content">
-              <div class="author">Team</div>
-              <div class="title">Carousel</div>
-              <div class="topic">Travel</div>
-              <div class="par">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque blanditiis enim iste vel repellat, sed id culpa perspiciatis exercitationem sint atque pariatur cumque eum dolorem eos esse ex molestiae quibusdam.
-              </div>
-              <div class="buttons">
-                <button>See more</button>
-                <button>Subscribe</button>
-              </div>
-              <div>
-          </div>
-
-          <div class="item">
-            <a href="https://ibb.co/KpKFSJWW"><img src="https://i.ibb.co/dwmGxRDD/City-of-Cape-Town.jpg" alt="City of Cape Town" border="0"></a>
-            <div class="content">
-              <div class="author">Team</div>
-              <div class="title">Carousel</div>
-              <div class="topic">Travel</div>
-              <div class="par">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque blanditiis enim iste vel repellat, sed id culpa perspiciatis exercitationem sint atque pariatur cumque eum dolorem eos esse ex molestiae quibusdam.
-              </div>
-              <div class="buttons">
-                <button>See more</button>
-                <button>Subscribe</button>
-              </div>
-              <div>
-          </div>
-
-          <div class="item">
-            <a href="https://ibb.co/KpKFSJWW"><img src="https://i.ibb.co/dwmGxRDD/City-of-Cape-Town.jpg" alt="City of Cape Town" border="0"></a>
-            <div class="content">
-              <div class="author">Team</div>
-              <div class="title">Carousel</div>
-              <div class="topic">Travel</div>
-              <div class="par">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque blanditiis enim iste vel repellat, sed id culpa perspiciatis exercitationem sint atque pariatur cumque eum dolorem eos esse ex molestiae quibusdam.
-              </div>
-              <div class="buttons">
-                <button>See more</button>
-                <button>Subscribe</button>
-              </div>
-              <div>
-          </div>
-
-        </div>
-      </section> -->
-
-      </section>
-
-      <section class="banner-container">
-        <div class="banner-card">
+      <!-- Banner Stats -->
+      <section class="home-banner-container">
+        <div class="home-banner-card">
           <h4>10+</h4>
           <p>Years Experience</p>
         </div>
-        <div class="banner-card">
+        <div class="home-banner-card">
           <h4>50k</h4>
           <p>Happy Clients</p>
         </div>
-        <div class="banner-card">
+        <div class="home-banner-card">
           <h4>4.8</h4>
           <p>Overall Ratings</p>
         </div>
       </section>
 
-      <section class="discover-container">
-
-        <h2 class="discover-header">Discover The World</h2>
-        <p class="discover-discription">Experience Breathtaking Views and Unique Perspectives</p>
-
-        <div class="discover-grid">
-
-          <div class="discover-card">
-            <span><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M454.67-601.33h336.66q-27.66-72.34-86.83-126.5-59.17-54.17-135.17-74.84L454.67-601.33Zm-92.67 82 169.33-291.34q-11.66-1.33-25.33-2-13.67-.66-26-.66-70 0-129 25.66-59 25.67-105.67 70.34l116.67 198Zm-205.33 124h230.66l-166.66-294q-36 43.66-55 97.16t-19 112.17q0 21 2.16 42.83 2.17 21.84 7.84 41.84ZM391.33-158l116-200.67h-338q27.67 72.34 86.5 126.5Q314.67-178 391.33-158ZM480-146.67q70 0 129.33-25.66 59.34-25.67 105.34-70.34l-116-198-170 291.34q12.33 1.33 25.5 2 13.16.66 25.83.66Zm260-124q33.33-41.66 53.33-96.16t20-113.17q0-21.67-2.16-43.17-2.17-21.5-7.17-42.16H573.33L740-270.67ZM480-480Zm0 400q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"/></svg></span>
-            <h4> Aerial Cityscapes</h4>
-            <p>Witness the architectural marvels and bustling streets from the bird's eye view, offering a unique perspective.</p>
+      <!-- Discover Section -->
+      <section class="home-section">
+        <h2 class="home-discover-header">Discover The World</h2>
+        <p class="home-discover-description">
+          Experience Breathtaking Views and Unique Perspectives
+        </p>
+        <div class="home-discover-grid">
+          <div class="home-discover-card">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="40px"
+                viewBox="0 -960 960 960"
+                width="40px"
+                fill="#000000"
+              >
+                <path
+                  d="M454.67-601.33h336.66q-27.66-72.34-86.83-126.5-59.17-54.17-135.17-74.84L454.67-601.33Zm-92.67 82 169.33-291.34q-11.66-1.33-25.33-2-13.67-.66-26-.66-70 0-129 25.66-59 25.67-105.67 70.34l116.67 198Zm-205.33 124h230.66l-166.66-294q-36 43.66-55 97.16t-19 112.17q0 21 2.16 42.83 2.17 21.84 7.84 41.84ZM391.33-158l116-200.67h-338q27.67 72.34 86.5 126.5Q314.67-178 391.33-158ZM480-146.67q70 0 129.33-25.66 59.34-25.67 105.34-70.34l-116-198-170 291.34q12.33 1.33 25.5 2 13.16.66 25.83.66Zm260-124q33.33-41.66 53.33-96.16t20-113.17q0-21.67-2.16-43.17-2.17-21.5-7.17-42.16H573.33L740-270.67ZM480-480Zm0 400q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"
+                /></svg
+            ></span>
+            <h4>Aerial Cityscapes</h4>
+            <p>
+              Witness the architectural marvels and bustling streets from the
+              bird's eye view, offering a unique perspective.
+            </p>
           </div>
-
-          <div class="discover-card">
-            <span><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="m40-240 240-320 190 253.33h316.67L560-608 443.33-453.33l-42-55.34L560-720l360 480H40Zm513.67-66.67Zm-380.34 0h213.34L280-449 173.33-306.67Zm0 0h213.34-213.34Z"/></svg></span>
-            <h4> Historic Landmarks</h4>
-            <p>Observe the granduer of ancient castles and other significant sites in a way that ground tours can't offer.</p>
+          <div class="home-discover-card">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="40px"
+                viewBox="0 -960 960 960"
+                width="40px"
+                fill="#000000"
+              >
+                <path
+                  d="m40-240 240-320 190 253.33h316.67L560-608 443.33-453.33l-42-55.34L560-720l360 480H40Zm513.67-66.67Zm-380.34 0h213.34L280-449 173.33-306.67Zm0 0h213.34-213.34Z"
+                /></svg
+            ></span>
+            <h4>Historic Landmarks</h4>
+            <p>
+              Observe the grandeur of ancient castles and other significant
+              sites in a way that ground tours can't offer.
+            </p>
           </div>
-
-          <div class="discover-card">
-            <span><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="m126-420 307.33-445.33V-420H126Zm127.67-66.67h113V-653l-113 166.33ZM509.33-420q16.67-49.33 27-113 10.34-63.67 10.34-133.67 0-68-10.17-135t-27.17-117Q561-900 617.17-852q56.16 48 103.66 115.33 47.5 67.34 79 148.84T833.33-420h-324ZM594-486.67h166q-17-83.66-60.17-159-43.16-75.33-93.5-125.66 4 27 5.5 53.83t1.5 50.83q0 46.34-5.83 95-5.83 48.67-13.5 85ZM360-197.33q-34.67 0-65.67-18T240-260.67q-14 14.34-32.5 27.67-18.5 13.33-37.17 20.67-31-20.67-55.83-57.17t-33.17-77.17h797.34Q870.33-306 845.5-269.5q-24.83 36.5-55.83 57.17Q771-219.67 752.5-233 734-246.33 720-260.67q-23.67 27.34-54.5 45.34-30.83 18-65.5 18t-65.67-18q-31-18-54.33-45.34-23.33 27.34-54.33 45.34-31 18-65.67 18ZM80-40v-66.67h40q32 0 61.83-10.33 29.84-10.33 58.17-35.67 28.33 25.34 58.5 35.5Q328.67-107 360-107q32 0 61.67-10.17 29.66-10.16 58.33-35.5 28.33 25.34 58.5 35.5Q568.67-107 600-107q32 0 61.67-10.17 29.66-10.16 58.33-35.5 28.67 25.34 58.33 35.67Q808-106.67 840-106.67h40V-40h-40q-29.67 0-60-8.17-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q629.67-40 600-40t-60-8.17q-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q389.67-40 360-40t-60-8.17q-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q149.67-40 120-40H80Zm286.67-446.67Zm227.33 0Z"/></svg></span>
-            <h4> Coastal Wonders</h4>
-            <p>Fly over pristine coastlines and turuoise waters revealing hidden caves and vibrant coral reefs.</p>
+          <div class="home-discover-card">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="40px"
+                viewBox="0 -960 960 960"
+                width="40px"
+                fill="#000000"
+              >
+                <path
+                  d="m126-420 307.33-445.33V-420H126Zm127.67-66.67h113V-653l-113 166.33ZM509.33-420q16.67-49.33 27-113 10.34-63.67 10.34-133.67 0-68-10.17-135t-27.17-117Q561-900 617.17-852q56.16 48 103.66 115.33 47.5 67.34 79 148.84T833.33-420h-324ZM594-486.67h166q-17-83.66-60.17-159-43.16-75.33-93.5-125.66 4 27 5.5 53.83t1.5 50.83q0 46.34-5.83 95-5.83 48.67-13.5 85ZM360-197.33q-34.67 0-65.67-18T240-260.67q-14 14.34-32.5 27.67-18.5 13.33-37.17 20.67-31-20.67-55.83-57.17t-33.17-77.17h797.34Q870.33-306 845.5-269.5q-24.83 36.5-55.83 57.17Q771-219.67 752.5-233 734-246.33 720-260.67q-23.67 27.34-54.5 45.34-30.83 18-65.5 18t-65.67-18q-31-18-54.33-45.34-23.33 27.34-54.33 45.34-31 18-65.67 18ZM80-40v-66.67h40q32 0 61.83-10.33 29.84-10.33 58.17-35.67 28.33 25.34 58.5 35.5Q328.67-107 360-107q32 0 61.67-10.17 29.66-10.16 58.33-35.5 28.33 25.34 58.5 35.5Q568.67-107 600-107q32 0 61.67-10.17 29.66-10.16 58.33-35.5 28.67 25.34 58.33 35.67Q808-106.67 840-106.67h40V-40h-40q-29.67 0-60-8.17-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q629.67-40 600-40t-60-8.17q-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q389.67-40 360-40t-60-8.17q-30.33-8.16-60-28.5-29.67 20.34-60 28.5Q149.67-40 120-40H80Zm286.67-446.67Zm227.33 0Z"
+                /></svg
+            ></span>
+            <h4>Coastal Wonders</h4>
+            <p>
+              Fly over pristine coastlines and turquoise waters revealing hidden
+              caves and vibrant coral reefs.
+            </p>
           </div>
-        
         </div>
-          
-        </div>
-
       </section>
-        
-      <section class="ratings-container ">
 
-        <div class="ratings-header">
-          <span id="header">Happy Travelors</span>
-          <h4>What Our Travellors Say</h4>
+      <!-- Reviews Section -->
+      <section class="home-ratings">
+        <div class="home-ratings-header">
+          <span style="color: var(--primary-color)">Happy Travelers</span>
+          <h4>What Our Travelers Say</h4>
         </div>
-
-        <div class="ratings-card">
-
-          <div class="box-top">
-            <!-- Profile -->
-            <div class="profile">
-              <!-- image -->
-               <div class="profile-img">
-                <a href="https://ibb.co/KpRt9QS6"><img src="https://i.ibb.co/LXbTCqHS/104497653849675211.jpg" alt="104497653849675211" border="0"></a>
-               </div>
-               <div class="name-user">
-                <strong>Luvo Makhabeni</strong>
-                <span>@lukhomakhabeni</span>
-                
-               </div>
-
+        <div class="home-review-card">
+          <div class="home-profile">
+            <div class="home-profile-img">
+              <img
+                src="https://i.ibb.co/LXbTCqHS/104497653849675211.jpg"
+                alt="User"
+                loading="lazy"
+              />
             </div>
-            <!-- Reviews -->
-             <div class="reviews">
-              <!-- <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg> -->
-
-              <!-- Styled as Outline by default -->
-              <span class="material-symbols-outlined">star</span>
-
-              <!-- Styled as Filled using an inline style or helper class -->
-              <span class="material-symbols-outlined filled">star</span>
-
-
-             </div>
-
-             <!-- Comments -->
-             <div class="client-comments">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam molestias vel ratione, expedita repudiandae in adipisci ullam voluptas cumque reprehenderit esse laboriosam sapiente ducimus, voluptatem veritatis illo. Facere, qui maiores?</p>
-             </div>
-            
-          </div>
-
-          <div class="box-top">
-            <!-- Profile -->
-            <div class="profile">
-              <!-- image -->
-               <div class="profile-img">
-                <a href="https://ibb.co/KpRt9QS6"><img loading="lazy" src="https://i.ibb.co/LXbTCqHS/104497653849675211.jpg" alt="104497653849675211" border="0"></a>
-               </div>
-               <div class="name-user">
-                <strong>Luvo Makhabeni</strong>
-                <span>@lukhomakhabeni</span>
-                
-               </div>
-
+            <div class="home-name-user">
+              <strong>Luvo Makhabeni</strong>
+              <span>@lukhomakhabeni</span>
             </div>
-            <!-- Reviews -->
-             <div class="reviews">
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-             </div>
-
-             <!-- Comments -->
-             <div class="client-comments">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam molestias vel ratione, expedita repudiandae in adipisci ullam voluptas cumque reprehenderit esse laboriosam sapiente ducimus, voluptatem veritatis illo. Facere, qui maiores?</p>
-             </div>
-            
           </div>
-
-          <div class="box-top">
-            <!-- Profile -->
-            <div class="profile">
-              <!-- image -->
-               <div class="profile-img">
-                <a href="https://ibb.co/KpRt9QS6"><img src="https://i.ibb.co/LXbTCqHS/104497653849675211.jpg" alt="104497653849675211" border="0"></a>
-               </div>
-               <div class="name-user">
-                <strong>Luvo Makhabeni</strong>
-                <span>@lukhomakhabeni</span>
-                
-               </div>
-
-            </div>
-            <!-- Reviews -->
-             <div class="reviews">
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-             </div>
-
-             <!-- Comments -->
-             <div class="client-comments">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam molestias vel ratione, expedita repudiandae in adipisci ullam voluptas cumque reprehenderit esse laboriosam sapiente ducimus, voluptatem veritatis illo. Facere, qui maiores?</p>
-             </div>
-            
+          <div class="home-reviews">
+            <span class="material-symbols-outlined filled">star</span>
+            <span class="material-symbols-outlined filled">star</span>
+            <span class="material-symbols-outlined filled">star</span>
+            <span class="material-symbols-outlined filled">star</span>
+            <span class="material-symbols-outlined filled">star</span>
           </div>
-
-          <div class="box-top">
-            <!-- Profile -->
-            <div class="profile">
-              <!-- image -->
-               <div class="profile-img">
-                <a href="https://ibb.co/KpRt9QS6"><img src="https://i.ibb.co/LXbTCqHS/104497653849675211.jpg" alt="104497653849675211" border="0"></a>
-               </div>
-               <div class="name-user">
-                <strong>Luvo Makhabeni</strong>
-                <span>@lukhomakhabeni</span>
-                
-               </div>
-
-             </div>
-            <!-- Reviews -->
-             <div class="reviews">
-              <!-- <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg>
-              <svg class="star" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M356.67-300 480-394l123.33 94-48.66-156 114-76h-138L480-688.67 429.33-532h-138l114 76-48.66 156ZM233-120l93-304L80-600h304l96-320 96 320h304L634-424l93 304-247-188-247 188Zm247-374.33Z"/></svg> -->
-             </div>
-
-             <!-- Comments -->
-             <div class="client-comments">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam molestias vel ratione, expedita repudiandae in adipisci ullam voluptas cumque reprehenderit esse laboriosam sapiente ducimus, voluptatem veritatis illo. Facere, qui maiores?</p>
-             </div>
-            
+          <div class="home-comments">
+            <p>
+              Amazing experience! The team helped me plan the perfect vacation.
+              Everything was seamless from booking to the actual trip.
+            </p>
           </div>
-
-          
-          </div>
-
         </div>
-
       </section>
     </main>
 
+    <!-- Shared Footer -->
     <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="footer-logo" href="https://ibb.co/4g9nZ7tM"><img src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png" alt="Screenshot 2026 06 10 152732 Copy" border="0"></a>
-          <p>Building clean and stylish web pages with HTML and CSS.</p>
+          <a class="footer-logo" href="index.html"
+            ><img
+              src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png"
+              alt="Voya Bite Logo"
+          /></a>
+          <p>Bite-sized escapes, big memories.</p>
         </div>
         <div class="footer-links">
           <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#Interests">Interests</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="FAQ.html">FAQ's</a>
+          <a href="contact.html">Contact Us</a>
         </div>
-
         <div class="footer-contact">
           <h4>Contact Us</h4>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"/></svg>
-          </span>
-          <p>info@devteam.com</p>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"/></svg>
-          </span>
-          <p>+27 63 326 4567</p>
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
-          </span>
-          <p>314 Imam Haron Road, Lansdowne 7780</p>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"
+                /></svg
+              >info@voyabite.com
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"
+                /></svg
+              >+27 63 326 4567
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+                /></svg
+              >314 Imam Haron Road, Lansdowne 7780
+            </li>
+          </ul>
         </div>
-
         <div class="footer-follow">
           <h4>Follow Us</h4>
           <ul class="footer-list">
-            <a class="list-tag" href="https://github.com/butshatengwa951-cmd/HTML-CSS-JavaScript-Showcase-Brief/branches">
-              <li>
-                <i class="fa fa-github" style="font-size:24px"></i>
-              </li>
-            </a>
-            
-            <li><i class="fa fa-linkedin-square" style="font-size:24px"></i> </li>
+            <li><i class="fa fa-github" style="font-size: 24px"></i></li>
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+            </li>
           </ul>
-        </div>
-
-        <div class="QR-code">
-          <a href="https://ibb.co/Qv8WdFPY"><img src="https://i.ibb.co/SwQkrXtV/qr-code-1781681586380.jpg" alt="qr code 1781681586380" border="0"></a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Html and Css Profile. Crafted with care and simplicity.</p>
+        <p>&copy; 2026 Voya Bite. All rights reserved.</p>
       </div>
     </footer>
-     
+
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
   </body>
