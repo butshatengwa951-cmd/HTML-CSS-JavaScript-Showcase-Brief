@@ -1,128 +1,249 @@
-<!-- About-us.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | VoyaByte</title>
+<!doctype html>
+<html lang="en" data-theme="light" data-color="blue">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Voya Bite</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/favicon-512x512.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+      <button
+        id="theme-toggle"
+        class="theme-btn"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <div class="color-switcher">
+        <button
+          class="color-btn active"
+          data-color="blue"
+          title="Blue theme"
+          style="background: #2c7ab5"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="green"
+          title="Green theme"
+          style="background: #219a52"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="purple"
+          title="Purple theme"
+          style="background: #7d3c98"
+        ></button>
+        <button
+          class="color-btn"
+          data-color="orange"
+          title="Orange theme"
+          style="background: #d35400"
+        ></button>
+      </div>
+    </div>
 
-<!-- Linking the CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Shared Navigation -->
+    <nav>
+      <div class="nav_header">
+        <div class="nav_logo">
+          <a href="index.html"
+            ><img
+              src="https://i.ibb.co/d9XW23k/Voya-Byte-Logo.png"
+              alt="Voya Bite logo"
+              width="200"
+              height="53"
+          /></a>
+        </div>
+        <button class="nav_menu_btn" id="menu-btn" aria-label="Open menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <ul class="nav_links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav_btns">
+        <a href="services.html" class="btn">Book Trip</a>
+      </div>
+    </nav>
 
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Adventure Escape</div>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="fqa.html">Help Center</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="about-hero">
+    <main>
+      <!-- About Hero -->
+      <section class="about-hero">
         <h1>Meet Our Team</h1>
-        <p>Passionate travel experts dedicated to creating unforgettable adventures.</p>
-    </section>
-
-    <section class="about-section">
-        <h2>Who We Are</h2>
-
         <p>
-            A modern travel and adventure startup that helps
-            travelers discover amazing destinations around the world. We provide
-            easy flight bookings, hotel reservations, and exciting adventure
-            packages designed to make every trip unforgettable.
+          Passionate travel experts dedicated to creating unforgettable
+          adventures.
         </p>
-    </section>
+      </section>
 
-        <!-- Meet Our Team -->
-    <section class="team">
-        <h2 class="team-title">Our Team</h2>
+      <!-- Who We Are -->
+      <section class="about-section">
+        <h2>Who We Are</h2>
+        <p>
+          Voya Bite is a modern travel and adventure company that helps
+          travelers discover amazing destinations around the world. We provide
+          easy flight bookings, hotel reservations, and exciting adventure
+          packages designed to make every trip unforgettable.
+        </p>
+      </section>
 
-        <div class="team-container">
-
-            <div class="member">
-                <img src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AR417UADR-6376635d6305-512" alt="HTML Developer">
-                <h3>Likona Mkhatshana</h3>
-                <p>Head HTML Developer, Head UI/UX for About Page.</p>
-            </div>
-
-            <div class="member">
-                <img src="https://ca.slack-edge.com/T02LW4RMXJQ-U0ARE0ANYE8-ce5c17b2ce51-512" alt="Creative Designer">
-                <h3>Nithaam Julius</h3>
-                <p>Head Creative Designer; created the Figma wireframes, high-fidelity prototype, and design system. UI/UX for FAQ Page.</p>
-            </div>
-
-            <div class="member">
-                <img src="https://i.ibb.co/vCv1m96K/IMG-1108.jpg" alt="Final editor & Documentation Lead">
-                <h3>Ihtishaam Johnson</h3>
-                <p>Final Editor & Documentation Lead; UI/UX for Services Page.</p>
-            </div>
-
-            <div class="member">
-                <img src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AR414GG67-6fd821a6b1c1-512" alt="CSS Developer">
-                <h3>Zanda Kumsha</h3>
-                <p>Head CSS Developer; UI/UX for Home Page.</p>
-            </div>
-
-            <div class="member">
-                <img src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AT033QSBC-0e5552ac1802-512" alt="JavaScript Developer">
-                <h3>Butsha Tengwa</h3>
-                <p>Head JavaScript Developer; UI/UX for Contact Page.</p>
-            </div>
+      <!-- Team Section -->
+      <section class="about-team">
+        <h2 class="about-team-title">Our Team</h2>
+        <div class="about-team-container">
+          <div class="about-member">
+            <img
+              src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AR417UADR-6376635d6305-512"
+              alt="Likona Mkhatshana"
+              loading="lazy"
+            />
+            <h3>Likona Mkhatshana</h3>
+            <p>Head HTML Developer, Head UI/UX for About Page.</p>
+          </div>
+          <div class="about-member">
+            <img
+              src="https://ca.slack-edge.com/T02LW4RMXJQ-U0ARE0ANYE8-ce5c17b2ce51-512"
+              alt="Nithaam Julius"
+              loading="lazy"
+            />
+            <h3>Nithaam Julius</h3>
+            <p>
+              Head Creative Designer; created the Figma wireframes,
+              high-fidelity prototype, and design system. UI/UX for FAQ Page.
+            </p>
+          </div>
+          <div class="about-member">
+            <img
+              src="https://i.ibb.co/vCv1m96K/IMG-1108.jpg"
+              alt="Ihtishaam Johnson"
+              loading="lazy"
+            />
+            <h3>Ihtishaam Johnson</h3>
+            <p>Final Editor & Documentation Lead; UI/UX for Services Page.</p>
+          </div>
+          <div class="about-member">
+            <img
+              src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AR414GG67-6fd821a6b1c1-512"
+              alt="Zanda Kumsha"
+              loading="lazy"
+            />
+            <h3>Zanda Kumsha</h3>
+            <p>Head CSS Developer; UI/UX for Home Page.</p>
+          </div>
+          <div class="about-member">
+            <img
+              src="https://ca.slack-edge.com/T02LW4RMXJQ-U0AT033QSBC-0e5552ac1802-512"
+              alt="Butsha Tengwa"
+              loading="lazy"
+            />
+            <h3>Butsha Tengwa</h3>
+            <p>Head JavaScript Developer; UI/UX for Contact Page.</p>
+          </div>
         </div>
+      </section>
+    </main>
 
-    </section>
-
-    <!-- footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-
-                <img src="https://i.ibb.co/ZpzqRzxp/Screenshot-2026-06-10-152732-Copy.png" alt="VoyaByte" class="footer logo" width="300">
-                <h3>VoyaByte</h3>
-                <p>
-                    Turning digital dreams to digital trails.
-                </p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <a href="home.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-                <a href="fqa.html">Help Center</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <p>+27 63 326 4567</p>
-                <p>info@devteam.com</p>
-                <p>Imam Haron 314, Lansdowne</p>
-                <p>CapeTown, South Africa</p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <a href="Github">GitHub</a>
-                <a href="LinkedIn">LinkIn</a>
-            </div>
-
+    <!-- Shared Footer -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo" href="index.html"
+            ><img
+              src="https://i.ibb.co/fGBzY2Ft/Screenshot-2026-06-10-152732-Copy.png"
+              alt="Voya Bite Logo"
+          /></a>
+          <p>Bite-sized escapes, big memories.</p>
         </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Html and Css Profile. Crafted with care and simplicity.</p>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="FAQ.html">FAQ's</a>
+          <a href="contact.html">Contact Us</a>
         </div>
-
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M280-280q-33 0-56.5-23.5T200-360v-400q0-33 23.5-56.5T280-840h560q33 0 56.5 23.5T920-760v400q0 33-23.5 56.5T840-280H280Zm280-188L280-663v303h560v-303L560-468Zm0-98 280-194H280l280 194ZM120-120q-33 0-56.5-23.5T40-200v-500h80v500h660v80H120Zm720-546v-94H280v94-94h560v94Z"
+                />
+              </svg>
+              info@voyabite.com
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M162-120q-18 0-30-12t-12-30v-162q0-13 9-23.5t23-14.5l138-28q14-2 28.5 2.5T342-374l94 94q38-22 72-48.5t65-57.5q33-32 60.5-66.5T681-524l-97-98q-8-8-11-19t-1-27l26-140q2-13 13-22.5t25-9.5h162q18 0 30 12t12 30q0 125-54.5 247T631-329Q531-229 409-174.5T162-120Zm556-480q17-39 26-79t14-81h-88l-18 94 66 66ZM360-244l-66-66-94 20v88q41-3 81-14t79-28Zm358-356ZM360-244Z"
+                />
+              </svg>
+              +27 800 123 456
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#F3F3F3"
+              >
+                <path
+                  d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+                />
+              </svg>
+              Cape Town, South Africa
+            </li>
+          </ul>
+        </div>
+        <div class="footer-follow">
+          <h4>Follow Us</h4>
+          <ul class="footer-list">
+            <li><i class="fa fa-github" style="font-size: 24px"></i></li>
+            <li>
+              <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Voya Bite. All rights reserved.</p>
+      </div>
     </footer>
-<script src="main.js"></script>
-</body>
+
+    <script src="main.js"></script>
+  </body>
 </html>
