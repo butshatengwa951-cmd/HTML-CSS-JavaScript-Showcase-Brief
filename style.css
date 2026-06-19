@@ -243,10 +243,18 @@ nav {
   color: var(--text-dark);
   font-size: 0.95rem;
 }
-.nav_links a:hover,
-.nav_links a[aria-current="page"] {
+.nav_links a:hover {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+.nav_links a[aria-current="page"] {
+  color: #2c7ab5;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .nav_links a[aria-current="page"] {
+  color: #4da6d9;
 }
 .nav_btns .btn {
   padding: 0.55rem 1.4rem;
